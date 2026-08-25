@@ -66,3 +66,18 @@
 .css-1h2oj20 { position: relative; z-index: 1; width: 18rem; height: 18rem; border-radius: 50%; background: var(--primary-yellow); --bg-currentcolor: var(--primary-yellow); color: var(--primary-black); font-size: 1.2rem; font-weight: 600; line-height: 1.25; letter-spacing: 0.024rem; text-transform: uppercase; cursor: pointer; font-family: var(--font-soehne); }
 .css-16agjqd { overflow: hidden; width: 100%; }
 .css-19d460d { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); }
+
+/* The custom cursor has no meaning without a pointer, and CustomCursor's effect
+   returns early on a coarse one — which means `gsap.set(circle, {scale: 0})`
+   never runs and the yellow Next/Previous disc renders at full size at its
+   default fixed position: top left, over the logo. That is the "NEXT button
+   stuck at the top" on a phone.
+   Hidden here rather than relying on that JS, so it cannot come back if the
+   effect bails for any other reason. The width clause is not redundant:
+   `pointer: coarse` does not match a desktop browser merely resized to a phone
+   width, which is exactly why this never reproduced in testing. */
+@media (max-width: 74.99rem), (pointer: coarse) {
+  .CsCursor_cursor__xtq78 {
+    display: none !important;
+  }
+}
