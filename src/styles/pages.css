@@ -766,3 +766,86 @@ main {
   margin: 0 auto;
   max-width: 58ch;
 }
+
+/* --------------------------------------------------------------------------
+   Hotel & Venue — the convention centre feature
+
+   Its own selectors rather than `.section`, so the generic section padding and
+   the 62ch measure on `.section p` do not have to be fought.
+   -------------------------------------------------------------------------- */
+
+.venue-feature {
+  display: grid;
+  gap: 3.2rem;
+  padding: 5rem var(--page-x);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .venue-feature {
+    grid-template-columns: 5fr 7fr;
+    gap: 4.8rem;
+    padding-block: 7.2rem;
+  }
+}
+
+.venue-feature__figure {
+  margin: 0;
+}
+
+/* Its native 4:3, so the auditorium is not cropped to a letterbox. */
+.venue-feature__figure img {
+  display: block;
+  width: 100%;
+  /* Explicit, and not merely for tidiness: the tag carries width="1024"
+     height="768" as sizing hints, and `aspect-ratio` is ignored whenever both
+     dimensions resolve — the picture came out 565x768 instead of 565x424. */
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 1.6rem;
+}
+
+.venue-feature__body h2 {
+  margin: 0 0 2.4rem;
+  max-width: 24ch;
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+/* The opening paragraph is the claim; the two under the subhead are the
+   supporting case. Sizing says which is which. */
+.venue-feature__lead {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 1200px) {
+  .venue-feature__lead {
+    font-size: 2.1rem;
+  }
+}
+
+.venue-feature__body h3 {
+  margin: 4rem 0 1.6rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid rgba(11, 37, 69, 0.2);
+  font-family: 'ABCArizonaMix', Georgia, serif;
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 1.15;
+}
+
+.venue-feature__body p + p {
+  margin-top: 1.6rem;
+}
+
+.venue-feature__body h3 + p,
+.venue-feature__body p {
+  margin-bottom: 0;
+  max-width: 62ch;
+}

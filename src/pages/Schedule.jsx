@@ -10,7 +10,7 @@ import { programme } from '../data/site'
 export default function Schedule() {
   return (
     <>
-      <PageHero title="Six days, from the first seminar to the last session." />
+      <PageHero title="Program schedule" />
 
       <section className="section">
         <p className="section__label">Programme</p>

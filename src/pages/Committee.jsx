@@ -1,5 +1,5 @@
 import PageHero from '../components/PageHero'
-import { committee, event } from '../data/site'
+import { committee } from '../data/site'
 
 /**
  * The organising committee as portraits: photograph, designation, name.
@@ -38,18 +38,6 @@ export default function Committee() {
         </ul>
       </section>
 
-      <section className="section section--tint">
-        <h2>Contact</h2>
-        <p>
-          The Institute is hosted by Zones 4, 5, 6, 7 &amp; 8. Write to the Institute address
-          and your message will reach the organisers.
-        </p>
-        <p>
-          <a className="btn" href={`mailto:${event.email}`}>
-            Email the committee
-          </a>
-        </p>
-      </section>
     </>
   )
 }
