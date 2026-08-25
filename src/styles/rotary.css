@@ -1,0 +1,452 @@
+/* ==========================================================================
+   Rotary Institute 2027 — Goa
+   Loaded after the mirrored stylesheets, so it wins without editing them.
+
+   The reference keeps its whole palette in :root custom properties, which
+   means recolouring the site is a matter of redefining them rather than
+   touching a single component rule. Rotary Masterbrand colours take the same
+   roles: the near-black becomes Royal-Blue-derived navy, the acid lime becomes
+   gold, and the lilac stage light becomes warm sunlight.
+   ========================================================================== */
+
+:root {
+  --primary-black: #0b2545;
+  --black-20: rgba(11, 37, 69, 0.2);
+  --black-40: rgba(11, 37, 69, 0.4);
+  --black-60: rgba(11, 37, 69, 0.6);
+
+  --primary-white: #f4f0e9;
+
+  /* The acid ground. Light and high-chroma, as the lime was — Rotary gold at
+     full saturation reads as a block rather than as a room. */
+  --primary-yellow: #ffd873;
+  --primary-yellow-light: #fdf1d6;
+
+  --primary-purple: #0067c8; /* Azure */
+  --purple: #f2c86a;         /* the stage light */
+  --primary-purple-50: #d9ecfb80;
+  --primary-pink: #a9c9ea;
+  --primary-blue: #d9ecfb;
+  --primary-orange: #fce3d2;
+
+  --header-menu-text-color: #0b2545;
+  --header-project-text-color: #17458f;
+  --about-talent-text-color: rgba(11, 37, 69, 0.2);
+  --article-text-color: rgba(11, 37, 69, 0.7);
+
+  --rotary-gold: #f7a81b;
+  --rotary-blue: #17458f;
+}
+
+/* --------------------------------------------------------------------------
+   Awaiting client content.
+
+   The client logo strip has nothing to show until districts and sponsors are
+   signed, and a row of empty frames reads worse than no row. Delete this rule
+   to bring it back. (The testimonial section takes itself off the page via the
+   `hideTestimonial` flag the component already understands — see
+   scripts/retheme.py — rather than being hidden here.)
+   -------------------------------------------------------------------------- */
+
+[class*="styles_worked"] {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   The RI compliance line.
+
+   Required on every Institute site, and there is nowhere to put it in a
+   compiled page without adding a node — so it is attached to the footer's
+   copyright row instead.
+   -------------------------------------------------------------------------- */
+
+[class*="styles_bottom_copyright"]::before {
+  content: "This is a Rotary Institute of Zones 4, 5, 6, 7 & 8. Rotary International "
+    "does not endorse, sponsor, or manage this website. The views expressed are "
+    "those of the organisers.";
+  display: block;
+  max-width: 78ch;
+  margin-bottom: 1.1rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--rotary-gold);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  opacity: 0.62;
+  text-align: left;
+}
+
+/* --------------------------------------------------------------------------
+   Marks.
+
+   Both the Institute emblem and the Rotary Masterbrand ship on their own light
+   ground, and the Brand Center requires the Masterbrand keep its clear space
+   and its colours wherever it sits.
+   -------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   The logo.
+
+   media/logo.png is derived from photos/logo.jpeg by scripts/make-logo.py: the
+   off-white ground (250,250,250 — not pure white, which is why `multiply` left
+   a visible grey patch) is flood-filled away from the edges only, so the whites
+   enclosed inside the badge survive, and the result is trimmed to the ink. That
+   trim is why the mark reads larger in the same box: 68% of the old canvas was
+   empty margin. Ratio is 1244x712 landscape
+   lockup, Rotary masterbrand + zones on the left, the 2027 Goa emblem on the
+   right. Neither slot in the mirror was cut for that shape — the header slot is
+   a 6.98:1 wordmark strip and the footer badge is a 0.59:1 portrait box pinned
+   with !important — so both are re-proportioned to 1280/853 here.
+
+   These rules select on the filename. Renaming media/logo.jpeg silently
+   un-matches them and the header falls back to mix-blend-mode: difference,
+   which renders the lockup as a colour negative.
+   -------------------------------------------------------------------------- */
+
+/* The capture sizes this in JS from the chunk's box props. Hard px were close
+   at the 1920 design width and wrong everywhere else: 90x60 in a bar that is
+   6rem tall stands 60px in a 45px bar at 1440, and the overhanging 7.5px of
+   emblem was sliced off by the top of the viewport. Tying the box to the bar
+   keeps the artwork whole at every width and still measures 90x60 at 1920,
+   where 6rem is exactly 60px. */
+[class*="styles_logo"] > div {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1244 / 712;
+}
+
+[class*="styles_logo"] img[src*="/media/logo."] {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* The figure itself is set to blend `difference`, which would invert the
+   lockup. Nothing else lives in it.
+
+   It is also the thing that sizes the mark: the box inside is height:100%, so
+   the strip's height IS the logo's height. The capture's 4rem / 6rem left the
+   emblem too small to read the arc text at a glance, so the strip is taller
+   here. It is position:fixed with pointer-events:none and top:0, so growing it
+   moves no layout and blocks no clicks — the mark simply extends further down
+   over the page, and never past the top of the screen. */
+[class*="styles_logo"] {
+  mix-blend-mode: normal;
+  height: 7rem;
+}
+
+@media screen and (min-width: 75rem) {
+  [class*="styles_logo"] {
+    height: 10.5rem;
+  }
+}
+
+/* No plate. The white ground used to be baked into the JPEG, so a matching
+   backdrop here squared it off tidily — but against a transparent PNG that
+   backdrop IS the visible patch, and it painted a white card over the navy
+   footer and the film. */
+[class*="ImagePlaceholder_imagePlaceholder"] img[src*="/media/logo."],
+img[src*="/media/logo."] {
+  object-fit: contain !important;
+  /* The header is fixed, so the mark passes over the navy footer and the film
+     as well as the cream. Its own wordmark is Rotary Blue, which on navy is
+     navy-on-navy — a faint white halo separates it without putting a rectangle
+     back. Invisible against the light sections. */
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.95))
+          drop-shadow(0 0 5px rgba(255, 255, 255, 0.65));
+}
+
+/* --------------------------------------------------------------------------
+   Register button.
+
+   The hero ships without a link or a button of its own, and the compiled
+   component cannot grow one without the server markup and the payload
+   disagreeing — so it is appended after hydration by the script at the end of
+   index.html. Every pill class already on the page starts at opacity 0 or
+   scale 0 waiting for GSAP, so this is built from the page's own type tokens
+   rather than by borrowing one of them.
+   -------------------------------------------------------------------------- */
+
+.rotary-register {
+  display: inline-block;
+  margin-top: 2.4rem;
+  padding: 1.1rem 2.4rem;
+  border-radius: 999px;
+  background: var(--primary-black);
+  color: var(--primary-white);
+  font-family: var(--font-soehne);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  pointer-events: auto;
+  transition: background-color 0.4s var(--easeOutQuart), color 0.4s var(--easeOutQuart);
+}
+
+.rotary-register:hover {
+  background: var(--rotary-gold);
+  color: var(--primary-black);
+}
+
+/* --- Line-mask reveal + loader curtain (animation-spec 4a, 1) ------------
+ * Required by src/motion/useHomeMotion.js. Without the fix-clip pair the
+ * descenders on every revealed line get sheared off by the mask. Note the
+ * `-mask` half: SplitText builds that class from linesClass, so a linesClass of
+ * 'line fix-clip' lands as 'line-mask fix-clip-mask' — not the capture's own
+ * 'fix-mask-clip-mask', which is why both names are listed; the
+ * curtain is the plain colour block the capture fades on first paint. */
+.fix-clip,
+.fix-clip-mask,
+.fix-mask-clip-mask {
+  overflow: clip;
+  /* The capture allows .115em / .125em here, which is short of Soehne's own
+     descender: on the venue captions at 60px it sheared the tail off every p
+     and g and flattened the commas. .24em clears the deepest glyph in the
+     face. The matching negative margin is what keeps this invisible to
+     layout — the box grows downward into space the next line then reclaims,
+     so nothing moves and only the clip edge changes. */
+  padding-bottom: .24em;
+  margin-bottom: -.24em;
+  /* The top edge, and the other half of the same tuning problem. Measured with
+     canvas metrics over all 64 masked lines on the homepage, ink starts at
+     .0917em below the line box top at every size — so the capture's .1em / .0925em
+     sat *inside* the letters and sheared the ascenders flat: the D of "Dining",
+     the f and ll of "fellowship", the 0 of "01". .05em still trims the leading
+     the rule exists to trim, with ~.04em of clearance before it reaches ink. */
+  clip-path: inset(.05em 0 0 0) !important;
+  padding-right: .015em;
+  margin-right: -.015em;
+}
+
+@media (min-width: 1200px) {
+  .fix-clip,
+  .fix-clip-mask,
+  .fix-mask-clip-mask {
+    padding-bottom: .24em;
+    margin-bottom: -.24em;
+    clip-path: inset(.05em 0 0 0) !important;
+    padding-right: .02em;
+    margin-right: -.02em;
+  }
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  z-index: 9999999;
+  background: #f3efe9;
+  will-change: opacity;
+}
+
+/* The hero beam keeps the captured purple. The static build at :8082 hard-codes
+ * #9C93E8 into the shard rule, so the Rotary palette override never reached it;
+ * the extracted CSS kept `var(--purple)`, which does pick the override up and
+ * turned the beam gold. Restoring the legacy value inside the beam only keeps
+ * the two builds identical without touching the generated Emotion hashes. */
+[class*="styles_clipPath__"] {
+  --purple: #9c93e8;
+}
+
+/* Venue knockout panel (spec 11a) — the yellow rectangle the headline is cut
+   out of. Built at runtime, so it needs its box here rather than in the
+   captured stylesheet. */
+.knockout-svg {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* The dotted globe canvas (src/motion/globe.js) sits behind the three markers
+   the capture positions over it. */
+canvas.rotary-globe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Organising committee strip (components/CommitteeStrip.jsx).
+
+   Sits on the homepage between the programme cards and the quote / contact
+   block. The measurements are the page's own: --padding-x for the gutters and
+   the same fluid rem the rest of the type is built on, so it reads as part of
+   the capture rather than bolted to it.
+   -------------------------------------------------------------------------- */
+
+.committee {
+  width: 100%;
+  padding: 12rem 0;
+  background: var(--primary-white);
+  --bg-currentcolor: var(--primary-white);
+  color: var(--primary-black);
+}
+
+/* On its own page the strip does not need the homepage's full-bleed band: the
+   breadcrumb and title already sit above it, so it loses the top padding and
+   the ground it was painting over the section below. */
+.committee--page {
+  padding-top: 4rem;
+  background: none;
+}
+
+.committee__head {
+  margin-bottom: 6.4rem;
+  padding-inline: var(--padding-x);
+}
+
+.committee__eyebrow {
+    margin: 0 0 1.6rem;
+  font-family: var(--font-soehne);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.024rem;
+  text-transform: uppercase;
+}
+
+.committee__title {
+    margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-soehne);
+  font-size: 4.8rem;
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.096rem;
+}
+
+.committee__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4.8rem var(--gap-x);
+  margin: 0;
+  padding-inline: var(--padding-x);
+  list-style: none;
+}
+
+.committee__item {
+  margin: 0;
+}
+
+/* The frame carries the corner radius the cards above use, and holds the 4:5
+   the photographs were cropped to so a portrait can never stretch. */
+.committee__frame {
+  overflow: hidden;
+  margin-bottom: 2.4rem;
+  border-radius: 1.6rem;
+  background: var(--primary-yellow-light, #f5ead0);
+  aspect-ratio: 4 / 5;
+}
+
+.committee__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.committee__role {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-soehne);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.024rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.committee__name {
+  margin: 0;
+  font-family: var(--font-soehne);
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.024rem;
+}
+
+.committee__foot {
+  margin-top: 6.4rem;
+  padding-inline: var(--padding-x);
+}
+
+.committee__link {
+  display: inline-block;
+  padding: 1.4rem 2.4rem;
+  border-radius: 0.8rem;
+  background: var(--primary-yellow);
+  color: var(--primary-black);
+  font-family: var(--font-soehne);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.024rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .committee__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .committee__title {
+    font-size: 7.2rem;
+    letter-spacing: -0.144rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .committee__title {
+    font-size: 9.6rem;
+    letter-spacing: -0.192rem;
+  }
+
+}
+
+/* The clip useHomeMotion drops into the hero's reserved slot below 75rem. The
+   slot already carries the ratio and the clipped corners; this only makes the
+   video fill it. */
+.hero-film {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The footer's wordmark band. The slot the capture ships is already sized and
+   centred; this only fills it and takes the colour, which the file itself does
+   not carry. */
+.foot-wordmark {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.foot-wordmark path {
+  fill: #ffd873;
+}
+
+/* Below 48rem the capture's wordmark slot has no definite width — it shrinks to
+   the SVG's intrinsic box and lands jammed against the right edge with 194px of
+   dead space beside it. Given the width, the mark keeps its own ratio rather
+   than stretching to the band's fixed height, which at 390 would squash the
+   letters to two thirds of their width. */
+@media screen and (max-width: 47.99rem) {
+  /* The slot itself will not take a width — even `width: 100% !important` on
+     `.css-1blqm19` computes back to its shrink-to-fit 196.5px, so the mark is
+     sized against the band instead. `.css-iies54` is the nearest positioned
+     ancestor and spans the full 390, which is the box we actually want. The
+     mark keeps its own ratio rather than stretching to the band's fixed height,
+     which at this width would squash the letters to two thirds. */
+  .foot-wordmark {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: auto;
+  }
+}

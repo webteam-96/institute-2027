@@ -1,0 +1,68 @@
+/* The custom cursor (spec 5). This one is not in the HTTrack mirror at all —
+ * it mounts lazily on the live site and the capture never got that chunk —
+ * so markup and rules were lifted from https://iventions.com/ directly. */
+
+@keyframes styles_wave__0LOc1 { 
+  0%, 40%, 100% { transform: translateY(0px); }
+  20% { transform: translateY(-10px); }
+}
+@keyframes link-underline-hover { 
+  0% { width: 100%; left: 0px; }
+  25% { width: 0px; left: 100%; }
+  50% { width: 0px; left: 0px; }
+  75% { width: 100%; left: 0px; }
+  100% { width: 100%; left: 0px; }
+}
+@keyframes go2264125279 { 
+  0% { transform: scale(0) rotate(45deg); opacity: 0; }
+  100% { transform: scale(1) rotate(45deg); opacity: 1; }
+}
+@keyframes go3020080000 { 
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes go463499852 { 
+  0% { transform: scale(0) rotate(90deg); opacity: 0; }
+  100% { transform: scale(1) rotate(90deg); opacity: 1; }
+}
+@keyframes go1268368563 { 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes go1310225428 { 
+  0% { transform: scale(0) rotate(45deg); opacity: 0; }
+  100% { transform: scale(1) rotate(45deg); opacity: 1; }
+}
+@keyframes go651618207 { 
+  0% { height: 0px; width: 0px; opacity: 0; }
+  40% { height: 0px; width: 6px; opacity: 1; }
+  100% { opacity: 1; height: 10px; }
+}
+@keyframes go901347462 { 
+  0% { transform: scale(0.6); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.CsCursor_cursor__xtq78 { position: fixed; left: 0px; top: 0px; pointer-events: none; z-index: 9999; will-change: transform; transform: translateZ(0px); backface-visibility: hidden; }
+.Play_cursor__f_Ajo.Play_show__s52Nf .Play_content__9tv28 { transform: translateY(0px); }
+.Play_cursor__f_Ajo.Play_show__s52Nf .Play_iconWrapper__ulVDt { transform: scale(1); }
+.Play_cursor__f_Ajo.Play_show__pause__5XO2_ .Play_icon__pause__Ir4Id { transform: scale(1); opacity: 1; }
+.Play_cursor__f_Ajo.Play_show__pause__5XO2_ .Play_text__F4reF { transform: translateY(-100%); }
+.Play_cursor__f_Ajo.Play_show__play__I5ZPK .Play_icon__play__cHJJ1 { transform: scale(1); opacity: 1; }
+.Play_cursor__f_Ajo.Play_show__play__I5ZPK .Play_text__F4reF { transform: translateY(0px); }
+.Play_cursor__f_Ajo .Play_iconWrapper__ulVDt { will-change: transform; transform: scale(0); transition: transform .6s var(--easeOutQuart); }
+.Play_cursor__f_Ajo .Play_icon__5Z81R { will-change: transform, opacity; transform: scale(0); opacity: 0; transition: transform .6s var(--easeOutQuart),opacity .6s var(--easeOutQuart); }
+.Play_cursor__f_Ajo .Play_text__F4reF { will-change: transform; transform: translateY(0px); transition: transform .6s var(--easeOutQuart); }
+.Play_cursor__f_Ajo .Play_content__9tv28 { will-change: transform; transform: translateY(150%); transition: transform .6s var(--easeOutQuart); }
+.css-79elbk { position: relative; }
+.css-1dffeah { pointer-events: none !important; user-select: none !important; }
+.css-8sx2u7 { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr; width: 4.8rem; height: 4.8rem; background: white; --bg-currentcolor: white; border-radius: 50%; place-content: center; place-items: center; }
+.css-8sx2u7 > * { grid-area: 1 / 1 / -1 / -1; }
+.css-nuzpxm { overflow: hidden; width: 100%; position: absolute; top: calc(100% + 1.1rem); left: 0px; }
+.css-cg84vn { overflow: hidden; width: 100%; position: relative; }
+.css-l6ct9h { display: flex; flex-direction: column; -webkit-box-align: center; align-items: center; -webkit-box-pack: center; justify-content: center; position: relative; }
+.css-dzqf7j { font-family: var(--font-soehne); font-size: 1.2rem; font-weight: 600; color: white; letter-spacing: 0.024em; line-height: 1; }
+.css-abnjoa { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); font-family: var(--font-soehne); font-size: 1.2rem; font-weight: 600; color: white; letter-spacing: 0.024em; line-height: 1; }
+.css-1x5bobx { will-change: transform; }
+.css-1h2oj20 { position: relative; z-index: 1; width: 18rem; height: 18rem; border-radius: 50%; background: var(--primary-yellow); --bg-currentcolor: var(--primary-yellow); color: var(--primary-black); font-size: 1.2rem; font-weight: 600; line-height: 1.25; letter-spacing: 0.024rem; text-transform: uppercase; cursor: pointer; font-family: var(--font-soehne); }
+.css-16agjqd { overflow: hidden; width: 100%; }
+.css-19d460d { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); }

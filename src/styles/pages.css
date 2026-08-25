@@ -1,0 +1,667 @@
+/* ==========================================================================
+   Rotary Institute 2027 — Goa : sub-pages
+
+   The homepage is a compiled Next.js capture. These pages are plain HTML, so
+   none of the compiled module CSS is linked here — those selectors assume GSAP
+   is running and assume React's tree shape, and half of what they style starts
+   at opacity 0 waiting for a tween that will never run.
+
+   What is shared with the homepage is the palette (rotary.css), the two
+   typefaces, and the fluid root that the whole rem scale is built on.
+   ========================================================================== */
+
+/* The faces the homepage loads, from the copy in /fonts (byte-identical to the
+   build's own, and reachable by a relative path). Only these three weights
+   exist — asking for 500 or 600 gets the nearest, never a real one. */
+
+@font-face {
+  font-family: 'Soehne';
+  src: url('/fonts/soehne-leicht.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Soehne';
+  src: url('/fonts/soehne-kraftig.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABCArizonaMix';
+  src: url('/fonts/ABCArizonaMix-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* The homepage's root is fluid, not 16px: 1rem is 10px only at 375, 768 and
+   1920 wide. Every rem below is sized against this, so it has to match or the
+   sub-pages come out a different physical size from the page they link to. */
+
+html {
+  font-size: 2.6666666667vw;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 1.3020833333vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 0.5208333333vw;
+  }
+}
+
+:root {
+  --page-x: 1.6rem;
+  --bar-h: 4rem;
+  --corner: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-x: 2.4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --page-x: 3.2rem;
+    --bar-h: 6rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--primary-white);
+  color: var(--primary-black);
+  font-family: 'Soehne', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Header — the same two gold blocks as the homepage: full bar height, flush to
+   the top edge, one rounded corner each, never a pill.
+   -------------------------------------------------------------------------- */
+
+.bar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--bar-h);
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.bar__btn {
+  pointer-events: auto;
+  height: var(--bar-h);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0 2.2rem;
+  border: 0;
+  background: var(--primary-yellow);
+  color: var(--primary-black);
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bar__btn--left {
+  border-radius: 0 0 var(--corner) 0;
+}
+
+.bar__btn--right {
+  border-radius: 0 0 0 var(--corner);
+}
+
+.bar__burger {
+  display: inline-block;
+  width: 1.8rem;
+  height: 0.15rem;
+  background: currentColor;
+  box-shadow: 0 0.5rem 0 currentColor;
+  margin-bottom: 0.5rem;
+}
+
+.bar__logo {
+  pointer-events: auto;
+  position: absolute;
+  left: 50%;
+  top: 0.5rem;
+  transform: translateX(-50%);
+}
+
+.bar__logo img {
+  width: 6.6rem;
+  height: auto;
+  border-radius: 0.4rem;
+  /* The lockup ships on a white ground; keep a white plate under it rather
+     than blending, so it reads on any section colour. */
+  background: #fff;
+}
+
+@media (min-width: 1200px) {
+  .bar__logo img {
+    width: 9rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Menu overlay. The homepage's is a GSAP-driven gold sweep; here it is the
+   same gold ground and the same oversized list, opened by a class.
+   -------------------------------------------------------------------------- */
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--primary-yellow);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--bar-h) var(--page-x) 6rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease, visibility 0.45s;
+}
+
+body.menu-open .menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 0.1em 0;
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--primary-black);
+}
+
+@media (min-width: 768px) {
+  .menu a {
+    font-size: 4.8rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .menu a {
+    font-size: 8rem;
+    line-height: 0.95;
+  }
+}
+
+.menu a[aria-current='page'] {
+  color: var(--rotary-blue);
+}
+
+/* --------------------------------------------------------------------------
+   Page head
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  padding: calc(var(--bar-h) + 6rem) var(--page-x) 0;
+}
+
+
+/* The trail replaces the eyebrow, the lede and the capped photograph the
+   sub-pages used to open with. Small, quiet, and above the title. */
+.crumbs {
+  margin: 0 0 1.6rem;
+}
+
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.crumbs li + li::before {
+  content: '/';
+  margin-right: 0.8rem;
+  opacity: 0.45;
+}
+
+.crumbs a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.35s ease;
+}
+
+.crumbs a:hover {
+  border-bottom-color: currentColor;
+}
+
+.crumbs [aria-current='page'] {
+  opacity: 0.55;
+}
+
+.hero__title {
+  margin: 0;
+  max-width: 22ch;
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 4.4rem;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: 7.2rem;
+  }
+}
+
+
+
+
+/* --------------------------------------------------------------------------
+   Body sections
+   -------------------------------------------------------------------------- */
+
+main {
+  display: block;
+}
+
+.section {
+  padding: 5rem var(--page-x);
+}
+
+.section--tint {
+  background: var(--primary-yellow-light);
+}
+
+.section--blue {
+  background: var(--primary-blue);
+}
+
+.section__label {
+  margin: 0 0 2.4rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.section h2 {
+  margin: 0 0 2rem;
+  max-width: 20ch;
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+.section h3 {
+  margin: 0 0 0.8rem;
+  font-family: 'ABCArizonaMix', Georgia, serif;
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 1.15;
+}
+
+.section p {
+  margin: 0 0 1.6rem;
+  max-width: 62ch;
+}
+
+.grid {
+  display: grid;
+  gap: 3.2rem;
+}
+
+@media (min-width: 768px) {
+  .grid--2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  padding: 2.8rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* The three-up photo grids ship a mix of landscape and portrait sources, and
+   with no ratio the portrait one rendered 597px against its siblings' 336 and
+   left a void of cream under the short columns. `.card` is unused, and its
+   image rule carries a radius and a margin these grids do not have, so this is
+   its own rule rather than a reuse. */
+.grid--3 img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   Schedule
+   -------------------------------------------------------------------------- */
+
+/* The three components the week runs in. The head borrows the numbering of the
+   homepage's programme cards so the two read as the same list. */
+.component + .component {
+  margin-top: 8rem;
+}
+
+.component__head {
+  display: grid;
+  gap: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .component__head {
+    grid-template-columns: 20rem 1fr;
+    gap: 3.2rem;
+    align-items: start;
+  }
+}
+
+.component__number {
+  font-family: 'Soehne', sans-serif;
+  font-size: 5.6rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--rotary-blue);
+}
+
+/* Scoped past `.section p` / `.section h2` — a bare `.component__*` class is
+   (0,1,0) and loses to those (0,1,1) rules, so every margin-top authored here
+   silently computed to 0 and the rows sat flush against each other.
+
+   Scoped past `.section h2`, which caps every heading at 20ch — right for the
+   short ones, but it folded the full seminar name into a narrow four-line
+   column with half the row empty beside it. Same face and weight as the rest
+   of the page's headings; only the measure changes. */
+.section .component__name {
+  margin: 0;
+  max-width: 34ch;
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.section .component__dates {
+  margin-top: 1.6rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.section .component__summary {
+  margin-top: 1.6rem;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  opacity: 0.72;
+  max-width: 62ch;
+}
+
+.section .component__caveat {
+  margin-top: 4.8rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  opacity: 0.6;
+  max-width: 62ch;
+}
+
+.day {
+  padding: 3rem 0;
+  border-top: 1px solid rgba(11, 37, 69, 0.16);
+}
+
+.day:last-child {
+  border-bottom: 1px solid rgba(11, 37, 69, 0.16);
+}
+
+@media (min-width: 768px) {
+  .day {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    gap: 3.2rem;
+    align-items: start;
+  }
+}
+
+.day__date {
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.6rem;
+}
+
+.day__weekday {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.slot {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.4rem 0;
+}
+
+.slot + .slot {
+  border-top: 1px solid rgba(11, 37, 69, 0.1);
+}
+
+.slot__time {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.slot__name {
+  font-family: 'ABCArizonaMix', Georgia, serif;
+  font-size: 2.4rem;
+  line-height: 1.2;
+}
+
+.slot__note {
+  font-size: 1.6rem;
+  opacity: 0.72;
+}
+
+/* --------------------------------------------------------------------------
+   Facts list — used for venue details and committee roles
+   -------------------------------------------------------------------------- */
+
+.facts {
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+
+.facts div {
+  padding: 1.6rem 0;
+  border-top: 1px solid rgba(11, 37, 69, 0.14);
+}
+
+@media (min-width: 768px) {
+  .facts div {
+    display: grid;
+    grid-template-columns: 22rem 1fr;
+    gap: 2.4rem;
+  }
+}
+
+.facts dt {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.facts dd {
+  margin: 0.6rem 0 0;
+  font-size: 1.8rem;
+}
+
+@media (min-width: 768px) {
+  .facts dd {
+    margin: 0;
+  }
+}
+
+.pending {
+  opacity: 0.55;
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   Call to action + footer
+   -------------------------------------------------------------------------- */
+
+.cta {
+  padding: 6rem var(--page-x);
+  background: var(--primary-yellow);
+  text-align: center;
+}
+
+.cta h2 {
+  margin: 0 0 2.4rem;
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1.4rem 3rem;
+  border-radius: 999px;
+  background: var(--primary-black);
+  color: var(--primary-white);
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.btn:hover {
+  background: var(--rotary-gold);
+  color: var(--primary-black);
+}
+
+/* The hand-written footer these rules styled was replaced by the capture's
+   own <footer class="Footer_footer__OGBct">, extracted by
+   scripts/extract-footer.py into src/components/SiteFooter.jsx and
+   src/styles/footer.css. Nothing renders .foot any more. */
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero reel card.
+
+   The original draws this as a WebGL plane; here it is a video element, so it
+   needs the frame the shader was providing — the rounded corners and the
+   slight tilt.
+   -------------------------------------------------------------------------- */
+
+.reel-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 2.4rem;
+  overflow: hidden;
+  will-change: width, height, transform;
+  z-index: 1;
+}
+
+.reel-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
