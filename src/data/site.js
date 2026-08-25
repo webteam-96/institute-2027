@@ -16,10 +16,6 @@ export const event = {
   email: 'hello@rotaryinstitute2027goa.org',
 }
 
-export const compliance =
-  'This is a Rotary Institute of Zones 4, 5, 6, 7 & 8. Rotary International does not ' +
-  'endorse, sponsor, or manage this website. The views expressed are those of the organisers.'
-
 export const nav = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },

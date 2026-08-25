@@ -145,10 +145,9 @@ export default function SiteFooter() {
             {/* The Connect column (LinkedIn, Instagram) was removed on request. */}
           </div>
           <div className="Container_container_grid__LWYyb styles_bottom__ws_H0 css-l4y3fm">
-            {/* The capture links three policies here that this site does not publish, so
-                the slot is left empty rather than shipped as dead links. The RI
-                compliance line is NOT missing — rotary.css attaches it to the
-                copyright row's ::before, which is where it belongs. */}
+            {/* The capture links three policies here that this site does not
+                publish, so the slot is left empty rather than shipped as dead
+                links. */}
             <div className="styles_bottom_privacy__QFgGC" />
             <div className="css-2h3am9">
               <div className="css-0">

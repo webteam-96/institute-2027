@@ -52,28 +52,6 @@
   display: none !important;
 }
 
-/* --------------------------------------------------------------------------
-   The RI compliance line.
-
-   Required on every Institute site, and there is nowhere to put it in a
-   compiled page without adding a node — so it is attached to the footer's
-   copyright row instead.
-   -------------------------------------------------------------------------- */
-
-[class*="styles_bottom_copyright"]::before {
-  content: "This is a Rotary Institute of Zones 4, 5, 6, 7 & 8. Rotary International "
-    "does not endorse, sponsor, or manage this website. The views expressed are "
-    "those of the organisers.";
-  display: block;
-  max-width: 78ch;
-  margin-bottom: 1.1rem;
-  padding-left: 0.9rem;
-  border-left: 2px solid var(--rotary-gold);
-  font-size: 0.8rem;
-  line-height: 1.45;
-  opacity: 0.62;
-  text-align: left;
-}
 
 /* --------------------------------------------------------------------------
    Marks.

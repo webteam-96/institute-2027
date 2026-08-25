@@ -142,8 +142,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} srcSet="/media/venue-plenary.jpg 1x, /media/venue-plenary.jpg 2x" src="/media/venue-plenary.jpg" />
-                      <img alt="projects" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" srcSet="/media/venue-plenary.jpg 640w, /media/venue-plenary.jpg 750w, /media/venue-plenary.jpg 828w, /media/venue-plenary.jpg 1080w, /media/venue-plenary.jpg 1200w, /media/venue-plenary.jpg 1920w" src="/media/venue-plenary.jpg" />
+                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} srcSet="/media/venue-prithvi.jpg 1x, /media/venue-prithvi.jpg 2x" src="/media/venue-prithvi.jpg" />
+                      <img alt="projects" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" srcSet="/media/venue-prithvi.jpg 640w, /media/venue-prithvi.jpg 750w, /media/venue-prithvi.jpg 828w, /media/venue-prithvi.jpg 1080w, /media/venue-prithvi.jpg 1200w, /media/venue-prithvi.jpg 1920w" src="/media/venue-prithvi.jpg" />
                     </div>
                   </div>
                 </div>
