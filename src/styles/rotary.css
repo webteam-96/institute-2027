@@ -450,3 +450,22 @@ canvas.rotary-globe {
     height: auto;
   }
 }
+
+/* The register panel's two routes. The eyebrow slot carries the dates, so each
+   route says when it is for before it says what it is; the call to action is
+   the panel's own label style rather than a button, because the whole card is
+   already the link. */
+.register-panel__cta {
+  margin-top: 1.6rem;
+  font-family: var(--font-soehne);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-gold);
+}
+
+.ContactMenu_contactMenuItem__fp__K:hover .register-panel__cta {
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}

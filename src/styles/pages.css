@@ -849,3 +849,97 @@ main {
   margin-bottom: 0;
   max-width: 62ch;
 }
+
+/* --------------------------------------------------------------------------
+   GELS / GNLS
+
+   Own selectors, so the generic `.section` padding and the `.section p` measure
+   are not in the way.
+   -------------------------------------------------------------------------- */
+
+.gels-days {
+  padding: 3.2rem var(--page-x) 1.6rem;
+}
+
+.gels-days h2,
+.gels-where h2 {
+  margin: 0 0 2.4rem;
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 2.8rem;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+.gels-days__list {
+  margin: 0;
+  padding: 0;
+  max-width: 88rem;
+  list-style: none;
+}
+
+.gels-days__list li {
+  display: grid;
+  gap: 0.8rem;
+  padding: 2.4rem 0;
+  border-top: 1px solid rgba(11, 37, 69, 0.2);
+}
+
+.gels-days__list li:last-child {
+  border-bottom: 1px solid rgba(11, 37, 69, 0.2);
+}
+
+@media (min-width: 768px) {
+  .gels-days__list li {
+    grid-template-columns: 18rem 1fr;
+    gap: 3.2rem;
+    align-items: baseline;
+    padding: 3.2rem 0;
+  }
+}
+
+/* The date is the structure: it is what a delegate scans the page for, and
+   these three are consecutive, so the numerals also carry the order. */
+.gels-days__when {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  margin: 0;
+}
+
+.gels-days__date {
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 5.6rem;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.gels-days__weekday {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.gels-days__note {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 1.9rem;
+  line-height: 1.4;
+}
+
+.gels-where {
+  padding: 5.6rem var(--page-x) 7.2rem;
+  background: var(--primary-yellow-light);
+}
+
+.gels-where p {
+  margin: 0 0 2.4rem;
+  max-width: 62ch;
+}
+
+.gels-where p:last-child {
+  margin-bottom: 0;
+}

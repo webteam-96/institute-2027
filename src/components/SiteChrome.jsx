@@ -194,10 +194,20 @@ export default function SiteChrome() {
     if (section) {
       if (contactOpen) {
         section.classList.remove('ContactMenu_disable_clip_path__jexrB')
+        // The capture's wedge sweeps a diagonal right across the middle of the
+        // panel, so whichever of the two cards the diagonal is not currently
+        // over is clipped away. That was fine when the two were a register CTA
+        // and a partner CTA — browse either. It is not fine now that both are
+        // registration routes: at no pointer position are both fully inside the
+        // shape (the geometry cannot do it — the right edge needs t >= 74 to
+        // clear the second card, and by t = 74 the left edge has already eaten
+        // the first). So the diagonal is kept as a moving cut along the top
+        // edge, where it still reads, and the card band below 14% is always
+        // covered.
         track = (e) => {
           const vw = window.innerWidth
-          const t = clamp(20, 85, mapRange(0.1 * vw, 0.9 * vw, 15, 85, e.clientX))
-          section.style.clipPath = `polygon(90% 0%, 100% 0%, 100% 10%, ${t}% 100%, 0% 100%, 0% ${t}%)`
+          const t = clamp(24, 78, mapRange(0.1 * vw, 0.9 * vw, 20, 80, e.clientX))
+          section.style.clipPath = `polygon(${t}% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 14%)`
         }
         // Seeded from where the pointer actually is, not from the middle of
         // the screen. You open this panel by clicking REGISTER in the top right,
@@ -340,27 +350,29 @@ export default function SiteChrome() {
                       <div className="Container_container_grid__LWYyb css-l4y3fm">
                         <div className="css-16054k2">
                           <a
-                            href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20registration`}
+                            href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20Institute%20registration`}
                             className="ContactMenu_contactMenuItem__fp__K css-8atqhb"
                           >
                             <div className="css-wrhlkj">
-                              <p className="css-1cmgy9g">Register</p>
+                              <p className="css-1cmgy9g">{event.dates}</p>
                               <div className="css-0">
-                                <h6 className="css-1yk6i8s">Coming to the Institute?</h6>
+                                <h6 className="css-1yk6i8s">Institute registration</h6>
                               </div>
+                              <p className="register-panel__cta">Click here to register</p>
                             </div>
                           </a>
                         </div>
                         <div className="css-1rmq3ew">
                           <a
-                            href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20partnership`}
+                            href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20GELS%20and%20GNLS%20registration`}
                             className="ContactMenu_contactMenuItem__fp__K css-8atqhb"
                           >
                             <div className="css-wrhlkj">
-                              <p className="css-1cmgy9g">Partner</p>
+                              <p className="css-1cmgy9g">{event.preDates}</p>
                               <div className="css-0">
-                                <h6 className="css-1yk6i8s">Sponsoring or exhibiting?</h6>
+                                <h6 className="css-1yk6i8s">GELS &amp; GNLS registration</h6>
                               </div>
+                              <p className="register-panel__cta">Click here to register</p>
                             </div>
                           </a>
                         </div>
