@@ -112,12 +112,6 @@ export default function SiteFooter() {
                   <div className="Paragraph_paragraph__SId_Y css-cgpd9q">
                     Kital, Canaguinim, Goa 403723
                   </div>
-                  <div className="Paragraph_paragraph__SId_Y css-cgpd9q">
-                    hello@rotaryinstitute2027goa.org
-                  </div>
-                  <div className="Paragraph_paragraph__SId_Y css-cgpd9q">
-                    Registration opens soon
-                  </div>
                 </div>
               </div>
             </div>

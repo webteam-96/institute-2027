@@ -170,7 +170,7 @@ export default function QuoteContact() {
               <div className="css-i3uo7i">
                 <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
                   <img
-                    alt="Got questions? A wild idea?"
+                    alt="Get in touch with us!"
                     loading="lazy"
                     width="1920"
                     height="1080"
@@ -200,7 +200,7 @@ export default function QuoteContact() {
                 href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20registration`}
               />
               <Spotlight
-                title="Got questions? A wild idea?"
+                title="Get in touch with us!"
                 cta="Click here to register"
                 href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20committee`}
               />
