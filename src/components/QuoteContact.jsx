@@ -157,7 +157,7 @@ export default function QuoteContact() {
               <div className="css-i3uo7i">
                 <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
                   <img
-                    alt="Coming to the Institute?"
+                    alt="Register for Rotary Institute 2027"
                     loading="lazy"
                     width="1920"
                     height="1080"
@@ -170,7 +170,7 @@ export default function QuoteContact() {
               <div className="css-i3uo7i">
                 <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
                   <img
-                    alt="Get in touch with us!"
+                    alt="Register for GELS and GNLS"
                     loading="lazy"
                     width="1920"
                     height="1080"
@@ -184,25 +184,25 @@ export default function QuoteContact() {
 
             <div className="styles_labelWrapper__BqflW styles_labelWrapper__quote__9EII0 css-1glmj8g">
               <h3 id="quote" className="Heading_heading__ts0xt styles_label__u9J_K css-14i50cw">
-                quote
+                Institute
               </h3>
             </div>
             <div className="styles_labelWrapper__BqflW styles_labelWrapper__contact___4N_K css-1glmj8g">
               <h3 id="contact" className="Heading_heading__ts0xt styles_label__u9J_K css-14i50cw">
-                contact
+                GELS &amp; GNLS
               </h3>
             </div>
 
             <div className="css-1sst4df">
               <Spotlight
-                title="Coming to the Institute?"
+                title="Register for Rotary Institute 2027"
                 cta="Click here to register"
-                href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20registration`}
+                href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20Institute%20registration`}
               />
               <Spotlight
-                title="Get in touch with us!"
+                title="Register for GELS &amp; GNLS"
                 cta="Click here to register"
-                href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20committee`}
+                href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20GELS%20and%20GNLS%20registration`}
               />
             </div>
           </div>

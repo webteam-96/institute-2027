@@ -459,3 +459,20 @@ canvas.rotary-globe {
   background: var(--rotary-gold);
   color: var(--primary-black);
 }
+
+/* The register button's CLOSE state needed two things the capture never sized
+   for, because nothing in the port had ever rolled this label into view.
+
+   The roll window takes its width from the shorter "register" label in flow —
+   57px at 1440 — while the hamburger sits over its right 24px. CLOSE is 34px,
+   so at the capture's `padding-right: 4em` it measured 88px and `overflow:
+   hidden` ate all but a sliver; at no padding it fitted but ran under the icon.
+   So: clearance equal to the icon plus the flex gap, and a window wide enough
+   to hold the word beside it. In rem, so both track the site's fluid scale. */
+.css-h9isci .css-nqev8k {
+  padding-right: 4rem;
+}
+
+.ContactMenu_toggled_burger__CjyAx .css-fzlqzy {
+  min-width: 8.8rem;
+}

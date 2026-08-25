@@ -186,9 +186,35 @@ export default function SiteChrome() {
     const panel = q('[class*="ContactMenu_maskClip__"]')
     const burger = q('[class*="ContactMenu_hamburger__"]')
     revealPanel(panel, null, contactOpen, 'ContactMenu_isMasking__ftGTd')
+
+    // The register button rolls to CLOSE the same way the hamburger does. Its
+    // markup already carried the second label; nothing ever moved it, so the
+    // button still read "register" with the panel open.
+    //
+    // Scoped to the button rather than looked up by class: the register label
+    // and the menu label share `css-1bwqv2s`, so a document-wide query would
+    // find whichever comes first in the DOM and roll the wrong one.
+    const regBtn = q('.css-h9isci')
+    const regLabels = regBtn
+      ? [regBtn.querySelector('.css-1bwqv2s'), regBtn.querySelector('.css-nqev8k')].filter(Boolean)
+      : []
+    if (regLabels.length) {
+      gsap.to(regLabels, {
+        yPercent: contactOpen ? -100 : 0,
+        duration: 0.7,
+        ease: 'power3.out',
+        overwrite: 'auto',
+      })
+    }
     // This panel's wedge is not in the stylesheet: the capture writes it inline
     // and its lower corner follows the pointer across the screen. Closed, the
     // clip is unset by class rather than by clearing the property.
+    // On the wrapper, not on the hamburger: the capture's rules for this class
+    // target `.ContactMenu_textContent__Kc10E` and `.ContactMenu_hamburger__ZUTHE`
+    // as descendants, and the text window is the hamburger's sibling.
+    const regInner = regBtn && regBtn.querySelector('.css-ggc5bc')
+    if (regInner) regInner.classList.toggle('ContactMenu_toggled_burger__CjyAx', contactOpen)
+
     const section = q('.js-section-contact')
     let track = null
     if (section) {
