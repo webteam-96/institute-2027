@@ -55,8 +55,6 @@ export const programme = [
     number: '01',
     name: 'Rotary Institute 2027',
     dates: '26 · 27 · 28 November 2027',
-    summary:
-      'Three days of plenaries, zone assemblies and the House of Friendship, opening on the Friday afternoon and closing after Sunday lunch.',
     days: [
       {
         day: '26',
@@ -87,8 +85,6 @@ export const programme = [
     number: '02',
     name: 'Governors Elect Learning Seminar (GELS) & Governors Nominee Learning Seminar (GNLS)',
     dates: '23 · 24 · 25 November 2027',
-    summary:
-      'Three days of training for the governors-elect and governors-nominee of Zones 4, 5, 6, 7 and 8, with a programme for partners alongside.',
     days: [
       {
         day: '23',
@@ -121,8 +117,6 @@ export const programme = [
     number: '03',
     name: 'Pre-Institute (Adjunct) Seminars',
     dates: '25 November 2027',
-    summary:
-      'The adjunct seminars fill the Thursday, running alongside the closing day of GELS and GNLS and the day before the Institute opens.',
     days: [
       {
         day: '25',

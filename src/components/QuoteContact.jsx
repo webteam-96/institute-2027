@@ -47,14 +47,13 @@ function Arrow() {
   )
 }
 
-function Spotlight({ title, body, cta, href }) {
+function Spotlight({ title, cta, href }) {
   return (
     <div className="Container_container_grid__LWYyb styles_spotlightWrapper__9LC5Q css-1u3ywa2">
       <div className="styles_spotlightContent__J1Yoy css-jswixd">
         <p className="css-1acna4">Goa is expecting you.</p>
         <div className="css-d7m01n">
           <p className="css-135hczu">{title}</p>
-          <p className="css-3fbzfk">{body}</p>
           <a href={href}>
             <div className="css-ch5759">
               <Roll>
@@ -197,14 +196,12 @@ export default function QuoteContact() {
             <div className="css-1sst4df">
               <Spotlight
                 title="Coming to the Institute?"
-                body="Tell us which district you are travelling from and we will write to you the day the fee slabs are published."
-                cta="register your interest"
+                cta="Click here to register"
                 href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20registration`}
               />
               <Spotlight
                 title="Got questions? A wild idea?"
-                body="Sponsorship tiers and House of Friendship stalls."
-                cta="Talk to the committee"
+                cta="Click here to register"
                 href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20committee`}
               />
             </div>

@@ -15,7 +15,7 @@ import { committee, event } from '../data/site'
 export default function Committee() {
   return (
     <>
-      <PageHero title="The people putting the Institute together." />
+      <PageHero title="Our Committee" />
 
       <section className="committee committee--page">
         <ul className="committee__list">

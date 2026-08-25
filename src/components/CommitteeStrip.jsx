@@ -18,7 +18,7 @@ export default function CommitteeStrip() {
     <section className="committee" id="committee">
       <div className="committee__head">
         <p className="committee__eyebrow">The organising committee</p>
-        <h2 className="committee__title">The people putting the Institute together.</h2>
+        <h2 className="committee__title">Our Committee</h2>
       </div>
 
       <ul className="committee__list">

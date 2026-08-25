@@ -22,7 +22,6 @@ export default function Schedule() {
               <div>
                 <h2 className="component__name">{c.name}</h2>
                 <p className="component__dates">{c.dates}</p>
-                <p className="component__summary">{c.summary}</p>
               </div>
             </div>
 
@@ -46,10 +45,6 @@ export default function Schedule() {
           </article>
         ))}
 
-        <p className="component__caveat">
-          Session times follow the pattern of the last Institute and are indicative until the
-          organising committee confirms the final programme.
-        </p>
       </section>
     </>
   )

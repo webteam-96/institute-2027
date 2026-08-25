@@ -6,6 +6,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
+import { nav } from '../data/site'
 import Wordmark from './Wordmark'
 
 /**
@@ -128,99 +129,20 @@ export default function SiteFooter() {
                   </h3>
                 </div>
                 <div className="styles_contents_menu___Mcbo">
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_self" href="/">
-                      <span>
-                        Home
-                      </span>
-                    </a>
-                  </p>
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_self" href="/about">
-                      <span>
-                        About
-                      </span>
-                    </a>
-                  </p>
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_self" href="/schedule">
-                      <span>
-                        Schedule
-                      </span>
-                    </a>
-                  </p>
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_self" href="/gels-gnls">
-                      <span>
-                        GELS/GNLS
-                      </span>
-                    </a>
-                  </p>
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_self" href="mailto:hello@rotaryinstitute2027goa.org?subject=Rotary%20Institute%202027%20%E2%80%94%20registration">
-                      <span>
-                        Registration
-                      </span>
-                    </a>
-                  </p>
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_self" href="/committee">
-                      <span>
-                        Committee
-                      </span>
-                    </a>
-                  </p>
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_self" href="/hotel-venue">
-                      <span>
-                        Hotel
-                        &amp;
-                        Venue
-                      </span>
-                    </a>
-                  </p>
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_self" href="mailto:hello@rotaryinstitute2027goa.org?subject=Rotary%20Institute%202027%20%E2%80%94%20partnership">
-                      <span>
-                        Sponsorship
-                      </span>
-                    </a>
-                  </p>
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_self" href="mailto:hello@rotaryinstitute2027goa.org">
-                      <span>
-                        Contact
-                      </span>
-                    </a>
-                  </p>
+                  {/* Driven from the same `nav` the header menu uses, so the two
+                      lists cannot drift apart. The capture shipped nine entries
+                      here, three of which were pages this site does not have. */}
+                  {nav.map((item) => (
+                    <p className="styles_contents_menu_item____gPS css-2aq1xz" key={item.to}>
+                      <a target="_self" href={item.to}>
+                        <span>{item.label}</span>
+                      </a>
+                    </p>
+                  ))}
                 </div>
               </div>
             </div>
-            <div className="styles_top_connect__ENKLp">
-              <div className="styles_contents__NARUt">
-                <div className="styles_label__TswfE css-0">
-                  <h3 className="Label_label__run2v styles_label_text__AEIA4 css-s47lln">
-                    Connect
-                  </h3>
-                </div>
-                <div className="styles_contents_menu___Mcbo css-0">
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_blank" href="https://www.linkedin.com/company/rotary-international">
-                      <span>
-                        LinkedIn
-                      </span>
-                    </a>
-                  </p>
-                  <p className="styles_contents_menu_item____gPS css-2aq1xz">
-                    <a target="_blank" href="https://www.instagram.com/rotaryinternational">
-                      <span>
-                        Instagram
-                      </span>
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
+            {/* The Connect column (LinkedIn, Instagram) was removed on request. */}
           </div>
           <div className="Container_container_grid__LWYyb styles_bottom__ws_H0 css-l4y3fm">
             {/* The capture links three policies here that this site does not publish, so
@@ -231,7 +153,7 @@ export default function SiteFooter() {
             <div className="css-2h3am9">
               <div className="css-0">
                 <span className="Label_label__run2v styles_bottom_copyright__G_dC9 css-vopclq">
-                  {`Copyright © Rotary Institute 2027 · ${new Date().getFullYear()}`}
+                  Copyright © Rotary Institute 2027
                 </span>
               </div>
             </div>
@@ -258,7 +180,7 @@ export default function SiteFooter() {
           </div>
           <div className="styles_is_on_mobile__VDdAY css-0">
             <span className="Label_label__run2v styles_bottom_copyright__G_dC9 css-vopclq">
-              {`Copyright © Rotary Institute 2027 · ${new Date().getFullYear()}`}
+              Copyright © Rotary Institute 2027
             </span>
           </div>
         </div>

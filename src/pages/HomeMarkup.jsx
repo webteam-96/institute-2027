@@ -969,19 +969,19 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="See the programme - Rotary Institute 2027" href="/schedule">
+                    <a title="Program schedule - Rotary Institute 2027" href="/schedule">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
                             <span className="will-change-transform css-1bx5ylf">
                               <span className="text css-13o7eu2">
                                 <p className="css-yh3d0j">
-                                  See the programme
+                                  Program schedule
                                 </p>
                               </span>
                               <span className="text__clone css-rdqqhl">
                                 <p className="css-yh3d0j">
-                                  See the programme
+                                  Program schedule
                                 </p>
                               </span>
                             </span>
@@ -1012,19 +1012,19 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="See the programme - Rotary Institute 2027" href="/schedule">
+                <a title="Program schedule - Rotary Institute 2027" href="/schedule">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">
                         <span className="will-change-transform css-1bx5ylf">
                           <span className="text css-13o7eu2">
                             <p className="css-yh3d0j">
-                              See the programme
+                              Program schedule
                             </p>
                           </span>
                           <span className="text__clone css-rdqqhl">
                             <p className="css-yh3d0j">
-                              See the programme
+                              Program schedule
                             </p>
                           </span>
                         </span>
@@ -1098,19 +1098,19 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="See the programme - GELS and GNLS" href="/schedule">
+                    <a title="Program schedule - GELS and GNLS" href="/schedule">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
                             <span className="will-change-transform css-1bx5ylf">
                               <span className="text css-13o7eu2">
                                 <p className="css-yh3d0j">
-                                  See the programme
+                                  Program schedule
                                 </p>
                               </span>
                               <span className="text__clone css-rdqqhl">
                                 <p className="css-yh3d0j">
-                                  See the programme
+                                  Program schedule
                                 </p>
                               </span>
                             </span>
@@ -1141,19 +1141,19 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="See the programme - GELS and GNLS" href="/schedule">
+                <a title="Program schedule - GELS and GNLS" href="/schedule">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">
                         <span className="will-change-transform css-1bx5ylf">
                           <span className="text css-13o7eu2">
                             <p className="css-yh3d0j">
-                              See the programme
+                              Program schedule
                             </p>
                           </span>
                           <span className="text__clone css-rdqqhl">
                             <p className="css-yh3d0j">
-                              See the programme
+                              Program schedule
                             </p>
                           </span>
                         </span>
@@ -1227,19 +1227,19 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="See the programme - Pre-Institute Seminars" href="/schedule">
+                    <a title="Program schedule - Pre-Institute Seminars" href="/schedule">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
                             <span className="will-change-transform css-1bx5ylf">
                               <span className="text css-13o7eu2">
                                 <p className="css-yh3d0j">
-                                  See the programme
+                                  Program schedule
                                 </p>
                               </span>
                               <span className="text__clone css-rdqqhl">
                                 <p className="css-yh3d0j">
-                                  See the programme
+                                  Program schedule
                                 </p>
                               </span>
                             </span>
@@ -1270,19 +1270,19 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="See the programme - Pre-Institute Seminars" href="/schedule">
+                <a title="Program schedule - Pre-Institute Seminars" href="/schedule">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">
                         <span className="will-change-transform css-1bx5ylf">
                           <span className="text css-13o7eu2">
                             <p className="css-yh3d0j">
-                              See the programme
+                              Program schedule
                             </p>
                           </span>
                           <span className="text__clone css-rdqqhl">
                             <p className="css-yh3d0j">
-                              See the programme
+                              Program schedule
                             </p>
                           </span>
                         </span>

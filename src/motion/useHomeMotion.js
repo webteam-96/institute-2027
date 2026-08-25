@@ -531,6 +531,12 @@ export default function useHomeMotion() {
             'polygon(110% 50%, 110% 50%, 110% 0%, 0% 0%, 0% 100%, 110% 100%, 110% 50%, 110% 50%)',
           ]
           const dimmerOf = (slide) => slide.querySelector('.css-k8vowv')
+          // The caption block — the eyebrow, the headline, the note and the CTA.
+          // It is the slide's own child, so the wipe's clip-path cuts straight
+          // through it: the polygon opens from a hairline at 50% height and the
+          // headline sits at roughly 52-64% of the slide, which is why it comes
+          // in sliced across the middle for about half a second on every change.
+          const captionOf = (slide) => slide.querySelector('.css-1ot8zsz')
 
           let current = 0
           let layer = 1
@@ -545,7 +551,10 @@ export default function useHomeMotion() {
             const to = slides[target]
 
             // Out: the old slide holds its place until the wipe has covered it,
-            // and its dimmer deepens on the way.
+            // and its dimmer deepens on the way. Its caption leaves first, so no
+            // two headlines are ever legible at once.
+            const fromCap = captionOf(from)
+            if (fromCap) gsap.to(fromCap, { opacity: 0, duration: 0.35, ease: 'power2.out' })
             gsap.set(from, { visibility: 'hidden', delay: 1.6, clearProps: 'clipPath' })
             const fromDim = dimmerOf(from)
             if (fromDim) gsap.to(fromDim, { opacity: 0.7, duration: 2.4, ease: 'power3.out' })
@@ -560,10 +569,20 @@ export default function useHomeMotion() {
             })
             const toDim = dimmerOf(to)
             if (toDim) gsap.set(toDim, { opacity: 0.32 })
+            // The picture keeps the theme's wipe; the caption sits it out and
+            // fades up once the clip has finished opening, so it is never shown
+            // bisected. Killed first, or a fast double-change leaves it at a
+            // half-finished opacity.
+            const toCap = captionOf(to)
+            if (toCap) {
+              gsap.killTweensOf(toCap)
+              gsap.set(toCap, { opacity: 0 })
+            }
             const tl = gsap.timeline({ defaults: { ease: 'none', duration: 0.8 } })
             seq.forEach((poly, i) =>
               tl.to(to, { clipPath: poly, ease: i === seq.length - 1 ? 'power3.out' : 'power3.in' })
             )
+            if (toCap) tl.to(toCap, { opacity: 1, duration: 0.5, ease: 'power2.out' })
             current = target
           }
 

@@ -348,11 +348,6 @@ export default function SiteChrome() {
                               <div className="css-0">
                                 <h6 className="css-1yk6i8s">Coming to the Institute?</h6>
                               </div>
-                              <p className="css-kdhaou">
-                                Tell us which district you are travelling from,
-                                <br className="css-0" />
-                                and we will write to you the day the fee slabs are published.
-                              </p>
                             </div>
                           </a>
                         </div>
@@ -366,11 +361,6 @@ export default function SiteChrome() {
                               <div className="css-0">
                                 <h6 className="css-1yk6i8s">Sponsoring or exhibiting?</h6>
                               </div>
-                              <p className="css-kdhaou">
-                                Sponsorship tiers and House of
-                                <br className="css-0" />
-                                Friendship stalls.
-                              </p>
                             </div>
                           </a>
                         </div>
