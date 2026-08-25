@@ -194,25 +194,15 @@ export default function SiteChrome() {
     if (section) {
       if (contactOpen) {
         section.classList.remove('ContactMenu_disable_clip_path__jexrB')
-        // A deliberate departure from the capture, chosen by the client after
-        // being shown the trade-off.
-        //
-        // The capture's wedge sweeps a diagonal across the middle of the panel,
-        // so it reveals a moving slice and whichever card the slice is not over
-        // is clipped away. That worked when the two cards were a register CTA
-        // and a partner CTA. It does not work now both are registration routes:
-        // the Institute card needs t >= 75.7 to clear the left edge and the
-        // GELS card needs t <= 69.4 to clear the right, so no pointer position
-        // shows both — the panel opens at t = 85 and the Institute route is
-        // simply invisible.
-        //
-        // The diagonal is kept, and still tracks the pointer, but it now runs
-        // along the top edge instead of across the middle, so the card band
-        // below 14% is always covered.
+        // The capture's own wedge, untouched: a diagonal you sweep with the
+        // pointer, so which card is revealed follows the mouse. Driving the
+        // capture at 127.0.0.1:8082 shows the identical behaviour — same clip
+        // polygon, same card rects, its own left card hidden on open — so the
+        // one-at-a-time reveal is the original design, not a port defect.
         track = (e) => {
           const vw = window.innerWidth
-          const t = clamp(24, 78, mapRange(0.1 * vw, 0.9 * vw, 20, 80, e.clientX))
-          section.style.clipPath = `polygon(${t}% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 14%)`
+          const t = clamp(20, 85, mapRange(0.1 * vw, 0.9 * vw, 15, 85, e.clientX))
+          section.style.clipPath = `polygon(90% 0%, 100% 0%, 100% 10%, ${t}% 100%, 0% 100%, 0% ${t}%)`
         }
         // Seeded from where the pointer actually is, not from the middle of
         // the screen. You open this panel by clicking REGISTER in the top right,
@@ -361,7 +351,7 @@ export default function SiteChrome() {
                             <div className="css-wrhlkj">
                               <p className="css-1cmgy9g">{event.dates}</p>
                               <div className="css-0">
-                                <h6 className="css-1yk6i8s">Institute registration</h6>
+                                <h6 className="css-1yk6i8s">Institute Registration</h6>
                               </div>
                               <p className="register-panel__cta">Click here to register</p>
                             </div>
@@ -375,7 +365,7 @@ export default function SiteChrome() {
                             <div className="css-wrhlkj">
                               <p className="css-1cmgy9g">{event.preDates}</p>
                               <div className="css-0">
-                                <h6 className="css-1yk6i8s">GELS &amp; GNLS registration</h6>
+                                <h6 className="css-1yk6i8s">GELS &amp; GNLS Registration</h6>
                               </div>
                               <p className="register-panel__cta">Click here to register</p>
                             </div>

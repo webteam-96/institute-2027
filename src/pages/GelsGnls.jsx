@@ -39,7 +39,7 @@ export default function GelsGnls() {
           to the same mailbox read as one thing rather than two. */}
       <section className="gels-where">
         <p className="gels-where__dates">{event.preDates}</p>
-        <h2>GELS &amp; GNLS registration</h2>
+        <h2>GELS &amp; GNLS Registration</h2>
         <p>
           <a
             className="btn"
