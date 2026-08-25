@@ -452,20 +452,32 @@ canvas.rotary-globe {
 }
 
 /* The register panel's two routes. The eyebrow slot carries the dates, so each
-   route says when it is for before it says what it is; the call to action is
-   the panel's own label style rather than a button, because the whole card is
-   already the link. */
+   route says when it is for before it says what it is.
+
+   Set as the site's own button rather than a coloured label. The first pass
+   used the gold on the panel's yellow ground and it measured 1.45:1 — the
+   words were there and unreadable. Navy on that same yellow is 11.23:1, and
+   matching `.btn` also makes the call to action look like something you press
+   instead of a caption. */
 .register-panel__cta {
-  margin-top: 1.6rem;
+  display: inline-block;
+  /* The card is a flex column, so an inline-block still stretches to the full
+     448px track unless it opts out. */
+  align-self: flex-start;
+  margin-top: 2.4rem;
+  padding: 1.4rem 3rem;
+  border-radius: 999px;
+  background: var(--primary-black);
+  color: var(--primary-white);
   font-family: var(--font-soehne);
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--rotary-gold);
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 .ContactMenu_contactMenuItem__fp__K:hover .register-panel__cta {
-  text-decoration: underline;
-  text-underline-offset: 0.4em;
+  background: var(--rotary-gold);
+  color: var(--primary-black);
 }
