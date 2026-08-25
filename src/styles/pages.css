@@ -658,3 +658,111 @@ main {
   display: block;
 }
 
+/* --------------------------------------------------------------------------
+   About
+
+   Its own selectors, not `.section`, so nothing here fights the generic
+   section rules on specificity — `.section p` carries a 62ch measure and a
+   bottom margin that the opening statement must not inherit.
+   -------------------------------------------------------------------------- */
+
+.about-lead {
+  padding: 3.2rem var(--page-x) 5.6rem;
+}
+
+/* The invitation. ABCArizonaMix is in the system but the site only ever uses it
+   small — for slot names, committee names, footer nav. At statement size it
+   reads as correspondence rather than interface, which is what this page is. */
+.about-lead p {
+  margin: 0;
+  max-width: 52ch;
+  font-family: 'ABCArizonaMix', Georgia, serif;
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 1.34;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .about-lead p {
+    font-size: 3.2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .about-lead {
+    padding-bottom: 7.2rem;
+  }
+
+  .about-lead p {
+    font-size: 4.4rem;
+  }
+}
+
+/* Where and when, marked in place — a marker stroke, not a rule beneath the
+   words. A gold hairline under navy text is indistinguishable from a link, and
+   a reader will try to click the venue; a band sitting behind the text can only
+   be read as emphasis. Gold never becomes ink here: #f7a81b on cream is about
+   1.9:1. Painted as a gradient rather than a border so a phrase that breaks
+   across two lines is marked on both. */
+.about-fact {
+  font-weight: inherit;
+  background-image: linear-gradient(rgba(247, 168, 27, 0.34), rgba(247, 168, 27, 0.34));
+  background-repeat: no-repeat;
+  background-size: 100% 0.34em;
+  background-position: 0 0.86em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Three questions the copy answers, set as three. */
+.about-facets {
+  display: grid;
+  gap: 4rem;
+  padding: 0 var(--page-x) 6rem;
+}
+
+@media (min-width: 768px) {
+  .about-facets {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--page-x);
+  }
+}
+
+.about-facets article {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(11, 37, 69, 0.2);
+}
+
+.about-facets h2 {
+  margin: 0 0 1.6rem;
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.about-facets p {
+  margin: 0;
+}
+
+/* A sign-off, so it is set like one. */
+.about-coda {
+  padding: 6.4rem var(--page-x);
+  background: var(--primary-yellow-light);
+  text-align: center;
+}
+
+.about-coda h2 {
+  margin: 0 0 1.6rem;
+  font-family: 'ABCArizonaMix', Georgia, serif;
+  font-weight: 300;
+  font-size: 3.2rem;
+  line-height: 1.15;
+}
+
+.about-coda p {
+  margin: 0 auto;
+  max-width: 58ch;
+}
