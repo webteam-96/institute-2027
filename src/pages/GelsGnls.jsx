@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
-
 import PageHero from '../components/PageHero'
+import { event } from '../data/site'
 
 /**
  * Unlike the About page's three facets, which are parallel, these three days
@@ -13,7 +12,7 @@ import PageHero from '../components/PageHero'
 const DAYS = [
   ['23', 'Tuesday', 'Sessions open at 3.00 pm.'],
   ['24', 'Wednesday', 'A full day of GELS and GNLS sessions.'],
-  ['25', 'Thursday', 'GELS Valedictory at 3.00 pm, then the TRF Dinner at 6.00 pm.'],
+  ['25', 'Thursday', 'GELS Valedictory at 3.00 pm.'],
 ]
 
 export default function GelsGnls() {
@@ -36,17 +35,18 @@ export default function GelsGnls() {
         </ol>
       </section>
 
+      {/* The same wording and dates the register panel uses, so the two routes
+          to the same mailbox read as one thing rather than two. */}
       <section className="gels-where">
-        <h2>Where they are held</h2>
+        <p className="gels-where__dates">{event.preDates}</p>
+        <h2>GELS &amp; GNLS registration</h2>
         <p>
-          All sessions are held at ATI ONGC, in the breakout halls off the main corridor.
-          Delegates staying in the residency blocks on the same grounds can walk between
-          sessions, meals and rooms without leaving the site.
-        </p>
-        <p>
-          <Link className="btn" to="/schedule">
-            See the full schedule
-          </Link>
+          <a
+            className="btn"
+            href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20GELS%20and%20GNLS%20registration`}
+          >
+            Click here to register
+          </a>
         </p>
       </section>
     </>

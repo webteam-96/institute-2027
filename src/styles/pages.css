@@ -935,6 +935,15 @@ main {
   background: var(--primary-yellow-light);
 }
 
+.gels-where__dates {
+  margin: 0 0 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
 .gels-where p {
   margin: 0 0 2.4rem;
   max-width: 62ch;

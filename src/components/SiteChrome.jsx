@@ -194,16 +194,21 @@ export default function SiteChrome() {
     if (section) {
       if (contactOpen) {
         section.classList.remove('ContactMenu_disable_clip_path__jexrB')
-        // The capture's wedge sweeps a diagonal right across the middle of the
-        // panel, so whichever of the two cards the diagonal is not currently
-        // over is clipped away. That was fine when the two were a register CTA
-        // and a partner CTA — browse either. It is not fine now that both are
-        // registration routes: at no pointer position are both fully inside the
-        // shape (the geometry cannot do it — the right edge needs t >= 74 to
-        // clear the second card, and by t = 74 the left edge has already eaten
-        // the first). So the diagonal is kept as a moving cut along the top
-        // edge, where it still reads, and the card band below 14% is always
-        // covered.
+        // A deliberate departure from the capture, chosen by the client after
+        // being shown the trade-off.
+        //
+        // The capture's wedge sweeps a diagonal across the middle of the panel,
+        // so it reveals a moving slice and whichever card the slice is not over
+        // is clipped away. That worked when the two cards were a register CTA
+        // and a partner CTA. It does not work now both are registration routes:
+        // the Institute card needs t >= 75.7 to clear the left edge and the
+        // GELS card needs t <= 69.4 to clear the right, so no pointer position
+        // shows both — the panel opens at t = 85 and the Institute route is
+        // simply invisible.
+        //
+        // The diagonal is kept, and still tracks the pointer, but it now runs
+        // along the top edge instead of across the middle, so the card band
+        // below 14% is always covered.
         track = (e) => {
           const vw = window.innerWidth
           const t = clamp(24, 78, mapRange(0.1 * vw, 0.9 * vw, 20, 80, e.clientX))
