@@ -51,7 +51,6 @@ function Spotlight({ title, cta, href }) {
   return (
     <div className="Container_container_grid__LWYyb styles_spotlightWrapper__9LC5Q css-1u3ywa2">
       <div className="styles_spotlightContent__J1Yoy css-jswixd">
-        <p className="css-1acna4">Goa is expecting you.</p>
         <div className="css-d7m01n">
           <p className="css-135hczu">{title}</p>
           <a href={href}>

@@ -147,10 +147,12 @@ export default function useHomeMotion() {
           (ownText(node) || !node.querySelector(TEXT)) &&
           !node.closest('.text') &&
           !node.closest('.text__clone') &&
-          // The hero card is its own component with its own motion. Split, its
-          // two register buttons ended up inside a single `.line` wrapper and
-          // stacked instead of sitting side by side in their grid.
-          !node.closest('.hero-card') &&
+          // Components that own their layout opt out with `data-no-split`.
+          // SplitText wraps an element's whole content in one `.line` div, so
+          // any flex or grid row inside it collapses to a single child — it
+          // stacked the hero card's two register buttons and flattened every
+          // fee row in the registration cards.
+          !node.closest('[data-no-split]') &&
           !node.closest('[class*="VideoControl"]') &&
           // The venue headline is not revealed, it is knocked out of a yellow
           // panel (spec 11a). Its DOM copy is a measuring aid, split below for

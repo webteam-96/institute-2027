@@ -18,9 +18,9 @@ export const event = {
 
 export const nav = [
   { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
-  { label: 'Schedule', to: '/schedule' },
+  { label: 'Institute', to: '/about' },
   { label: 'GELS/GNLS', to: '/gels-gnls' },
+  { label: 'Schedule', to: '/schedule' },
   { label: 'Committee', to: '/committee' },
   { label: 'Hotel & Venue', to: '/hotel-venue' },
 ]

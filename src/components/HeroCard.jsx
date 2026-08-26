@@ -22,7 +22,7 @@ import { event } from '../data/site'
  * or when the reader has asked for reduced motion.
  */
 
-const MAX_TILT = 7 // degrees at the edge of the screen
+const MAX_TILT = 11 // degrees at the far corner — 7 was too shy to read as depth
 const clamp = (lo, hi, v) => Math.min(hi, Math.max(lo, v))
 
 export default function HeroCard() {
@@ -38,7 +38,7 @@ export default function HeroCard() {
 
     // Perspective on the card itself rather than a parent, so nothing above it
     // in the hero has to know this exists.
-    gsap.set(card, { transformPerspective: 900, transformOrigin: '50% 50%' })
+    gsap.set(card, { transformPerspective: 720, transformOrigin: '50% 50%' })
 
     const target = { x: 0, y: 0 }
     const eased = { x: 0, y: 0 }
@@ -79,7 +79,7 @@ export default function HeroCard() {
     `mailto:${event.email}?subject=Rotary%20Institute%202027%20%E2%80%94%20${subject}`
 
   return (
-    <div className="hero-card">
+    <div className="hero-card" data-no-split>
       <div className="hero-card__glass" ref={cardRef}>
         <div className="hero-card__sheen" ref={sheenRef} aria-hidden="true" />
         <div className="hero-card__edge" aria-hidden="true" />

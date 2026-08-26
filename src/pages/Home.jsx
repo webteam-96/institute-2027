@@ -1,4 +1,5 @@
 import CommitteeStrip from '../components/CommitteeStrip'
+import RegistrationDetails from '../components/RegistrationDetails'
 import HomeMarkup from './HomeMarkup'
 import useHomeMotion from '../motion/useHomeMotion'
 
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <div ref={root} className="home">
       <HomeMarkup />
+      <RegistrationDetails />
       <CommitteeStrip />
     </div>
   )
