@@ -15,9 +15,9 @@ gsap.registerPlugin(ScrollTrigger)
  * it costs.
  *
  * The fees are not set, so every row reads "To be announced" rather than
- * carrying a number nobody has agreed. That is also why the button says
- * "Register interest" and opens a mail — there is no registration system to
- * link to yet, and a Register Now that goes nowhere is worse than an honest ask.
+ * carrying a number nobody has agreed. The button opens a mail rather than a
+ * registration form: there is no registration system to link to yet, so the
+ * mailbox is where an interested delegate actually gets an answer.
  *
  * The categories are this site's own three programme components. The reference
  * carries a fourth, a TRF Dinner, which was removed from the schedule here
@@ -37,7 +37,7 @@ const CATEGORIES = [
     name: 'GELS / GNLS',
     dates: '23 – 25 November 2027',
     subject: 'GELS%20and%20GNLS%20registration',
-    rows: [['Single or Couple', null]],
+    rows: [['Single', null], ['Couple', null]],
   },
   {
     id: 'adjunct',
@@ -45,7 +45,8 @@ const CATEGORIES = [
     dates: '25 November 2027',
     subject: 'Adjunct%20Seminars%20registration',
     rows: [
-      ['DLF / COL Seminar', null],
+      ['DLF Seminar', null],
+      ['COL Seminar', null],
       ['Rotaract Seminar', null],
     ],
   },
@@ -84,11 +85,8 @@ export default function RegistrationDetails() {
   return (
     <section className="reg" id="registration" ref={root} data-no-split>
       <div className="reg__head">
-        <p className="reg__eyebrow">Event Registration Details</p>
-        <h2 className="reg__title">
-          Join an inspiring gathering of change makers celebrating leadership, fellowship and
-          service driven innovation.
-        </h2>
+        <p className="reg__eyebrow">Registration</p>
+        <h2 className="reg__title">Event Registration Details</h2>
       </div>
 
       <ul className="reg__list">
@@ -110,7 +108,7 @@ export default function RegistrationDetails() {
               className="reg-card__btn"
               href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20%E2%80%94%20${c.subject}`}
             >
-              Register interest
+              Register now
             </a>
           </li>
         ))}
