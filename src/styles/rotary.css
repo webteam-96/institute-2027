@@ -1137,3 +1137,28 @@ html.header-scrolled .styles_header_container__1oB4s {
     height: 1.5px;
   }
 }
+
+/* --- Hero card: behaviour as it grows --------------------------------------
+   The padding is fixed while the card scrubs from 465px to the full viewport,
+   so without this the contents stayed pinned to the top with an increasing
+   field of empty glass beneath them.
+   -------------------------------------------------------------------------- */
+
+.hero-card__glass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-card__layer {
+  width: 100%;
+}
+
+/* Two 1fr columns across a 1440px card make each button 700px wide. The row
+   keeps its own measure and centres instead. */
+.hero-card__actions {
+  /* 52rem keeps each button at the ~184px it needs for its label on one line —
+     narrower and "Register for the Institute" breaks across two. */
+  max-width: 52rem;
+  margin-inline: auto;
+}
