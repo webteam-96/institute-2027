@@ -3,7 +3,14 @@
  *
  * This is the homepage's own markup, converted attribute for attribute:
  * the design is carried by src/styles/home-extracted.css, which holds the
- * inline styles the capture had scattered through the DOM. */
+ * inline styles the capture had scattered through the DOM.
+ *
+ * Hand-edited since generation: the hero's title/date lockup was replaced by
+ * <HeroCard />. The purple beam and the GOA 2027 wordmark stay — they are what
+ * the glass refracts, and neither is a video. Re-running the script would put
+ * the old lockup back. */
+
+import HeroCard from '../components/HeroCard'
 
 export default function HomeMarkup() {
   return (
@@ -12,27 +19,6 @@ export default function HomeMarkup() {
       <div className="css-b45nl7">
         <div className="css-12ixfif">
           <div className="css-1xjgqhw">
-            <div className="css-fmco55">
-              <h1 className="css-bex63m">
-                <div className="">
-                  <span className="css-3w1c3c">
-                    Rotary Institute
-                  </span>
-                  <span className="css-3w1c3c">
-                    2027
-                  </span>
-                </div>
-              </h1>
-              <div className="css-1kqiocr">
-              </div>
-              <h2 className="css-jucl2m">
-                <div className="">
-                  <span className="css-3w1c3c">
-                    26 · 27 · 28 November 2027 — ATI ONGC Advanced Training Institute, Kital, Canaguinim, Goa 403723
-                  </span>
-                </div>
-              </h2>
-            </div>
             <div className="styles_clipPath__jYDI7">
               <div className="styles_clipPath_wrapper__2EjOL">
                 <figure className="styles_clipPath_wrapper_figure__thifo">
@@ -59,64 +45,16 @@ export default function HomeMarkup() {
                 </figure>
               </div>
             </div>
+            <HeroCard />
             <div className="styles_content_image__bvRpE css-1t74537">
               <img alt="home-hero-text" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', color: 'transparent' }} src="upload/home-hero-text.svg" />
             </div>
           </div>
         </div>
-        <div className="css-uyo6cw">
-          <div className="css-16bc0d6">
-            <div className="css-157o6oq">
-              <div className="Container_container_grid__LWYyb css-l4y3fm">
-                <div className="css-1xe8wxh">
-                  <div className="css-90si8a">
-                    <div className="css-10sxwrz">
-                      <p className="css-18rs6sd">
-                        Venue film
-                      </p>
-                    </div>
-                    <div className="css-1ylp096">
-                      <div className="css-1mjxjn8">
-                        <p className="css-1oav9hz">
-                          <span className="css-1hswejy">
-                            <span className="will-change-transform css-13o7eu2">
-                              <span className="will-change-transform css-1bx5ylf">
-                                <span className="text css-13o7eu2">
-                                  MUTE
-                                </span>
-                                <span className="text__clone css-rdqqhl">
-                                  MUTE
-                                </span>
-                              </span>
-                            </span>
-                          </span>
-                        </p>
-                      </div>
-                      <div className="VideoControl_iconWrapper__hJQGE css-1cc9tqu">
-                        <button className="VideoControl_iconInner__wCHTN css-lp5lkp">
-                          <div className="css-14om1bk">
-                            <div className="css-7hevm4">
-                              <div className="VideoControl_icon__uOYML VideoControl_icon__mute__9AGnd css-79elbk">
-                                <img alt="mute" loading="eager" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', color: 'transparent' }} src="icons/ic_mute.svg" />
-                              </div>
-                              <div className="VideoControl_icon__uOYML VideoControl_icon__unmute__fkfIM css-79elbk">
-                                <img alt="unmute" loading="eager" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', color: 'transparent' }} src="icons/ic_unmute.svg" />
-                              </div>
-                            </div>
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="css-1ff90ps">
-                <div className="css-lnwywb">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* The venue film — the reel that scrubbed from a tilted card to
+            full-bleed, with its Venue film / MUTE bar — was removed on request
+            along with the hero's video card. Its motion block in
+            useHomeMotion goes with it. */}
         <div id="home-hero-scroll-target" className="css-47tmvb">
         </div>
       </div>

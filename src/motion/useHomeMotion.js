@@ -115,124 +115,12 @@ export default function useHomeMotion() {
         cleanups.push(() => heroIo.disconnect())
       }
 
-      // --- the hero reel (spec 10a) ---------------------------------------
-      // The original draws this as a WebGL plane, but its distortion uniform is
-      // 0 in production, so a plain <video> reproduces what is actually on
-      // screen. Only the *canvas* is a fixed layer — the layout comes from a
-      // 200svh section with a sticky, 100svh child, and the control bar sits
-      // inside that child. So the stand-in belongs in the sticky child too:
-      // parented anywhere else it either scrolls away with the wordmark or
-      // hangs over the sections below.
-      // The reel does its own easing off the raw pointer rather than the
-      // smoothed one the beam reads (spec 10b), so it gets its own tracker.
-      const raw = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
-      const onRaw = (e) => {
-        raw.x = e.clientX
-        raw.y = e.clientY
-      }
-      window.addEventListener('pointermove', onRaw, { passive: true })
-      cleanups.push(() => window.removeEventListener('pointermove', onRaw))
-
-      const reelLabel = toArray(el.querySelectorAll('p')).find((p) =>
-        /venue film/i.test(p.textContent)
-      )
-      let sticky = reelLabel ? reelLabel.parentElement : null
-      while (sticky && sticky !== el && getComputedStyle(sticky).position !== 'sticky') {
-        sticky = sticky.parentElement
-      }
-      const reelSection = sticky && sticky !== el ? sticky.parentElement : null
-
-      // The bar holding the label and the mute control is the absolutely
-      // positioned block between the two.
-      let reelBar = reelLabel ? reelLabel.parentElement : null
-      while (reelBar && reelBar !== sticky && getComputedStyle(reelBar).position !== 'absolute') {
-        reelBar = reelBar.parentElement
-      }
-      if (reelBar === sticky) reelBar = null
-
-      let reel = null
-      if (sticky && reelSection && !document.querySelector('.reel-card')) {
-        const card = document.createElement('div')
-        card.className = 'reel-card'
-        const video = document.createElement('video')
-        video.src = '/media/venue-film.mp4'
-        video.poster = '/media/venue-film-poster.jpg'
-        video.muted = true
-        video.loop = true
-        video.playsInline = true
-        video.preload = 'metadata'
-        card.appendChild(video)
-        sticky.insertBefore(card, sticky.firstChild)
-        cleanups.push(() => card.remove())
-
-        const k = Math.max(window.innerWidth / 1920, 0.42)
-        // Centring lives in the tween, not the stylesheet: GSAP writes its own
-        // transform and would otherwise wipe a CSS translate.
-        gsap.set(card, {
-          width: 569 * k,
-          height: 381 * k,
-          xPercent: -50,
-          yPercent: -50,
-          rotate: -1.2,
-          scale: 0,
-        })
-        // No need to hide the bar — the stylesheet already ships it hidden.
-        reel = { card, video, section: reelSection, bar: reelBar, w0: 569 * k, h0: 381 * k, progress: 0 }
-
-        // --- the plane looks at the pointer (spec 10b) --------------------
-        // In the capture this is a WebGL mesh whose rotation eases toward the
-        // cursor and flattens as the reel grows. Same shape here on a DOM card:
-        // a perspective matching the r3f camera (fov 40 at z 9), the same 0.35
-        // clamp and the same 0.1-per-frame lerp.
-        //
-        // The amplitude is not the spec's 0.3 but 0.63, measured off the live
-        // site: with 0.3 the card's top edge swings 21px between opposite
-        // corners of the screen where iventions.com swings 36px. The resting
-        // shape already matched (keystone 1.028/1.069 against 1.027/1.080) —
-        // it was only the travel that was short.
-        const look = { x: 0, y: 0 }
-        const LOOK = 0.63
-        const DEG = 180 / Math.PI
-        gsap.set(card, { transformPerspective: window.innerHeight / (2 * Math.tan((40 * Math.PI) / 360)) })
-        const lookAt = () => {
-          const ndcX = (raw.x / window.innerWidth) * 2 - 1
-          const ndcY = -((raw.y / window.innerHeight) * 2 - 1)
-          look.x += (-clamp(-0.35, 0.35, ndcY) * LOOK - look.x) * 0.1
-          look.y += (clamp(-0.35, 0.35, ndcX) * LOOK - look.y) * 0.1
-          const flat = 1 - reel.progress
-          gsap.set(card, {
-            // Negated: three.js is right-handed and a positive rotation.x tips
-            // the top toward the camera, where a positive CSS rotateX tips it
-            // away. Without the flip the card keystones the wrong way — top
-            // edge wider than the bottom, where the original is the reverse.
-            rotationX: -(look.x - mapRange(0, 1, 0.3, 0, reel.progress)) * flat * DEG,
-            rotationY: (look.y - mapRange(0, 1, 0.1, 0, reel.progress)) * flat * DEG,
-          })
-        }
-        gsap.ticker.add(lookAt)
-        cleanups.push(() => gsap.ticker.remove(lookAt))
-      } else {
-        // Below 75rem there is no WebGL reel in the capture at all — it drops a
-        // plain looping clip into the slot the hero markup already reserves,
-        // `.css-1kqiocr`, which the stylesheet hides again at 1200px. The walk
-        // above only finds a sticky ancestor on desktop, so without this the
-        // slot stayed empty and the hero showed a bare band of beam where the
-        // film belongs. Sized entirely by the existing rule (16:9, clipped
-        // corners) — nothing here moves the layout.
-        const slot = el.querySelector('.css-1kqiocr')
-        if (slot && !slot.firstElementChild) {
-          const video = document.createElement('video')
-          video.className = 'hero-film'
-          video.src = '/media/venue-film.mp4'
-          video.poster = '/media/venue-film-poster.jpg'
-          video.muted = true
-          video.loop = true
-          video.playsInline = true
-          video.preload = 'metadata'
-          slot.appendChild(video)
-          cleanups.push(() => video.remove())
-        }
-      }
+      // --- the hero reel (spec 10a) — removed --------------------------------
+      // A card inserted into the hero's sticky section that scrubbed from a
+      // tilted plane to full-bleed, with its own control bar, plus the pointer
+      // tracker that drove its look-at. Both it and the hero's video card were
+      // taken out on request; the hero now carries <HeroCard />, which does its
+      // own tilt off its own pointer listener.
 
       // --- line-mask text reveal (spec 4a) --------------------------------
       // The workhorse of the whole page: `<Lines>` splits a text element into
@@ -259,6 +147,10 @@ export default function useHomeMotion() {
           (ownText(node) || !node.querySelector(TEXT)) &&
           !node.closest('.text') &&
           !node.closest('.text__clone') &&
+          // The hero card is its own component with its own motion. Split, its
+          // two register buttons ended up inside a single `.line` wrapper and
+          // stacked instead of sitting side by side in their grid.
+          !node.closest('.hero-card') &&
           !node.closest('[class*="VideoControl"]') &&
           // The venue headline is not revealed, it is knocked out of a yellow
           // panel (spec 11a). Its DOM copy is a measuring aid, split below for
@@ -783,53 +675,9 @@ export default function useHomeMotion() {
               onEnter: () => gsap.to(icon, { scale: 1, duration: 1.2, ease: 'power3.out' }),
             })
           })
-        el.querySelectorAll('[class*="VideoControl_iconWrapper"]').forEach((wrap) => {
-          const showState = () => {
-            const muted = !reel || reel.video.muted
-            wrap.classList.toggle('VideoControl_show__mute__tM5Lg', muted)
-            wrap.classList.toggle('VideoControl_show__unmute__3HDfF', !muted)
-          }
-          showState()
-          const button = wrap.querySelector('button') || wrap
-          const onMute = (e) => {
-            e.stopPropagation()
-            if (!reel) return
-            reel.video.muted = !reel.video.muted
-            if (!reel.video.muted) reel.video.play().catch(() => {})
-            showState()
-          }
-          button.addEventListener('click', onMute)
-          cleanups.push(() => button.removeEventListener('click', onMute))
-        })
 
         // The film raises the play/pause cursor while the pointer is over it,
         // and clicking it does what the cursor says (spec 5d, module 18992).
-        if (reel) {
-          const say = (type) =>
-            window.dispatchEvent(new CustomEvent('rotary:cursor', { detail: type }))
-          const state = () => (reel.video.paused ? 'play' : 'pause')
-          const onEnter = () => say(state())
-          const onLeave = () => say('default')
-          const onToggle = () => {
-            if (reel.video.paused) {
-              delete reel.video.dataset.userPaused
-              reel.video.play().catch(() => {})
-            } else {
-              reel.video.dataset.userPaused = '1'
-              reel.video.pause()
-            }
-            say(state())
-          }
-          reel.card.addEventListener('pointerenter', onEnter)
-          reel.card.addEventListener('pointerleave', onLeave)
-          reel.card.addEventListener('click', onToggle)
-          cleanups.push(() => {
-            reel.card.removeEventListener('pointerenter', onEnter)
-            reel.card.removeEventListener('pointerleave', onLeave)
-            reel.card.removeEventListener('click', onToggle)
-            say('default')
-          })
-        }
 
         if (rotor && box) {
           gsap.to(box, { scale: 1, duration: 1.2, ease: 'power3.inOut', delay: 0.5 })
@@ -843,71 +691,6 @@ export default function useHomeMotion() {
           gsap.to(rotor, { rotate: 40, duration: 1.2, ease: 'power3.inOut', delay: 1.5 })
         }
 
-        if (reel) {
-          gsap.to(reel.card, {
-            scale: 1,
-            duration: 1,
-            delay: 1.5,
-            ease: 'power3.inOut',
-            onComplete: () => reel.video.play().catch(() => {}),
-          })
-          // A single scrubbed progress over the 200svh section is the whole
-          // reel: it grows the plane from a small card to fullscreen, flattens
-          // the tilt and takes the corners off, then brings the control bar in
-          // at the end. Nothing fades it out — the sticky child simply stops
-          // sticking at the end of the section.
-          //
-          // The capture draws the plane in perspective, and the plane also
-          // walks towards the camera as it grows, so it reads as full-bleed at
-          // about 81% of the scrub rather than at the end of it. Measured off
-          // :8082 — a flat DOM card has no perspective to do that for it, so
-          // the size is remapped to land on the same scroll position.
-          const bar = reel.bar
-          const fade =
-            bar &&
-            (toArray(bar.querySelectorAll('*')).find(
-              (n) => getComputedStyle(n).opacity === '0'
-            ) ||
-              bar)
-          const track = bar && bar.querySelector('[class*="progress"], [class*="Progress"]')
-          // "Venue film" and "MUTE" ship held a line below their masks by
-          // home-extracted.css (translateY(100%)) and nothing rolled them back,
-          // so the bar arrived with its icon and no words. They belong to the
-          // bar, so they ride its own toggle.
-          const barLabels = bar ? toArray(bar.querySelectorAll('.css-18rs6sd, .css-1oav9hz')) : []
-          // Restated through GSAP before anything tweens it. Left as the
-          // stylesheet writes it, the computed transform reads back as 30px of
-          // `y` with `yPercent` at 0, so a tween to yPercent 0 has nowhere to
-          // travel and the labels never move.
-          if (barLabels.length) gsap.set(barLabels, { y: 0, yPercent: 100 })
-          if (track) gsap.set(track, { scaleX: 0, transformOrigin: 'left center' })
-          let barShown = false
-
-          ScrollTrigger.create({
-            trigger: reel.section,
-            start: 'top top',
-            end: 'bottom-=10% bottom',
-            onUpdate: (self) => {
-              reel.progress = self.progress
-              const g = clamp(0, 1, self.progress / 0.81)
-              gsap.set(reel.card, {
-                width: reel.w0 + (window.innerWidth - reel.w0) * g,
-                height: reel.h0 + (window.innerHeight - reel.h0) * g,
-                rotate: -1.2 * (1 - g),
-                borderRadius: 24 * (1 - g),
-              })
-              // The bar arrives only once the plane has finished growing, and
-              // leaves again on the way back up.
-              if (!fade || self.progress >= 1 === barShown) return
-              barShown = self.progress >= 1
-              gsap.to(fade, { opacity: barShown ? 1 : 0, duration: 1, ease: 'power3.out' })
-              if (track) gsap.to(track, { scaleX: barShown ? 1 : 0, duration: 1, ease: 'power3.out' })
-              if (barLabels.length) {
-                gsap.to(barLabels, { yPercent: barShown ? 0 : 100, duration: 1, ease: 'power3.out' })
-              }
-            },
-          })
-        }
 
         // Built here rather than above because the mask's line breaks are
         // measured off the DOM copy, and that copy only wraps correctly once

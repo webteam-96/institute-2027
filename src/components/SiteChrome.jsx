@@ -167,6 +167,34 @@ export default function SiteChrome() {
     }
   }, [menuOpen, contactOpen])
 
+  // The header has two states, and the logo is a sibling of <header> rather
+  // than a child, so the flag goes on <html> where both can see it.
+  //
+  // Over the hero the bar carries the nav and the register button and no mark —
+  // the hero card already shows the lockup at size, and a second copy of it
+  // 200px above the first is just a repeat. Past the hero the mark comes in on
+  // the left and the nav moves to the middle.
+  //
+  // Sub-pages have no hero, so they are in the scrolled state from the first
+  // frame; setting it before paint avoids a flash of the hero layout.
+  useEffect(() => {
+    const home = location.pathname === '/'
+    const root = document.documentElement
+    if (!home) {
+      root.classList.add('header-scrolled')
+      return () => root.classList.remove('header-scrolled')
+    }
+    const onScroll = () => {
+      root.classList.toggle('header-scrolled', window.scrollY > window.innerHeight * 0.6)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      root.classList.remove('header-scrolled')
+    }
+  }, [location.pathname])
+
   useEffect(() => {
     const menus = q('[class*="styles_menus__Fobad"]')
     const inner = q('[class*="styles_menus_inner__"]')
@@ -318,6 +346,24 @@ export default function SiteChrome() {
               </div>
             </div>
           </button>
+          {/* Desktop navigation. The hamburger and its full-screen wedge stay
+              for phones and tablets, where six links will not fit on a bar;
+              from 75rem the links are simply on the bar and the hamburger is
+              hidden, so the menu is one click closer. Both are always in the
+              DOM — which is shown is a media query, not state, so there is no
+              flash while JS decides. */}
+          <nav className="site-nav" aria-label="Primary">
+            <ul>
+              {nav.map((item) => (
+                <li key={item.to}>
+                  <Link to={item.to} className={location.pathname === item.to ? 'is-current' : undefined}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
 
           <div className="styles_header_container__center__Fyxyu css-0" />
 
