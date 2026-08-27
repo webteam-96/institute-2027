@@ -67,6 +67,9 @@ function Spotlight({ title, cta, href }) {
   )
 }
 
+const mailto = (subject) =>
+  `mailto:${event.email}?subject=Rotary%20Institute%202027%20%E2%80%94%20${subject}`
+
 export default function QuoteContact() {
   const root = useRef(null)
 
@@ -181,14 +184,24 @@ export default function QuoteContact() {
               </div>
             </div>
 
+            {/* The labels carry the same mailto as the panel behind them.
+                Below 75rem there is no pointer to sweep, so the panels never
+                open and their "Click here to register" was unreachable — on a
+                phone these two headings looked tappable and did nothing, and
+                on every sub-page but GELS/GNLS they were the only registration
+                route there was. At 75rem and up the label wrapper is
+                pointer-events: none, so on desktop these anchors are inert and
+                the hover sweep is exactly as it was. Inside the h3 rather than
+                around it: the heading keeps its own box, its centring and its
+                underline rule, so nothing moves. */}
             <div className="styles_labelWrapper__BqflW styles_labelWrapper__quote__9EII0 css-1glmj8g">
               <h3 id="quote" className="Heading_heading__ts0xt styles_label__u9J_K css-14i50cw">
-                Institute
+                <a href={mailto('Institute%20registration')}>Institute</a>
               </h3>
             </div>
             <div className="styles_labelWrapper__BqflW styles_labelWrapper__contact___4N_K css-1glmj8g">
               <h3 id="contact" className="Heading_heading__ts0xt styles_label__u9J_K css-14i50cw">
-                GELS &amp; GNLS
+                <a href={mailto('GELS%20and%20GNLS%20registration')}>GELS &amp; GNLS</a>
               </h3>
             </div>
 

@@ -112,7 +112,15 @@ export default function PageEffect() {
       const link = e.target.closest && e.target.closest('a[href]')
       if (!link || link.target === '_blank') return
       const href = link.getAttribute('href')
-      if (!href || !href.startsWith('/') || href === location.pathname) return
+      if (!href || !href.startsWith('/')) return
+      // A link to the page you are already on: swallow it. Without this the
+      // browser followed the plain <a> the footer and the homepage cards use —
+      // no Router handler bails on those — and reloaded the whole document to
+      // arrive back where it started.
+      if (href === location.pathname) {
+        e.preventDefault()
+        return
+      }
       e.preventDefault()
       leave(() => navigate(href))
     }

@@ -925,7 +925,7 @@ export default function HomeMarkup() {
                             </span>
                           </span>
                         </span>
-                        <button className="Service_icon__GNT_0 css-1sjxqp0">
+                        <button className="Service_icon__GNT_0 css-1sjxqp0" type="button" tabIndex={-1} aria-hidden="true">
                           <div className="css-14om1bk">
                             <div className="main-icon css-1x3oun">
                               <img alt="icon" loading="lazy" width="27" height="18" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="upload/icon-arrow.svg" />
@@ -968,7 +968,7 @@ export default function HomeMarkup() {
                         </span>
                       </span>
                     </span>
-                    <button className="Service_icon__GNT_0 css-1sjxqp0">
+                    <button className="Service_icon__GNT_0 css-1sjxqp0" type="button" tabIndex={-1} aria-hidden="true">
                       <div className="css-14om1bk">
                         <div className="main-icon css-1x3oun">
                           <img alt="icon" loading="lazy" width="27" height="18" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="upload/icon-arrow.svg" />
@@ -1054,7 +1054,7 @@ export default function HomeMarkup() {
                             </span>
                           </span>
                         </span>
-                        <button className="Service_icon__GNT_0 css-1sjxqp0">
+                        <button className="Service_icon__GNT_0 css-1sjxqp0" type="button" tabIndex={-1} aria-hidden="true">
                           <div className="css-14om1bk">
                             <div className="main-icon css-1x3oun">
                               <img alt="icon" loading="lazy" width="27" height="18" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="upload/icon-arrow.svg" />
@@ -1097,7 +1097,7 @@ export default function HomeMarkup() {
                         </span>
                       </span>
                     </span>
-                    <button className="Service_icon__GNT_0 css-1sjxqp0">
+                    <button className="Service_icon__GNT_0 css-1sjxqp0" type="button" tabIndex={-1} aria-hidden="true">
                       <div className="css-14om1bk">
                         <div className="main-icon css-1x3oun">
                           <img alt="icon" loading="lazy" width="27" height="18" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="upload/icon-arrow.svg" />
@@ -1183,7 +1183,7 @@ export default function HomeMarkup() {
                             </span>
                           </span>
                         </span>
-                        <button className="Service_icon__GNT_0 css-1sjxqp0">
+                        <button className="Service_icon__GNT_0 css-1sjxqp0" type="button" tabIndex={-1} aria-hidden="true">
                           <div className="css-14om1bk">
                             <div className="main-icon css-1x3oun">
                               <img alt="icon" loading="lazy" width="27" height="18" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="upload/icon-arrow.svg" />
@@ -1226,7 +1226,7 @@ export default function HomeMarkup() {
                         </span>
                       </span>
                     </span>
-                    <button className="Service_icon__GNT_0 css-1sjxqp0">
+                    <button className="Service_icon__GNT_0 css-1sjxqp0" type="button" tabIndex={-1} aria-hidden="true">
                       <div className="css-14om1bk">
                         <div className="main-icon css-1x3oun">
                           <img alt="icon" loading="lazy" width="27" height="18" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="upload/icon-arrow.svg" />
