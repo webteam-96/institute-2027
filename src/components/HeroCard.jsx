@@ -38,6 +38,7 @@ export default function HeroCard() {
   const cardRef = useRef(null)
   const sheenRef = useRef(null)
   const wrapRef = useRef(null)
+  const scrollRef = useRef(null)
   // 1 while the card is its own object, 0 once it has filled the screen. The
   // tilt reads it so the lean eases out as the card becomes the page.
   const flat = useRef(1)
@@ -95,6 +96,7 @@ export default function HeroCard() {
   useEffect(() => {
     const glass = cardRef.current
     const wrap = wrapRef.current
+    const cue = scrollRef.current
     if (!glass || !wrap) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
@@ -114,10 +116,17 @@ export default function HeroCard() {
     const s0 = window.matchMedia('(min-width: 75rem)').matches ? 1 : 0.75
 
     const ctx = gsap.context(() => {
-      let w0, h0, r0, pad, padX
+      let w0, h0, r0, pad, padX, cue0
       const measure = () => {
         gsap.set(glass, { clearProps: 'width,height,borderRadius,maxWidth' })
         gsap.set(wrap, { clearProps: 'paddingTop,paddingLeft,paddingRight' })
+        // Read the cue's resting opacity rather than restating it here. It is
+        // deliberately under 1 in the stylesheet, so fading from a hard 1 would
+        // flash it brighter the instant the reader touched the wheel.
+        if (cue) {
+          gsap.set(cue, { clearProps: 'opacity' })
+          cue0 = parseFloat(getComputedStyle(cue).opacity) || 1
+        }
         // Unscaled before reading: getBoundingClientRect reports the scaled
         // box, so measuring mid-scrub would otherwise bake the scale into w0.
         gsap.set(glass, { scale: 1 })
@@ -174,6 +183,10 @@ export default function HeroCard() {
             paddingLeft: padX * (1 - g),
             paddingRight: padX * (1 - g),
           })
+          // The cue has done its job the moment you take it, so it goes on the
+          // first fifth of the scrub rather than riding along to full screen
+          // still asking to be scrolled.
+          if (cue) gsap.set(cue, { opacity: cue0 * clamp(0, 1, 1 - g * 5) })
         },
       })
     }, wrap)
@@ -223,6 +236,31 @@ export default function HeroCard() {
               Register for GELS &amp; GNLS
             </a>
           </div>
+
+          {/* The card is the whole of the first screen and it answers a
+              question — is there more? — that nothing else on the hero
+              answers. Three chevrons falling in sequence, on the card's own
+              small-caps line so it reads as part of the lockup rather than as
+              a widget parked on it. Drawn rather than linked: /icons ships a
+              solid triangle with #1E1E1E baked in, and this has to take the
+              card's own blue. */}
+          {/* Hidden from assistive tech: "scroll down" describes a mouse
+              gesture on a page a screen reader is already reading straight
+              through, so announcing it only adds a step that does not exist. */}
+          <p className="hero-card__scroll" ref={scrollRef} aria-hidden="true">
+            <span>Scroll down</span>
+            <span className="hero-card__chevrons">
+              <svg viewBox="0 0 16 10" fill="none">
+                <path d="M1 1L8 8L15 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <svg viewBox="0 0 16 10" fill="none">
+                <path d="M1 1L8 8L15 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <svg viewBox="0 0 16 10" fill="none">
+                <path d="M1 1L8 8L15 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+          </p>
         </div>
       </div>
     </div>

@@ -1246,3 +1246,90 @@ html.header-scrolled .styles_header_container__1oB4s {
 .text__clone.css-rdqqhl {
   top: calc(100% + .24em);
 }
+
+/* --- Hero card: the scroll cue --------------------------------------------
+   Sits under the two buttons, on the card's own small-caps line so it reads as
+   the last line of the lockup rather than as a widget parked on it.
+
+   Three chevrons falling in sequence, 0.18s apart: the stagger is what makes
+   it read as a direction rather than as three things blinking. Each fades as
+   it falls, so the group has a leading edge.
+   -------------------------------------------------------------------------- */
+
+.hero-card__scroll {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 2.8rem 0 0;
+  font-family: var(--font-soehne);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  /* Quieter than the dates line above it: this is an instruction, not a fact
+     about the event, and it should lose to everything else on the card. */
+  color: var(--rotary-blue);
+  opacity: 0.62;
+}
+
+@media screen and (min-width: 75rem) {
+  .hero-card__scroll {
+    font-size: 1.2rem;
+    margin-top: 3.2rem;
+  }
+}
+
+.hero-card__chevrons {
+  display: block;
+  /* The stack is one chevron tall plus the two offsets, so the row below never
+     moves as they fall. */
+  height: 1.8rem;
+  width: 1.6rem;
+  position: relative;
+}
+
+.hero-card__chevrons svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  animation: hero-card-fall 1.8s var(--easeInOutQuad, ease-in-out) infinite;
+}
+
+.hero-card__chevrons svg:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.hero-card__chevrons svg:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+@keyframes hero-card-fall {
+  0% {
+    transform: translateY(-0.3rem);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80%,
+  100% {
+    transform: translateY(0.9rem);
+    opacity: 0;
+  }
+}
+
+/* Movement is the whole of this cue, so with it off the chevrons simply sit
+   still and point. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-card__chevrons svg {
+    animation: none;
+  }
+
+  .hero-card__chevrons svg:nth-child(2),
+  .hero-card__chevrons svg:nth-child(3) {
+    display: none;
+  }
+}
