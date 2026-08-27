@@ -25,6 +25,12 @@ import { event } from '../data/site'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// A phone's address bar retracting fires a resize, which would refresh the
+// scrub mid-scroll and re-measure the card from a cleared state — one frame of
+// the card snapping back to its small size. This is the case that setting is
+// for: ignore the height-only resizes a mobile browser chrome causes.
+ScrollTrigger.config({ ignoreMobileResize: true })
+
 const MAX_TILT = 11 // degrees at the far corner — 7 was too shy to read as depth
 const clamp = (lo, hi, v) => Math.min(hi, Math.max(lo, v))
 
@@ -83,16 +89,13 @@ export default function HeroCard() {
   }, [])
 
   // The card grows to full screen as you scroll, the way the venue film reel
-  // used to. The hero already has the shape that needs: a 200svh outer section
-  // with a sticky 100svh child, which is what the reel was scrubbed against.
-  //
-  // Desktop only — the sticky is itself a >=75rem rule, so below that the
-  // section simply scrolls and there is nothing to scrub against.
+  // used to. That needs a 200svh outer section with a sticky 100svh child,
+  // which is what the reel was scrubbed against; rotary.css now gives the hero
+  // that shape at every width, so this runs on phones too.
   useEffect(() => {
     const glass = cardRef.current
     const wrap = wrapRef.current
     if (!glass || !wrap) return
-    if (!window.matchMedia('(min-width: 75rem)').matches) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const section = wrap.closest('.css-b45nl7')
