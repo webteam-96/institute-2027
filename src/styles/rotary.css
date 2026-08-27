@@ -315,6 +315,7 @@ canvas.rotary-globe {
 /* The frame carries the corner radius the cards above use, and holds the 4:5
    the photographs were cropped to so a portrait can never stretch. */
 .committee__frame {
+  position: relative;
   overflow: hidden;
   margin-bottom: 2.4rem;
   border-radius: 1.6rem;
@@ -327,6 +328,34 @@ canvas.rotary-globe {
   height: 100%;
   object-fit: cover;
   display: block;
+  /* Slow: a portrait that snaps reads as a rollover state, one that drifts
+     reads as the photograph itself coming forward. `scale` rather than
+     `transform` for the same reason as .reg-card — the entrance animates the
+     matrix and this has to stay out of its way. */
+  transition: scale 1.1s var(--easeOutQuart, ease);
+}
+
+.committee__item:hover .committee__frame img,
+.committee__item:focus-within .committee__frame img {
+  scale: 1.05;
+}
+
+/* A gold wash over the frame as it lifts. The photographs are a mixed set —
+   different rooms, different white balance — and a common tint at the moment
+   of hover is what makes them behave as one row. */
+.committee__frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(247, 168, 27, 0.22), rgba(247, 168, 27, 0));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s var(--easeOutQuart, ease);
+}
+
+.committee__item:hover .committee__frame::after,
+.committee__item:focus-within .committee__frame::after {
+  opacity: 1;
 }
 
 .committee__role {
@@ -340,12 +369,71 @@ canvas.rotary-globe {
 }
 
 .committee__name {
+  position: relative;
+  display: inline-block;
   margin: 0;
   font-family: var(--font-soehne);
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.024rem;
+}
+
+/* The name underlines itself. Drawn from the left, the same direction the fee
+   rows light in the section below, so the two blocks share one gesture. */
+.committee__name::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.6rem;
+  height: 2px;
+  background: var(--rotary-gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.6s var(--easeOutQuart, ease);
+}
+
+.committee__item:hover .committee__name::after,
+.committee__item:focus-within .committee__name::after {
+  transform: scaleX(1);
+}
+
+/* The role is set back at 0.6 so the name leads; on hover it comes up to meet
+   it, because at the moment you are looking at one person the title matters
+   as much as the name. */
+.committee__role {
+  transition: opacity 0.6s var(--easeOutQuart, ease);
+}
+
+.committee__item:hover .committee__role,
+.committee__item:focus-within .committee__role {
+  opacity: 1;
+}
+
+.committee__item {
+  /* See the note on .reg-card: the entrance owns `transform`. */
+  transition: translate 0.7s var(--easeOutQuart, ease);
+}
+
+.committee__item:hover,
+.committee__item:focus-within {
+  translate: 0 -0.6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .committee__item,
+  .committee__frame img,
+  .committee__frame::after,
+  .committee__name::after,
+  .committee__role {
+    transition: none;
+  }
+
+  .committee__item:hover,
+  .committee__item:focus-within {
+    translate: none;
+  }
 }
 
 .committee__foot {
@@ -1001,21 +1089,39 @@ html.header-scrolled .styles_header__vbDbd {
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(11, 37, 69, 0.1);
   box-shadow: 0 2rem 4rem -2rem rgba(11, 37, 69, 0.22);
-  transition: transform 0.5s var(--easeOutQuart, ease), box-shadow 0.5s var(--easeOutQuart, ease);
+  /* `translate`, not `transform`: GSAP writes the entrance into `transform`,
+     and a CSS transition on that same property turns every frame of the
+     entrance into its own 0.5s tween — the card arrives smeared and late.
+     The individual property composes with the matrix and is left alone. */
+  transition:
+    translate 0.5s var(--easeOutQuart, ease),
+    box-shadow 0.5s var(--easeOutQuart, ease),
+    border-color 0.5s ease;
 }
 
-.reg-card::before {
-  content: '';
+/* The gold rule. 4.8rem at rest, the full width of the card on hover — it is
+   the card's own progress bar, and the one thing that moves far enough to be
+   read from across the section. Its width is what animates, not a transform,
+   so it stays a hairline instead of a scaled-up smear. */
+.reg-card__rule {
   display: block;
   width: 4.8rem;
   height: 2px;
   margin-bottom: 2.4rem;
   background: var(--rotary-gold);
+  transition: width 0.7s var(--easeOutQuart, ease);
 }
 
-.reg-card:hover {
-  transform: translateY(-0.6rem);
+.reg-card:hover,
+.reg-card:focus-within {
+  translate: 0 -0.6rem;
   box-shadow: 0 3.2rem 5.6rem -2rem rgba(11, 37, 69, 0.3);
+  border-color: rgba(247, 168, 27, 0.5);
+}
+
+.reg-card:hover .reg-card__rule,
+.reg-card:focus-within .reg-card__rule {
+  width: 100%;
 }
 
 .reg-card__dates {
@@ -1045,12 +1151,53 @@ html.header-scrolled .styles_header__vbDbd {
 }
 
 .reg-card__fees > div {
+  position: relative;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1.6rem;
   padding: 1.2rem 0;
   border-top: 1px solid rgba(11, 37, 69, 0.12);
+}
+
+/* Each row's own rule wipes gold over the grey one, a beat behind the row
+   above it. The stagger is the point: three rows lighting at once is a state
+   change, one after another reads as the card being run down. */
+.reg-card__fees > div::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--rotary-gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s var(--easeOutQuart, ease);
+}
+
+.reg-card:hover .reg-card__fees > div::before,
+.reg-card:focus-within .reg-card__fees > div::before {
+  transform: scaleX(1);
+}
+
+.reg-card__fees > div:nth-child(2)::before {
+  transition-delay: 0.07s;
+}
+
+.reg-card__fees > div:nth-child(3)::before {
+  transition-delay: 0.14s;
+}
+
+/* The pending value lifts a little as its row lights, so the eye lands on the
+   answer rather than on the label. */
+.reg-card__fees dd {
+  transition: transform 0.55s var(--easeOutQuart, ease), color 0.55s ease;
+}
+
+.reg-card:hover .reg-card__fees dd,
+.reg-card:focus-within .reg-card__fees dd {
+  transform: translateX(-0.3rem);
 }
 
 .reg-card__fees > div:last-child {
@@ -1081,6 +1228,9 @@ html.header-scrolled .styles_header__vbDbd {
 
 .reg-card__btn {
   align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
   padding: 1.4rem 2.8rem;
   border-radius: 999px;
   background: var(--primary-black);
@@ -1098,6 +1248,46 @@ html.header-scrolled .styles_header__vbDbd {
 .reg-card__btn:focus-visible {
   background: var(--rotary-gold);
   color: var(--primary-black);
+}
+
+/* The arrow is folded to nothing until the card is hovered, so the button
+   keeps its resting width and grows into the gesture rather than carrying a
+   permanent chevron that means nothing. */
+.reg-card__arrow {
+  width: 0;
+  height: 1.2rem;
+  margin-left: 0;
+  opacity: 0;
+  overflow: visible;
+  transition:
+    width 0.45s var(--easeOutQuart, ease),
+    margin-left 0.45s var(--easeOutQuart, ease),
+    opacity 0.3s ease,
+    transform 0.45s var(--easeOutQuart, ease);
+}
+
+.reg-card:hover .reg-card__arrow,
+.reg-card:focus-within .reg-card__arrow,
+.reg-card__btn:focus-visible .reg-card__arrow {
+  width: 1.6rem;
+  margin-left: 0.9rem;
+  opacity: 1;
+}
+
+.reg-card__btn:hover .reg-card__arrow {
+  transform: translateX(0.3rem);
+}
+
+/* Every one of these is a hover flourish and none of them carries meaning the
+   card does not already state in words. */
+@media (prefers-reduced-motion: reduce) {
+  .reg-card,
+  .reg-card__rule,
+  .reg-card__fees > div::before,
+  .reg-card__fees dd,
+  .reg-card__arrow {
+    transition: none;
+  }
 }
 
 /* --- Header refinements ----------------------------------------------------
@@ -1332,4 +1522,15 @@ html.header-scrolled .styles_header_container__1oB4s {
   .hero-card__chevrons svg:nth-child(3) {
     display: none;
   }
+}
+
+/* --- The register label ----------------------------------------------------
+   The capture set this at 1.4rem, which put the site's one call to action a
+   size below the nav links beside it (10.5px against 11.25px at 1440). It is
+   the thing the header is for, so it now leads them rather than trailing.
+   -------------------------------------------------------------------------- */
+
+.css-uhh336 {
+  font-size: 1.8rem;
+  letter-spacing: 0.036rem;
 }

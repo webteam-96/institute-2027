@@ -63,20 +63,55 @@ export default function RegistrationDetails() {
     // The cards arrive in sequence rather than together, which reads as a list
     // being dealt out. Same easing and stagger as the committee strip above it,
     // so the two blocks feel like one page.
+    //
+    // Then the card assembles itself rather than arriving finished: the gold
+    // rule draws, and the fee rows come up under it. The overlaps are what keep
+    // that from feeling like three separate animations queued back to back.
     const ctx = gsap.context(() => {
+      const rules = gsap.utils.toArray('.reg-card__rule')
       gsap.set('.reg-card', { y: 32, opacity: 0 })
+      gsap.set(rules, { scaleX: 0, transformOrigin: 'left center' })
+      gsap.set('.reg-card__fees > div, .reg-card__btn', { y: 12, opacity: 0 })
+
       ScrollTrigger.create({
         trigger: el,
         start: 'top bottom-=15%',
         once: true,
-        onEnter: () =>
-          gsap.to('.reg-card', {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
-            stagger: 0.12,
-          }),
+        onEnter: () => {
+          gsap
+            .timeline()
+            .to('.reg-card', {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              ease: 'power3.out',
+              stagger: 0.12,
+              // GSAP writes `translate: none; rotate: none; scale: none` inline
+              // next to its matrix, and that inline outranks the stylesheet —
+              // the hover lift uses `translate` to stay clear of `transform`,
+              // so it needs these handed back or it never fires.
+              clearProps: 'transform,translate,rotate,scale',
+            })
+            .to(
+              rules,
+              {
+                scaleX: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                stagger: 0.12,
+                // Handed back to the stylesheet, which grows the rule to the
+                // full width on hover. A transform left on the element would
+                // fight that, and scaling a hairline to 12x smears it.
+                clearProps: 'transform',
+              },
+              '-=0.85'
+            )
+            .to(
+              '.reg-card__fees > div, .reg-card__btn',
+              { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', stagger: 0.04 },
+              '-=0.6'
+            )
+        },
       })
     }, el)
     return () => ctx.revert()
@@ -92,6 +127,11 @@ export default function RegistrationDetails() {
       <ul className="reg__list">
         {CATEGORIES.map((c) => (
           <li className="reg-card" key={c.id}>
+            {/* A real element, not the ::before it used to be: it is drawn in
+                on arrival and runs the width of the card on hover, and GSAP
+                cannot reach a pseudo-element. */}
+            <span className="reg-card__rule" aria-hidden="true" />
+
             <p className="reg-card__dates">{c.dates}</p>
             <h3 className="reg-card__name">{c.name}</h3>
 
@@ -108,7 +148,16 @@ export default function RegistrationDetails() {
               className="reg-card__btn"
               href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20%E2%80%94%20${c.subject}`}
             >
-              Register now
+              <span>Register now</span>
+              <svg className="reg-card__arrow" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+                <path
+                  d="M1 6h13M9.5 1.5 14 6l-4.5 4.5"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </a>
           </li>
         ))}
