@@ -101,11 +101,26 @@ export default function HeroCard() {
     const section = wrap.closest('.css-b45nl7')
     if (!section) return
 
+    // How small the card starts, as a fraction of its laid-out size.
+    //
+    // On desktop the max-width cap keeps the card at 32% of the screen, so
+    // growing it to full bleed is a x6.6 change in area and needs no help. A
+    // phone has no room for that cap to bite: the card is width:100% and the
+    // nowrap title sets a 357px floor, so it already covers 59% of the screen
+    // and filling it would be a x1.7 trip — the same animation, with almost
+    // nothing to see. Scaling it down at rest buys back the travel, and it
+    // reaches scale 1 exactly as it goes full bleed, so the design at full
+    // screen is untouched.
+    const s0 = window.matchMedia('(min-width: 75rem)').matches ? 1 : 0.75
+
     const ctx = gsap.context(() => {
       let w0, h0, r0, pad, padX
       const measure = () => {
         gsap.set(glass, { clearProps: 'width,height,borderRadius,maxWidth' })
         gsap.set(wrap, { clearProps: 'paddingTop,paddingLeft,paddingRight' })
+        // Unscaled before reading: getBoundingClientRect reports the scaled
+        // box, so measuring mid-scrub would otherwise bake the scale into w0.
+        gsap.set(glass, { scale: 1 })
         const b = glass.getBoundingClientRect()
         w0 = b.width
         h0 = b.height
@@ -117,7 +132,16 @@ export default function HeroCard() {
         // `width: 100%` under a max-width, so removing the cap on its own left
         // it full-bleed from the first frame — onUpdate does not fire until you
         // actually scroll.
-        gsap.set(glass, { maxWidth: 'none', width: w0, height: h0 })
+        // The resting state has to be written here, not left to onUpdate —
+        // that does not fire until the reader actually scrolls, so the card
+        // would sit at full size for its first frames.
+        gsap.set(glass, {
+          maxWidth: 'none',
+          width: w0,
+          height: h0,
+          borderRadius: r0 / s0,
+          scale: s0,
+        })
       }
       measure()
 
@@ -135,7 +159,11 @@ export default function HeroCard() {
           gsap.set(glass, {
             width: w0 + (window.innerWidth - w0) * g,
             height: h0 + (window.innerHeight - h0) * g,
-            borderRadius: r0 * (1 - g),
+            // Divided out of the radius: a scaled card scales its corners too,
+            // so without this the rounding reads heavier than it is drawn and
+            // never quite closes to a square edge.
+            borderRadius: (r0 * (1 - g)) / (s0 + (1 - s0) * g),
+            scale: s0 + (1 - s0) * g,
           })
           // The wrapper's insets close at the same rate. Without the top one
           // the card fills the viewport minus the bar and sits 68px low;
