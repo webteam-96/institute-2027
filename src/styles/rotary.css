@@ -299,7 +299,9 @@ canvas.rotary-globe {
 
 .committee__list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* One portrait per row on a phone. Two-up put each face in a 171px column,
+     which is smaller than the thumbnail a contact list would give them. */
+  grid-template-columns: 1fr;
   gap: 4.8rem var(--gap-x);
   margin: 0;
   padding-inline: var(--padding-x);
@@ -1178,4 +1180,69 @@ html.header-scrolled .styles_header_container__1oB4s {
 .css-12ixfif {
   position: -webkit-sticky;
   position: sticky;
+}
+
+/* --- Quote / contact: the panels open on tap below 75rem -------------------
+   The capture hides the spotlight outright under 75rem (`.css-1sst4df` is
+   display:none) because it only ever opens on a pointer sweep, and a phone has
+   no pointer to sweep with. That left the two headings underlined, tappable-
+   looking and inert, with their "Click here to register" unreachable.
+
+   Shown here instead, and QuoteContact makes the heading its switch. Both
+   panels span the full grid rather than half of it: the capture puts them side
+   by side at columns 1-6 and 7-12, and the mobile grid only has six columns,
+   so the second one landed in implicit columns off the side of the screen.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  .css-1sst4df {
+    display: grid;
+    /* Absolute, inset 0, z-index 2 — showing it laid a sheet over the two
+       headings and swallowed the tap meant to open it. Above 75rem the parent
+       grid is already pointer-events: none for the same reason; each wrapper
+       gets its own `auto` back from QuoteContact as it opens. */
+    pointer-events: none;
+  }
+
+  .styles_spotlightWrapper__9LC5Q:first-of-type .styles_spotlightContent__J1Yoy,
+  .styles_spotlightWrapper__9LC5Q:nth-of-type(2) .styles_spotlightContent__J1Yoy {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --- Programme cards: the same stack on a phone ----------------------------
+   The capture only dressed this section for >=75rem — the dark ground the
+   cards shrink against and the gap that lets the next one climb over the last
+   are both inside that media query, and useHomeMotion's pin was gated to match.
+   The transform that reads --progress was never gated, so shrink, rotate and
+   corner radius already worked at every width; only the stage was missing.
+
+   The gap is the one number that does not carry over. 25vh between cards is
+   what makes the next card arrive as the one below it finishes shrinking; on a
+   844px screen that is 211px, which reads as a long dead scroll, so it is set
+   in terms of the card instead.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  .css-vp4en7 {
+    gap: 12vh;
+    background: var(--primary-black);
+    --bg-currentcolor: var(--primary-black);
+  }
+}
+
+/* --- The roll clone sits clear of its mask --------------------------------
+   Every rolled label ships a duplicate of its own text as `.text__clone`,
+   absolutely positioned but with no offset, so it lands at its static place:
+   directly under the line. The mask above it is deliberately .24em taller than
+   that line — the descender clearance set with .fix-clip — so exactly .24em of
+   the duplicate showed through, a sliced ghost line under the real one.
+
+   Nothing in this build ever reveals the clone: no hover rule targets it and
+   nothing animates its parent. Pushing it down by the same .24em the mask adds
+   puts it precisely on the clip edge, where it was always meant to wait.
+   -------------------------------------------------------------------------- */
+
+.text__clone.css-rdqqhl {
+  top: calc(100% + .24em);
 }

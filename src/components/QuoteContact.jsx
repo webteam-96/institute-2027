@@ -15,7 +15,14 @@ import { event } from '../data/site'
  */
 
 const CLOSED = 'polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%)'
+// The capture's shape is a spotlight beam: narrow at the top, splayed to the
+// full width at the bottom, so it reads as a light thrown from where the
+// pointer is. That only works with a pointer, and only at a width where 35-65%
+// is still a usable measure — on a 390px screen the top of the beam is 117px
+// and it slices straight through the panel's own heading. Below 75rem, where
+// there is no pointer to throw it from, it opens square instead.
 const OPEN = 'polygon(35% 0%, 65% 0%, 100% 100%, 0% 100%)'
+const OPEN_NARROW = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
 
 function Roll({ children }) {
   return (
@@ -67,9 +74,6 @@ function Spotlight({ title, cta, href }) {
   )
 }
 
-const mailto = (subject) =>
-  `mailto:${event.email}?subject=Rotary%20Institute%202027%20%E2%80%94%20${subject}`
-
 export default function QuoteContact() {
   const root = useRef(null)
 
@@ -95,8 +99,9 @@ export default function QuoteContact() {
         if (on) gsap.set(wrapper, { pointerEvents: 'auto', visibility: 'visible' })
         else gsap.set(wrapper, { pointerEvents: 'none' })
         if (panel) {
+          const open = window.matchMedia('(min-width: 75rem)').matches ? OPEN : OPEN_NARROW
           gsap.to(panel, {
-            clipPath: on ? OPEN : CLOSED,
+            clipPath: on ? open : CLOSED,
             ease: 'power3.out',
             duration: 0.8,
             onComplete: on
@@ -133,6 +138,10 @@ export default function QuoteContact() {
 
     // Hit-tested against the raw pointer, not :hover — see the note above.
     const onMove = (e) => {
+      // Desktop only. A tap emits pointermove too, so without this the touch
+      // path would open a panel here and the click below would immediately
+      // toggle it shut again.
+      if (!window.matchMedia('(min-width: 75rem)').matches) return
       const hit = labels.findIndex((label) => {
         const b = label.getBoundingClientRect()
         return e.clientX >= b.left && e.clientX <= b.right && e.clientY >= b.top && e.clientY <= b.bottom
@@ -140,11 +149,34 @@ export default function QuoteContact() {
       set(hit)
     }
     const onLeave = () => set(-1)
+
+    // Tap to open, for every device that cannot hover.
+    //
+    // The reveal above is driven entirely by pointer position, so below 75rem
+    // — where the stylesheet also hides the panels outright — the two headings
+    // sat there underlined and did nothing, and the "Click here to register"
+    // inside each panel could not be reached at all. On those widths the panel
+    // is shown (see quote.css) and the heading becomes its switch: tap to
+    // open, tap the same one again or the panel's own background to close.
+    // The CTA keeps its own click, so tapping the button still opens the mail.
+    const onClick = (e) => {
+      if (window.matchMedia('(min-width: 75rem)').matches) return
+      const i = labels.findIndex((label) => label.contains(e.target))
+      if (i > -1) {
+        set(i === open ? -1 : i)
+        return
+      }
+      // Anywhere on the open panel that is not the button closes it again.
+      if (open > -1 && !e.target.closest('a')) set(-1)
+    }
+
     window.addEventListener('pointermove', onMove, { passive: true })
     el.addEventListener('pointerleave', onLeave)
+    el.addEventListener('click', onClick)
     return () => {
       window.removeEventListener('pointermove', onMove)
       el.removeEventListener('pointerleave', onLeave)
+      el.removeEventListener('click', onClick)
       if (drift) gsap.ticker.remove(drift)
     }
   }, [])
@@ -184,24 +216,18 @@ export default function QuoteContact() {
               </div>
             </div>
 
-            {/* The labels carry the same mailto as the panel behind them.
-                Below 75rem there is no pointer to sweep, so the panels never
-                open and their "Click here to register" was unreachable — on a
-                phone these two headings looked tappable and did nothing, and
-                on every sub-page but GELS/GNLS they were the only registration
-                route there was. At 75rem and up the label wrapper is
-                pointer-events: none, so on desktop these anchors are inert and
-                the hover sweep is exactly as it was. Inside the h3 rather than
-                around it: the heading keeps its own box, its centring and its
-                underline rule, so nothing moves. */}
+            {/* Plain headings. Below 75rem they are the tap target that opens
+                the panel behind them — see the click handler above — so an
+                anchor here would launch a mail client instead of revealing the
+                CTA the panel already carries. */}
             <div className="styles_labelWrapper__BqflW styles_labelWrapper__quote__9EII0 css-1glmj8g">
               <h3 id="quote" className="Heading_heading__ts0xt styles_label__u9J_K css-14i50cw">
-                <a href={mailto('Institute%20registration')}>Institute</a>
+                Institute
               </h3>
             </div>
             <div className="styles_labelWrapper__BqflW styles_labelWrapper__contact___4N_K css-1glmj8g">
               <h3 id="contact" className="Heading_heading__ts0xt styles_label__u9J_K css-14i50cw">
-                <a href={mailto('GELS%20and%20GNLS%20registration')}>GELS &amp; GNLS</a>
+                GELS &amp; GNLS
               </h3>
             </div>
 

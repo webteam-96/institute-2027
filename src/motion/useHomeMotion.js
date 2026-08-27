@@ -176,10 +176,17 @@ export default function useHomeMotion() {
       lineTargets.forEach((node) => gsap.set(node, { visibility: 'hidden' }))
 
       // --- pinned service cards (spec 8) ----------------------------------
-      // Desktop only. Each card pins at centre, then a mapped slice of its own
-      // progress drives a CSS variable; the shrink, the rotate and the corner
-      // radius are all done in the stylesheet off that one number.
-      if (window.matchMedia('(min-width:1200px)').matches) {
+      // Each card pins at centre, then a mapped slice of its own progress
+      // drives a CSS variable; the shrink, the rotate and the corner radius are
+      // all done in the stylesheet off that one number.
+      //
+      // This used to be gated to 1200px, so on a phone the cards simply
+      // scrolled past flat. The transform rule that reads --progress was never
+      // width-gated, and a phone card is 969px tall against an 844px viewport
+      // with 83px of padding at each end — so it pins and shrinks with its copy
+      // fully inside the screen. What the mobile stylesheet was missing is the
+      // dark ground and the gap between cards; rotary.css adds those.
+      {
         // Custom properties inherit, so "has --is-odd" is true of every node
         // inside a card, the images included. The card is the one node whose
         // value differs from its parent's — i.e. the node that declares it.
@@ -212,7 +219,20 @@ export default function useHomeMotion() {
           ScrollTrigger.create({
             trigger: card,
             start: 'center center',
-            end: isLast ? 'bottom bottom' : 'bottom top-=50%',
+            // A pinned card is position: fixed, so it floats over whatever
+            // scrolls up next rather than being covered by it. On desktop that
+            // never shows: the cards are exactly 100vh, so the incoming one
+            // hides the shrunken one behind it completely. A phone cannot have
+            // that — the tallest card's copy is 873px against an 844px screen —
+            // so the shrunken card peeks out below and, on the last of them,
+            // drifted over the Registration section as a stray rotated button.
+            // Releasing half a screen earlier puts it back in the flow while
+            // its own section still has room for it.
+            end: isLast
+              ? 'bottom bottom'
+              : window.matchMedia('(min-width:75rem)').matches
+                ? 'bottom top-=50%'
+                : 'bottom top',
             pin: true,
             pinSpacing: false,
             onUpdate: (self) => {
