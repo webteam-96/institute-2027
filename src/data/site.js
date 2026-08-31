@@ -176,11 +176,6 @@ export const registration = [
     dates: '25 – 26 November 2027',
     subject: 'TRF%20Events%20registration',
     rows: [['TRF Dinner', null], ['TRF Seminar', null]],
-    // The homepage strip shows the three programme components the Institute
-    // runs as; these two sit alongside it and have their own page. Listed here
-    // so the registration page carries everything you can register for without
-    // a second source to keep in step.
-    onHome: false,
   },
   {
     id: 'adjunct',
