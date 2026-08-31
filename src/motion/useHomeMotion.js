@@ -661,6 +661,15 @@ export default function useHomeMotion() {
         // translate(0%, 50%) until their section arrives, then drops them in.
         // Nothing else un-hides them, so without this they never appear at all.
         toArray(el.querySelectorAll('a,button'))
+          // A component that owns its own motion is off limits. This sweep
+          // hunts anything sitting at opacity 0, and a child effect runs before
+          // its parent's — so RegistrationDetails' own entrance, which starts
+          // its buttons hidden, handed all three of them to this. They picked
+          // up a yPercent: 50 that the card's own `y: 0` tween cannot undo
+          // (separate transform components) and sat 29.5px low until an
+          // unrelated 1.2s trigger fired. The attribute already means exactly
+          // this, one line up in the line-reveal filter.
+          .filter((btn) => !btn.closest('[data-no-split]'))
           .filter((btn) => getComputedStyle(btn).opacity === '0')
           .forEach((btn) => {
             gsap.set(btn, { yPercent: 50 })

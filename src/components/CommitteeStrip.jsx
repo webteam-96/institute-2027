@@ -30,18 +30,22 @@ export default function CommitteeStrip() {
     if (!el) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
+    const mm = gsap.matchMedia()
     const ctx = gsap.context(() => {
       gsap.set('.committee__item', { y: 32, opacity: 0 })
       gsap.set('.committee__frame img', { scale: 1.12 })
 
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top bottom-=15%',
+      // Batched per portrait — see the note in RegistrationDetails. The old
+      // section-level trigger fired while every portrait was still below the
+      // fold, and at 390px, one per row, portraits 2-4 sit 1500-2700px down.
+      ScrollTrigger.batch(el.querySelectorAll('.committee__item'), {
+        start: 'top bottom-=10%',
         once: true,
-        onEnter: () => {
+        onEnter: (items) => {
+          const photos = items.flatMap((i) => [...i.querySelectorAll('.committee__frame img')])
           gsap
             .timeline()
-            .to('.committee__item', {
+            .to(items, {
               y: 0,
               opacity: 1,
               duration: 1,
@@ -55,7 +59,7 @@ export default function CommitteeStrip() {
               clearProps: 'transform,translate,rotate,scale',
             })
             .to(
-              '.committee__frame img',
+              photos,
               {
                 scale: 1,
                 duration: 1.4,
@@ -68,8 +72,27 @@ export default function CommitteeStrip() {
             )
         },
       })
+
+      // Below 48rem the lists are one per row and there is no pointer, so the
+      // card in the middle of the screen takes the lit state instead. Only
+      // where the list is single-column: from 768px up the rows are 3 and 4
+      // wide, and every card in a row shares a top edge, so the whole row
+      // would light and unlight together — a flash, not a gesture.
+      mm.add('(max-width: 47.99rem)', () => {
+        el.querySelectorAll('.committee__item').forEach((item) =>
+          ScrollTrigger.create({
+            trigger: item,
+            start: 'top 70%',
+            end: 'bottom 45%',
+            toggleClass: { targets: item, className: 'is-active' },
+          })
+        )
+      })
     }, el)
-    return () => ctx.revert()
+    return () => {
+      mm.revert()
+      ctx.revert()
+    }
   }, [])
 
   if (!committee.length) return null
@@ -83,10 +106,13 @@ export default function CommitteeStrip() {
       <ul className="committee__list">
         {committee.map((person) => (
           <li className="committee__item" key={person.name}>
+            {/* alt is empty on purpose: the name and the role are printed
+                immediately below the frame, so any alt text here is read out
+                twice. */}
             <div className="committee__frame">
               <img
                 src={person.photo}
-                alt={`${person.name}, ${person.role}`}
+                alt=""
                 width="720"
                 height="900"
                 loading="lazy"
@@ -94,7 +120,7 @@ export default function CommitteeStrip() {
               />
             </div>
             <p className="committee__role">{person.role}</p>
-            <p className="committee__name">{person.name}</p>
+            <h3 className="committee__name">{person.name}</h3>
           </li>
         ))}
       </ul>

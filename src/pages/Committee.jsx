@@ -21,10 +21,12 @@ export default function Committee() {
         <ul className="committee__list">
           {committee.map((person) => (
             <li className="committee__item" key={person.name}>
+              {/* See CommitteeStrip: the caption below repeats it, so alt
+                  text here would be announced twice. */}
               <div className="committee__frame">
                 <img
                   src={person.photo}
-                  alt={`${person.name}, ${person.role}`}
+                  alt=""
                   width="720"
                   height="900"
                   loading="lazy"
@@ -32,7 +34,7 @@ export default function Committee() {
                 />
               </div>
               <p className="committee__role">{person.role}</p>
-              <p className="committee__name">{person.name}</p>
+              <h2 className="committee__name">{person.name}</h2>
             </li>
           ))}
         </ul>

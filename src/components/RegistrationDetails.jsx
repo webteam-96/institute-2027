@@ -30,13 +30,18 @@ const CATEGORIES = [
     name: 'Rotary Institute 2027',
     dates: '26 · 27 · 28 November 2027',
     subject: 'Institute%20registration',
+    axis: 'Delegate',
     rows: [['Single', null], ['Couple', null]],
   },
   {
     id: 'gels-gnls',
     name: 'GELS / GNLS',
+    // Spelled out from programme[1].name in site.js — the initialism alone
+    // tells a first-time visitor nothing.
+    expands: 'Governors Elect & Governors Nominee Learning Seminars',
     dates: '23 – 25 November 2027',
     subject: 'GELS%20and%20GNLS%20registration',
+    axis: 'Delegate',
     rows: [['Single', null], ['Couple', null]],
   },
   {
@@ -44,6 +49,9 @@ const CATEGORIES = [
     name: 'Adjunct Seminars',
     dates: '25 November 2027',
     subject: 'Adjunct%20Seminars%20registration',
+    // This card's left column is a different axis from the other two: which
+    // seminar, not who is registering.
+    axis: 'Seminar',
     rows: [
       ['DLF Seminar', null],
       ['COL Seminar', null],
@@ -67,20 +75,30 @@ export default function RegistrationDetails() {
     // Then the card assembles itself rather than arriving finished: the gold
     // rule draws, and the fee rows come up under it. The overlaps are what keep
     // that from feeling like three separate animations queued back to back.
+    const mm = gsap.matchMedia()
     const ctx = gsap.context(() => {
-      const rules = gsap.utils.toArray('.reg-card__rule')
       gsap.set('.reg-card', { y: 32, opacity: 0 })
-      gsap.set(rules, { scaleX: 0, transformOrigin: 'left center' })
-      gsap.set('.reg-card__fees > div, .reg-card__btn', { y: 12, opacity: 0 })
+      gsap.set('.reg-card__rule', { scaleX: 0, transformOrigin: 'left center' })
+      gsap.set('.reg-card__feehead, .reg-card__fees > div, .reg-card__btn', { y: 12, opacity: 0 })
 
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top bottom-=15%',
+      // Batched per card, not fired once off the section.
+      //
+      // The trigger used to be the <section>, which carries 10rem of padding
+      // and a head block above the first card — so at 390px, where the list is
+      // one column, cards 2 and 3 sit ~1400 and ~1830px down and the whole
+      // timeline finished on an empty viewport. Nobody ever saw the deal-in.
+      // At 1440 the three cards share a top edge, so batch collects them into
+      // one call and the gesture is identical to before; on a phone each card
+      // now animates as it actually arrives, and the stagger becomes the
+      // scroll itself.
+      ScrollTrigger.batch(el.querySelectorAll('.reg-card'), {
+        start: 'top bottom-=10%',
         once: true,
-        onEnter: () => {
+        onEnter: (cards) => {
+          const q = (sel) => cards.flatMap((c) => [...c.querySelectorAll(sel)])
           gsap
             .timeline()
-            .to('.reg-card', {
+            .to(cards, {
               y: 0,
               opacity: 1,
               duration: 1,
@@ -93,7 +111,7 @@ export default function RegistrationDetails() {
               clearProps: 'transform,translate,rotate,scale',
             })
             .to(
-              rules,
+              q('.reg-card__rule'),
               {
                 scaleX: 1,
                 duration: 0.8,
@@ -107,14 +125,43 @@ export default function RegistrationDetails() {
               '-=0.85'
             )
             .to(
-              '.reg-card__fees > div, .reg-card__btn',
-              { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', stagger: 0.04 },
+              q('.reg-card__feehead, .reg-card__fees > div, .reg-card__btn'),
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                ease: 'power3.out',
+                stagger: 0.04,
+                // The button needs its individual properties back or the
+                // stylesheet's :active scale is dead on arrival — GSAP's
+                // inline `scale: none` outranks it forever otherwise.
+                clearProps: 'transform,translate,rotate,scale',
+              },
               '-=0.6'
             )
         },
       })
+
+      // Below 48rem the lists are one per row and there is no pointer, so the
+      // card in the middle of the screen takes the lit state instead. Only
+      // where the list is single-column: from 768px up the rows are 3 and 4
+      // wide, and every card in a row shares a top edge, so the whole row
+      // would light and unlight together — a flash, not a gesture.
+      mm.add('(max-width: 47.99rem)', () => {
+        el.querySelectorAll('.reg-card').forEach((item) =>
+          ScrollTrigger.create({
+            trigger: item,
+            start: 'top 70%',
+            end: 'bottom 45%',
+            toggleClass: { targets: item, className: 'is-active' },
+          })
+        )
+      })
     }, el)
-    return () => ctx.revert()
+    return () => {
+      mm.revert()
+      ctx.revert()
+    }
   }, [])
 
   return (
@@ -134,6 +181,16 @@ export default function RegistrationDetails() {
 
             <p className="reg-card__dates">{c.dates}</p>
             <h3 className="reg-card__name">{c.name}</h3>
+            {c.expands ? <p className="reg-card__expands">{c.expands}</p> : null}
+
+            {/* Outside the <dl>, not in it: a div that is neither dt nor dd is
+                invalid there, and it would shift the :nth-child wipe delays and
+                get caught by the row hover. Names the two columns the data
+                already is — nothing here is a new fact. */}
+            <p className="reg-card__feehead" aria-hidden="true">
+              <span>{c.axis}</span>
+              <span>Fee</span>
+            </p>
 
             <dl className="reg-card__fees">
               {c.rows.map(([who, fee]) => (

@@ -358,6 +358,10 @@ canvas.rotary-globe {
   opacity: 1;
 }
 
+/* 0.75, not 0.6. Navy #0b2545 at 0.6 over the cream ground computes to
+   4.07:1, which fails AA for 9px text at 1440 and 12.5px at 390 — and this is
+   the only line that says why the person is on the page. 0.75 is 6.45:1. The
+   hover still travels to 1, just over a shorter throw. */
 .committee__role {
   margin: 0 0 0.6rem;
   font-family: var(--font-soehne);
@@ -365,7 +369,7 @@ canvas.rotary-globe {
   font-weight: 500;
   letter-spacing: 0.024rem;
   text-transform: uppercase;
-  opacity: 0.6;
+  opacity: 0.75;
 }
 
 .committee__name {
@@ -373,7 +377,10 @@ canvas.rotary-globe {
   display: inline-block;
   margin: 0;
   font-family: var(--font-soehne);
-  font-size: 2.4rem;
+  /* 2.8rem, the size the registration cards name things at. Under a 4:5
+     portrait and a 72px section head, 2.4rem left the person smaller than
+     everything around them. */
+  font-size: 2.8rem;
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.024rem;
@@ -395,7 +402,8 @@ canvas.rotary-globe {
 }
 
 .committee__item:hover .committee__name::after,
-.committee__item:focus-within .committee__name::after {
+.committee__item:focus-within .committee__name::after,
+.committee__item.is-active .committee__name::after {
   transform: scaleX(1);
 }
 
@@ -407,7 +415,8 @@ canvas.rotary-globe {
 }
 
 .committee__item:hover .committee__role,
-.committee__item:focus-within .committee__role {
+.committee__item:focus-within .committee__role,
+.committee__item.is-active .committee__role {
   opacity: 1;
 }
 
@@ -431,8 +440,19 @@ canvas.rotary-globe {
   }
 
   .committee__item:hover,
-  .committee__item:focus-within {
+  .committee__item:focus-within,
+  .committee__link:hover,
+  .committee__link:focus-visible {
     translate: none;
+  }
+
+  /* Zeroed, not merely un-eased: an instant 0.2rem jump is still the flourish.
+     The focus ring stays — that is not decoration. */
+  .committee__link,
+  .committee__link:active,
+  .reg-card__btn:active {
+    transition: none;
+    scale: none;
   }
 }
 
@@ -453,6 +473,35 @@ canvas.rotary-globe {
   letter-spacing: 0.024rem;
   text-transform: uppercase;
   text-decoration: none;
+  transition:
+    background-color 0.4s var(--easeOutQuart, ease),
+    translate 0.4s var(--easeOutQuart, ease),
+    scale 0.18s var(--easeOutQuart, ease);
+}
+
+/* This was the only interactive element in the section and it had no hover, no
+   focus and no press — an inert pill under four cards of hover choreography.
+   Gold on approach, matching the registration button. */
+.committee__link:hover,
+.committee__link:focus-visible {
+  background: var(--rotary-gold);
+  translate: 0 -0.2rem;
+}
+
+/* A real ring, not the gold alone: #ffd873 to #f7a81b is about 1.5:1, nowhere
+   near the 3:1 a focus indicator has to clear, and the legacy reset strips
+   `outline` from every anchor on the site — so keyboard users had nothing. */
+.committee__link:focus-visible {
+  outline: 2px solid var(--primary-black);
+  outline-offset: 3px;
+}
+
+/* Press. Below 75rem there is no hover at all, so on a phone this is the only
+   feedback either call to action has — and both of them start something with a
+   visible beat before it appears (a mail sheet, a page wipe). */
+.committee__link:active,
+.reg-card__btn:active {
+  scale: 0.97;
 }
 
 @media (min-width: 768px) {
@@ -1047,19 +1096,31 @@ html.header-scrolled .styles_header__vbDbd {
   color: var(--rotary-blue);
 }
 
+/* Set to match .committee__title, which is the head immediately below it on
+   the homepage. At 3.2/4.8rem and weight 400 this ran at half that head's rank
+   — 36px against 72px at 1440 — so the section reading "Event Registration
+   Details" announced itself more quietly than the one introducing four
+   portraits. Same scale, same weight, same line-height as its neighbour. */
 .reg__title {
   margin: 0;
-  max-width: 34ch;
+  max-width: 22ch;
   font-family: var(--font-soehne);
-  font-weight: 400;
-  font-size: 3.2rem;
-  line-height: 1.06;
-  letter-spacing: -0.03em;
+  font-weight: 500;
+  font-size: 4.8rem;
+  line-height: 0.95;
+  letter-spacing: -0.096rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .reg__title {
+    font-size: 7.2rem;
+    letter-spacing: -0.144rem;
+  }
 }
 
 @media screen and (min-width: 75rem) {
   .reg__title {
-    font-size: 4.8rem;
+    font-size: 9.6rem;
   }
 }
 
@@ -1120,7 +1181,8 @@ html.header-scrolled .styles_header__vbDbd {
 }
 
 .reg-card:hover .reg-card__rule,
-.reg-card:focus-within .reg-card__rule {
+.reg-card:focus-within .reg-card__rule,
+.reg-card.is-active .reg-card__rule {
   width: 100%;
 }
 
@@ -1177,7 +1239,8 @@ html.header-scrolled .styles_header__vbDbd {
 }
 
 .reg-card:hover .reg-card__fees > div::before,
-.reg-card:focus-within .reg-card__fees > div::before {
+.reg-card:focus-within .reg-card__fees > div::before,
+.reg-card.is-active .reg-card__fees > div::before {
   transform: scaleX(1);
 }
 
@@ -1196,7 +1259,8 @@ html.header-scrolled .styles_header__vbDbd {
 }
 
 .reg-card:hover .reg-card__fees dd,
-.reg-card:focus-within .reg-card__fees dd {
+.reg-card:focus-within .reg-card__fees dd,
+.reg-card.is-active .reg-card__fees dd {
   transform: translateX(-0.3rem);
 }
 
@@ -1268,6 +1332,7 @@ html.header-scrolled .styles_header__vbDbd {
 
 .reg-card:hover .reg-card__arrow,
 .reg-card:focus-within .reg-card__arrow,
+.reg-card.is-active .reg-card__arrow,
 .reg-card__btn:focus-visible .reg-card__arrow {
   width: 1.6rem;
   margin-left: 0.9rem;
@@ -1533,4 +1598,81 @@ html.header-scrolled .styles_header_container__1oB4s {
 .css-uhh336 {
   font-size: 1.8rem;
   letter-spacing: 0.036rem;
+}
+
+
+/* --- Phone: the two sections were mostly padding -------------------------
+   `.committee` carries 12rem top and bottom and `.reg` 10rem, which at the
+   phone root of 10.4px is about 250px of empty cream at each end. That is a
+   third of a screen, twice, in a strip that is already very tall now that the
+   portraits are one per row.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 47.99rem) {
+  .committee {
+    padding: 7rem 0;
+  }
+
+  .committee__head {
+    margin-bottom: 4rem;
+  }
+
+  .committee__foot {
+    margin-top: 4rem;
+  }
+
+  .reg {
+    padding: 6rem 0 3rem;
+  }
+}
+
+
+/* --- Phone: the card you are looking at is the lit one --------------------
+   Every hover rule above is unreachable below 75rem, so a phone got the
+   entrance and then a static list — roughly a dozen finished selector groups
+   that exist only for a mouse. Scroll position stands in for the pointer: the
+   component adds `.is-active` to whichever card is in the middle band of the
+   screen, and the selectors above simply list it alongside :hover.
+
+   Three of the hover effects are deliberately NOT on that list. The lift would
+   read as jitter while the page is moving under it, and the gold wash and the
+   1.05 photo scale were designed as momentary — held for as long as a portrait
+   is on screen they stop being a response and become a permanent tint on the
+   photographs, which is a visual change nobody asked for.
+   -------------------------------------------------------------------------- */
+
+/* --- Registration: naming the two columns ---------------------------------
+   Cards 1 and 2 put who is registering in the left column (Single, Couple);
+   card 3 puts which seminar (DLF, COL, Rotaract). Same column, same type, no
+   header — so a reader who has learned "left column is who you are" meets
+   "DLF Seminar" and reads a seminar as a kind of delegate. And the word fee
+   appeared nowhere in the section: the column answering "what does it cost"
+   was seven unlabelled "To be announced" strings.
+
+   Reuses the eyebrow scale exactly, so no new type size enters the card.
+   -------------------------------------------------------------------------- */
+
+.reg-card__expands {
+  margin: -1.6rem 0 2.4rem;
+  font-family: var(--font-abc-arizona-mix);
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  color: var(--primary-black);
+  opacity: 0.72;
+}
+
+.reg-card__feehead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.6rem;
+  margin: 0 0 0.4rem;
+  font-family: var(--font-soehne);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+  opacity: 0.55;
 }

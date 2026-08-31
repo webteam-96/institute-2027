@@ -38,7 +38,7 @@ export default function HeroCard() {
   const cardRef = useRef(null)
   const sheenRef = useRef(null)
   const wrapRef = useRef(null)
-  const scrollRef = useRef(null)
+  const layerRef = useRef(null)
   // 1 while the card is its own object, 0 once it has filled the screen. The
   // tilt reads it so the lean eases out as the card becomes the page.
   const flat = useRef(1)
@@ -96,7 +96,7 @@ export default function HeroCard() {
   useEffect(() => {
     const glass = cardRef.current
     const wrap = wrapRef.current
-    const cue = scrollRef.current
+    const layer = layerRef.current
     if (!glass || !wrap) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
@@ -116,27 +116,58 @@ export default function HeroCard() {
     const s0 = window.matchMedia('(min-width: 75rem)').matches ? 1 : 0.75
 
     const ctx = gsap.context(() => {
-      let w0, h0, r0, pad, padX, cue0
+      let w0, h0, r0, pad, padX, kMax
       const measure = () => {
         gsap.set(glass, { clearProps: 'width,height,borderRadius,maxWidth' })
         gsap.set(wrap, { clearProps: 'paddingTop,paddingLeft,paddingRight' })
-        // Read the cue's resting opacity rather than restating it here. It is
-        // deliberately under 1 in the stylesheet, so fading from a hard 1 would
-        // flash it brighter the instant the reader touched the wheel.
-        if (cue) {
-          gsap.set(cue, { clearProps: 'opacity' })
-          cue0 = parseFloat(getComputedStyle(cue).opacity) || 1
-        }
+        if (layer) layer.style.scale = ''
         // Unscaled before reading: getBoundingClientRect reports the scaled
         // box, so measuring mid-scrub would otherwise bake the scale into w0.
         gsap.set(glass, { scale: 1 })
         const b = glass.getBoundingClientRect()
         w0 = b.width
         h0 = b.height
-        r0 = parseFloat(getComputedStyle(glass).borderRadius) || 0
+        const gs = getComputedStyle(glass)
+        r0 = parseFloat(gs.borderRadius) || 0
         const ws = getComputedStyle(wrap)
         pad = parseFloat(ws.paddingTop) || 0
         padX = parseFloat(ws.paddingLeft) || 0
+
+        // How far the printing on the pane can grow with it.
+        //
+        // The pane grew and its contents did not, so at full screen a 42px
+        // title and a 225px mark sat marooned in the middle of a 1440x900
+        // sheet of glass. Rather than pick a number per breakpoint, this is
+        // measured from the two things that actually run out of room: the
+        // title never wraps, so it cannot exceed the card's inner width, and
+        // the whole block has to stay inside the card's inner height.
+        kMax = 1
+        if (layer) {
+          const lh = layer.getBoundingClientRect().height
+          const gpx = parseFloat(gs.paddingLeft) || 0
+          const gpy = parseFloat(gs.paddingTop) || 0
+          const title = glass.querySelector('.hero-card__title')
+          let tw = 0
+          if (title && title.firstChild) {
+            // The element is a full-width block with centred text, so its own
+            // rect says nothing about the ink. A range over the text does.
+            const range = document.createRange()
+            range.selectNodeContents(title)
+            tw = range.getBoundingClientRect().width
+          }
+          // Different margins on the two limits, because they are not the same
+          // kind of limit. Horizontally the card's own padding is already the
+          // gutter, so 0.96 just keeps the title off it. Vertically the block
+          // is centred in the pane and wants air above and below, so 0.88.
+          // On a phone the nowrap title is what binds — one flat margin of
+          // 0.88 ate the entire 11% of headroom it has and left the printing
+          // no growth of its own at all.
+          const byWidth = tw ? ((window.innerWidth - 2 * gpx) / tw) * 0.96 : Infinity
+          const byHeight = lh ? ((window.innerHeight - 2 * gpy) / lh) * 0.88 : Infinity
+          // The cap is taste: past about 1.6 the buttons stop reading as
+          // buttons and start reading as banners.
+          kMax = Math.max(1, Math.min(byWidth, byHeight, 1.54))
+        }
         // Pin the measured size as well as lifting the cap. The card is
         // `width: 100%` under a max-width, so removing the cap on its own left
         // it full-bleed from the first frame — onUpdate does not fire until you
@@ -183,10 +214,11 @@ export default function HeroCard() {
             paddingLeft: padX * (1 - g),
             paddingRight: padX * (1 - g),
           })
-          // The cue has done its job the moment you take it, so it goes on the
-          // first fifth of the scrub rather than riding along to full screen
-          // still asking to be scrolled.
-          if (cue) gsap.set(cue, { opacity: cue0 * clamp(0, 1, 1 - g * 5) })
+          // The printing grows with the pane. `scale` rather than `transform`:
+          // the layer already carries a translateZ that puts it in front of the
+          // glass for the tilt, and writing transform here would drop it back
+          // onto the same plane.
+          if (layer) layer.style.scale = String(1 + (kMax - 1) * g)
         },
       })
     }, wrap)
@@ -206,7 +238,7 @@ export default function HeroCard() {
         {/* Everything printed on the pane sits on its own plane in front of
             it, so the tilt gives real parallax between glass and content
             instead of moving them as one flat picture. */}
-        <div className="hero-card__layer">
+        <div className="hero-card__layer" ref={layerRef}>
           <img
             className="hero-card__logo"
             src="/media/logo.png"
@@ -247,7 +279,7 @@ export default function HeroCard() {
           {/* Hidden from assistive tech: "scroll down" describes a mouse
               gesture on a page a screen reader is already reading straight
               through, so announcing it only adds a step that does not exist. */}
-          <p className="hero-card__scroll" ref={scrollRef} aria-hidden="true">
+          <p className="hero-card__scroll" aria-hidden="true">
             <span>Scroll down</span>
             <span className="hero-card__chevrons">
               <svg viewBox="0 0 16 10" fill="none">
