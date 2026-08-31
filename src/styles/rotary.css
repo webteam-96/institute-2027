@@ -2071,3 +2071,73 @@ html.header-scrolled .styles_header_container__1oB4s {
   text-decoration: underline;
   text-underline-offset: 0.3em;
 }
+
+/* --- Footer bottom bar on a phone -----------------------------------------
+   The copyright line is placed at `grid-column: 11 / -1`, which is a column
+   that only exists on the 12-column desktop grid. The mobile grid has six, so
+   the line resolved to 0x0 and the footer carried no copyright at all on any
+   phone — invisible rather than clipped, which is why it survived every sweep
+   that looks for overflowing text.
+
+   The block beside it held the social links, which were removed on request, so
+   it is now an empty element reserving four of the six columns.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  .css-2h3am9 {
+    grid-column: 1 / -1;
+  }
+
+  .styles_bottom_privacy__QFgGC:empty {
+    display: none;
+  }
+}
+
+/* And the actual reason it was missing: the capture sets `display: none` on it
+   and only turns it back on from 48rem. Below that the footer simply had no
+   copyright line. */
+@media screen and (max-width: 47.99rem) {
+  .css-2h3am9 {
+    display: inline-grid;
+    margin-top: 2.4rem;
+  }
+}
+
+/* --- Phone tap targets -----------------------------------------------------
+   The menu links were `display: inline`, so each anchor's hit box was the full
+   53px line box of a 33px font while the list item beneath it was only 38px.
+   Consecutive boxes overlapped by 15px and the later sibling won the hit test,
+   which meant a thumb landing on the bottom of "Home" opened "Institute".
+   Blocking them makes each box its own line, and the padding takes them past
+   the 44px a finger actually needs.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  .styles_menus__items_item__eOxOq a {
+    display: block;
+    padding-block: 0.55rem;
+  }
+
+  /* The list is bottom-anchored and the last item sat 11px off the edge of the
+     screen, which on a tall phone is inside the home-indicator area. */
+  .styles_menus__items__hZxYX {
+    bottom: 3rem;
+  }
+
+  /* The hamburger measured 74.9 x 40.6 before the header grows on scroll. */
+  .styles_header_button_wrapper__wZC4v {
+    min-height: 4.4rem;
+  }
+
+  /* The only in-page way back to the homepage on a sub-page, at 42 x 21. */
+  .crumbs a {
+    display: inline-block;
+    padding-block: 1.2rem;
+  }
+
+  /* These two headings are the switch that opens the registration panels, and
+     they were 34px of bare text with nothing around them to catch a thumb. */
+  .styles_section_content__bHg04 .styles_label__u9J_K {
+    padding-block: 0.6rem;
+  }
+}

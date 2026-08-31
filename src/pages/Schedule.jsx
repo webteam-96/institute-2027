@@ -13,7 +13,7 @@ export default function Schedule() {
       <PageHero title="Program schedule" />
 
       <section className="section">
-        <p className="section__label">Programme</p>
+        <p className="section__label">Program</p>
 
         {programme.map((c) => (
           <article className="component" key={c.id} id={c.id}>
