@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-
 import PageHero from '../components/PageHero'
 import { event, trfEvents } from '../data/site'
 
@@ -57,12 +55,6 @@ export default function TrfEvents() {
             <dd>{event.address}</dd>
           </div>
         </dl>
-        <p className="trf__note">
-          Attendance and any charge for these two events will be confirmed with the rest of the
-          registration rates — see{' '}
-          <Link to="/registration">Registration Details</Link>, or write to us at{' '}
-          <a href={`mailto:${event.email}`}>{event.email}</a>.
-        </p>
       </section>
     </>
   )

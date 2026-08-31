@@ -2,13 +2,22 @@ import PageHero from '../components/PageHero'
 import { event, hotelDistance, hotels } from '../data/site'
 
 /**
+ * A Google Maps search rather than a pinned coordinate. The name and address
+ * are what the committee gave and what the chains publish; a lat/long would be
+ * a number nobody supplied, and a wrong pin sends a delegate to the wrong
+ * beach.
+ */
+const mapUrl = (h) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${h.name}, ${h.address}`)}`
+
+/**
  * Where to stay.
  *
- * Three hotels, each with its address, its distance from the venue and a link
- * to its own booking page. Deliberately not stated: rates, room types, or an
- * Institute allocation — none of that has been agreed, and implying a
- * negotiated block where there is none would have a delegate arrive expecting
- * a rate that does not exist.
+ * Three hotels, each with its address, its distance from the venue and a map
+ * link. Deliberately not stated: rates, room types, or an Institute
+ * allocation — none of that has been agreed, and implying a negotiated block
+ * where there is none would have a delegate arrive expecting a rate that does
+ * not exist.
  *
  * The distance is one figure for all three because that is the truth of it:
  * they share two kilometres of the same beach strip, and the road to Canaguinim
@@ -49,11 +58,11 @@ export default function Hotels() {
 
               <a
                 className="hotel__link"
-                href={h.site}
+                href={mapUrl(h)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Visit the hotel&rsquo;s website
+                Go to Map
               </a>
             </li>
           ))}
@@ -61,9 +70,6 @@ export default function Hotels() {
 
         <p className="hotels__note">
           Distances are approximate and measured by road to {event.venue}, Kital, Canaguinim.
-          Rooms are booked with the hotel directly &mdash; the Institute has not published an
-          allocation or a rate. For anything about accommodation, write to us at{' '}
-          <a href={`mailto:${event.email}`}>{event.email}</a>.
         </p>
       </section>
     </>
