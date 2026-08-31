@@ -169,6 +169,20 @@ export const registration = [
     rows: [['Single', null], ['Couple', null]],
   },
   {
+    id: 'trf',
+    name: 'TRF Events',
+    expands: 'The Rotary Foundation Dinner and Seminar',
+    axis: 'Event',
+    dates: '25 – 26 November 2027',
+    subject: 'TRF%20Events%20registration',
+    rows: [['TRF Dinner', null], ['TRF Seminar', null]],
+    // The homepage strip shows the three programme components the Institute
+    // runs as; these two sit alongside it and have their own page. Listed here
+    // so the registration page carries everything you can register for without
+    // a second source to keep in step.
+    onHome: false,
+  },
+  {
     id: 'adjunct',
     name: 'Adjunct Seminars',
     // This card's left column is a different axis from the other two: which

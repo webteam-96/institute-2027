@@ -138,7 +138,7 @@ export default function RegistrationDetails() {
       </div>
 
       <ul className="reg__list">
-        {registration.map((c) => (
+        {registration.filter((c) => c.onHome !== false).map((c) => (
           <li className="reg-card" key={c.id}>
             {/* A real element, not the ::before it used to be: it is drawn in
                 on arrival and runs the width of the card on hover, and GSAP

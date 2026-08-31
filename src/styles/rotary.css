@@ -2496,12 +2496,19 @@ html.header-scrolled .styles_header_container__1oB4s {
 
 .card-title--long {
   white-space: nowrap;
-  font-size: min(16rem, 8.2vw);
+  /* Sized against the text column, not the card. The card's right third is the
+     photograph, and at 8.2vw the name ran under it — the final "7" of 2027
+     disappeared behind the picture at 1920. 5.8vw keeps the whole name clear
+     of the image at every width, and the rem cap stops it growing past the
+     slot on a very wide screen. */
+  font-size: min(9.6rem, 5.8vw);
 }
 
 @media screen and (max-width: 74.99rem) {
   .card-title--long {
-    font-size: min(3.2rem, 8.2vw);
+    /* Below 75rem the photograph sits under the text rather than beside it, so
+       the whole width is available and the only limit is the page padding. */
+    font-size: min(3.2rem, 7.8vw);
   }
 }
 
