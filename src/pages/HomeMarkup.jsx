@@ -80,8 +80,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} srcSet="/media/venue-prithvi.jpg 1x, /media/venue-prithvi.jpg 2x" src="/media/venue-prithvi.jpg" />
-                      <img alt="projects" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" srcSet="/media/venue-prithvi.jpg 640w, /media/venue-prithvi.jpg 750w, /media/venue-prithvi.jpg 828w, /media/venue-prithvi.jpg 1080w, /media/venue-prithvi.jpg 1200w, /media/venue-prithvi.jpg 1920w" src="/media/venue-prithvi.jpg" />
+                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-prithvi.jpg" />
+                      <img alt="projects" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-prithvi.jpg" />
                     </div>
                   </div>
                 </div>
@@ -188,8 +188,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} srcSet="/media/venue-concourse.jpg 1x, /media/venue-concourse.jpg 2x" src="/media/venue-concourse.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" srcSet="/media/venue-concourse.jpg 640w, /media/venue-concourse.jpg 750w, /media/venue-concourse.jpg 828w, /media/venue-concourse.jpg 1080w, /media/venue-concourse.jpg 1200w, /media/venue-concourse.jpg 1920w" src="/media/venue-concourse.jpg" />
+                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-concourse.jpg" />
+                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-concourse.jpg" />
                     </div>
                   </div>
                 </div>
@@ -296,8 +296,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} srcSet="/media/venue-hall.jpg 1x, /media/venue-hall.jpg 2x" src="/media/venue-hall.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" srcSet="/media/venue-hall.jpg 640w, /media/venue-hall.jpg 750w, /media/venue-hall.jpg 828w, /media/venue-hall.jpg 1080w, /media/venue-hall.jpg 1200w, /media/venue-hall.jpg 1920w" src="/media/venue-hall.jpg" />
+                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-hall.jpg" />
+                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-hall.jpg" />
                     </div>
                   </div>
                 </div>
@@ -404,8 +404,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} srcSet="/media/venue-dining.jpg 1x, /media/venue-dining.jpg 2x" src="/media/venue-dining.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" srcSet="/media/venue-dining.jpg 640w, /media/venue-dining.jpg 750w, /media/venue-dining.jpg 828w, /media/venue-dining.jpg 1080w, /media/venue-dining.jpg 1200w, /media/venue-dining.jpg 1920w" src="/media/venue-dining.jpg" />
+                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-dining.jpg" />
+                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-dining.jpg" />
                     </div>
                   </div>
                 </div>
@@ -512,8 +512,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} srcSet="/media/stay-exterior.jpg 1x, /media/stay-exterior.jpg 2x" src="/media/stay-exterior.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" srcSet="/media/stay-exterior.jpg 640w, /media/stay-exterior.jpg 750w, /media/stay-exterior.jpg 828w, /media/stay-exterior.jpg 1080w, /media/stay-exterior.jpg 1200w, /media/stay-exterior.jpg 1920w" src="/media/stay-exterior.jpg" />
+                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/stay-exterior.jpg" />
+                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/stay-exterior.jpg" />
                     </div>
                   </div>
                 </div>
@@ -737,8 +737,8 @@ export default function HomeMarkup() {
               <div className="css-1tnhvnf">
                 <div className="css-1c6heav">
                   <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                    <img alt="logo" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent', objectFit: 'contain' }} srcSet="/media/placeholder.jpg 1x, /media/placeholder.jpg 2x" src="/media/placeholder.jpg" />
-                    <img alt="logo" loading="lazy" decoding="async" data-nimg="fill" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'contain', color: 'transparent' }} sizes="auto" srcSet="/media/placeholder.jpg 16w, /media/placeholder.jpg 32w, /media/placeholder.jpg 48w, /media/placeholder.jpg 64w, /media/placeholder.jpg 96w, /media/placeholder.jpg 128w, /media/placeholder.jpg 256w, /media/placeholder.jpg 384w, /media/placeholder.jpg 640w, /media/placeholder.jpg 750w, /media/placeholder.jpg 828w, /media/placeholder.jpg 1080w, /media/placeholder.jpg 1200w, /media/placeholder.jpg 1920w" src="/media/placeholder.jpg" />
+                    <img alt="logo" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent', objectFit: 'contain' }} src="/media/placeholder.jpg" />
+                    <img alt="logo" loading="lazy" decoding="async" data-nimg="fill" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'contain', color: 'transparent' }} sizes="auto" src="/media/placeholder.jpg" />
                   </div>
                 </div>
                 <div className="css-1c6heav">
@@ -755,8 +755,8 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-1c6heav">
                   <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                    <img alt="logo" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent', objectFit: 'contain' }} srcSet="/media/placeholder.jpg 1x, /media/placeholder.jpg 2x" src="/media/placeholder.jpg" />
-                    <img alt="logo" loading="lazy" decoding="async" data-nimg="fill" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'contain', color: 'transparent' }} sizes="auto" srcSet="/media/placeholder.jpg 16w, /media/placeholder.jpg 32w, /media/placeholder.jpg 48w, /media/placeholder.jpg 64w, /media/placeholder.jpg 96w, /media/placeholder.jpg 128w, /media/placeholder.jpg 256w, /media/placeholder.jpg 384w, /media/placeholder.jpg 640w, /media/placeholder.jpg 750w, /media/placeholder.jpg 828w, /media/placeholder.jpg 1080w, /media/placeholder.jpg 1200w, /media/placeholder.jpg 1920w" src="/media/placeholder.jpg" />
+                    <img alt="logo" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent', objectFit: 'contain' }} src="/media/placeholder.jpg" />
+                    <img alt="logo" loading="lazy" decoding="async" data-nimg="fill" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'contain', color: 'transparent' }} sizes="auto" src="/media/placeholder.jpg" />
                   </div>
                 </div>
                 <div className="css-1c6heav">
@@ -767,8 +767,8 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-1c6heav">
                   <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                    <img alt="logo" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent', objectFit: 'contain' }} srcSet="/media/placeholder.jpg 1x, /media/placeholder.jpg 2x" src="/media/placeholder.jpg" />
-                    <img alt="logo" loading="lazy" decoding="async" data-nimg="fill" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'contain', color: 'transparent' }} sizes="auto" srcSet="/media/placeholder.jpg 16w, /media/placeholder.jpg 32w, /media/placeholder.jpg 48w, /media/placeholder.jpg 64w, /media/placeholder.jpg 96w, /media/placeholder.jpg 128w, /media/placeholder.jpg 256w, /media/placeholder.jpg 384w, /media/placeholder.jpg 640w, /media/placeholder.jpg 750w, /media/placeholder.jpg 828w, /media/placeholder.jpg 1080w, /media/placeholder.jpg 1200w, /media/placeholder.jpg 1920w" src="/media/placeholder.jpg" />
+                    <img alt="logo" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent', objectFit: 'contain' }} src="/media/placeholder.jpg" />
+                    <img alt="logo" loading="lazy" decoding="async" data-nimg="fill" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'contain', color: 'transparent' }} sizes="auto" src="/media/placeholder.jpg" />
                   </div>
                 </div>
                 <div className="css-1c6heav">
@@ -877,13 +877,13 @@ export default function HomeMarkup() {
                           <div className="css-1wxd43s">
                             <div className="">
                               <span className="css-3w1c3c">
-                                Rotary Institute 2027 — 26 · 27 · 28 November
+                                26 · 27 · 28 November
                               </span>
                             </div>
                           </div>
                           <div className="css-jl85b3">
                             <div className="js-service-image css-1crm7gs">
-                              <img alt="Rotary Institute 2027" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} sizes="(max-width: 48em) 45vw, 33vw" srcSet="/media/event-plenary.jpg 256w, /media/event-plenary.jpg 384w, /media/event-plenary.jpg 640w, /media/event-plenary.jpg 750w, /media/event-plenary.jpg 828w, /media/event-plenary.jpg 1080w, /media/event-plenary.jpg 1200w, /media/event-plenary.jpg 1920w" src="/media/event-plenary.jpg" />
+                              <img alt="Rotary Institute 2027" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/event-plenary.jpg" />
                             </div>
                           </div>
                           <div className="css-ml05u1">
@@ -907,7 +907,7 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="Program schedule - Rotary Institute 2027" href="/schedule">
+                    <a title="Program schedule - Rotary Institute 2027" href="/schedule#institute">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
@@ -945,12 +945,12 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1f44veo">
               <div className="js-service-image css-1crm7gs">
-                <img alt="Rotary Institute 2027" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1.4' }} sizes="(max-width: 48em) 45vw, 33vw" srcSet="/media/event-plenary.jpg 256w, /media/event-plenary.jpg 384w, /media/event-plenary.jpg 640w, /media/event-plenary.jpg 750w, /media/event-plenary.jpg 828w, /media/event-plenary.jpg 1080w, /media/event-plenary.jpg 1200w, /media/event-plenary.jpg 1920w" src="/media/event-plenary.jpg" />
+                <img alt="Rotary Institute 2027" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/event-plenary.jpg" />
               </div>
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="Program schedule - Rotary Institute 2027" href="/schedule">
+                <a title="Program schedule - Rotary Institute 2027" href="/schedule#institute">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">
@@ -1006,13 +1006,13 @@ export default function HomeMarkup() {
                           <div className="css-1wxd43s">
                             <div className="">
                               <span className="css-3w1c3c">
-                                Governors Elect &amp; Governors Nominee Learning Seminars — 23 · 24 · 25 November
+                                Governors Elect Learning Seminars &amp; Governors Nominee Learning Seminars<span className="nowrap-dates">23 · 24 · 25 November</span>
                               </span>
                             </div>
                           </div>
                           <div className="css-jl85b3">
                             <div className="js-service-image css-1crm7gs">
-                              <img alt="Governors Elect and Governors Nominee Learning Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} sizes="(max-width: 48em) 45vw, 33vw" srcSet="/media/event-exhibition.jpg 256w, /media/event-exhibition.jpg 384w, /media/event-exhibition.jpg 640w, /media/event-exhibition.jpg 750w, /media/event-exhibition.jpg 828w, /media/event-exhibition.jpg 1080w, /media/event-exhibition.jpg 1200w, /media/event-exhibition.jpg 1920w" src="/media/event-exhibition.jpg" />
+                              <img alt="Governors Elect and Governors Nominee Learning Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/event-exhibition.jpg" />
                             </div>
                           </div>
                           <div className="css-ml05u1">
@@ -1036,7 +1036,7 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="Program schedule - GELS and GNLS" href="/schedule">
+                    <a title="Program schedule - GELS and GNLS" href="/schedule#gels-gnls">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
@@ -1074,12 +1074,12 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1f44veo">
               <div className="js-service-image css-1crm7gs">
-                <img alt="Governors Elect and Governors Nominee Learning Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1.4' }} sizes="(max-width: 48em) 45vw, 33vw" srcSet="/media/event-exhibition.jpg 256w, /media/event-exhibition.jpg 384w, /media/event-exhibition.jpg 640w, /media/event-exhibition.jpg 750w, /media/event-exhibition.jpg 828w, /media/event-exhibition.jpg 1080w, /media/event-exhibition.jpg 1200w, /media/event-exhibition.jpg 1920w" src="/media/event-exhibition.jpg" />
+                <img alt="Governors Elect and Governors Nominee Learning Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/event-exhibition.jpg" />
               </div>
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="Program schedule - GELS and GNLS" href="/schedule">
+                <a title="Program schedule - GELS and GNLS" href="/schedule#gels-gnls">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">
@@ -1135,13 +1135,13 @@ export default function HomeMarkup() {
                           <div className="css-1wxd43s">
                             <div className="">
                               <span className="css-3w1c3c">
-                                DLF, COL and the Rotaract Seminar — 25 November
+                                DLF, COL and the Rotaract Seminar<span className="nowrap-dates">25 November</span>
                               </span>
                             </div>
                           </div>
                           <div className="css-jl85b3">
                             <div className="js-service-image css-1crm7gs">
-                              <img alt="Pre-Institute Adjunct Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} sizes="(max-width: 48em) 45vw, 33vw" srcSet="/media/venue-hall.jpg 256w, /media/venue-hall.jpg 384w, /media/venue-hall.jpg 640w, /media/venue-hall.jpg 750w, /media/venue-hall.jpg 828w, /media/venue-hall.jpg 1080w, /media/venue-hall.jpg 1200w, /media/venue-hall.jpg 1920w" src="/media/venue-hall.jpg" />
+                              <img alt="Pre-Institute Adjunct Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/venue-hall.jpg" />
                             </div>
                           </div>
                           <div className="css-ml05u1">
@@ -1165,7 +1165,7 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="Program schedule - Pre-Institute Seminars" href="/schedule">
+                    <a title="Program schedule - Pre-Institute Seminars" href="/schedule#pre-institute">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
@@ -1203,12 +1203,12 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1f44veo">
               <div className="js-service-image css-1crm7gs">
-                <img alt="Pre-Institute Adjunct Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1.4' }} sizes="(max-width: 48em) 45vw, 33vw" srcSet="/media/venue-hall.jpg 256w, /media/venue-hall.jpg 384w, /media/venue-hall.jpg 640w, /media/venue-hall.jpg 750w, /media/venue-hall.jpg 828w, /media/venue-hall.jpg 1080w, /media/venue-hall.jpg 1200w, /media/venue-hall.jpg 1920w" src="/media/venue-hall.jpg" />
+                <img alt="Pre-Institute Adjunct Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/venue-hall.jpg" />
               </div>
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="Program schedule - Pre-Institute Seminars" href="/schedule">
+                <a title="Program schedule - Pre-Institute Seminars" href="/schedule#pre-institute">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">

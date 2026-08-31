@@ -7,6 +7,7 @@ import Schedule from './pages/Schedule'
 import GelsGnls from './pages/GelsGnls'
 import Committee from './pages/Committee'
 import HotelVenue from './pages/HotelVenue'
+import RegistrationPage from './pages/RegistrationPage'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
       <Route path="/gels-gnls" element={<Layout><GelsGnls /></Layout>} />
       <Route path="/committee" element={<Layout><Committee /></Layout>} />
       <Route path="/hotel-venue" element={<Layout><HotelVenue /></Layout>} />
+      <Route path="/registration" element={<Layout><RegistrationPage /></Layout>} />
       <Route path="*" element={<Layout><NotFound /></Layout>} />
     </Routes>
   )

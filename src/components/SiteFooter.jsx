@@ -99,9 +99,6 @@ export default function SiteFooter() {
                     8
                   </div>
                   <div className="Paragraph_paragraph__SId_Y css-cgpd9q">
-                    Goa, India
-                  </div>
-                  <div className="Paragraph_paragraph__SId_Y css-cgpd9q">
                     26 · 27 · 28 November 2027
                   </div>
                 </div>

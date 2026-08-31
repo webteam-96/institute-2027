@@ -138,3 +138,45 @@ export const committee = [
   { name: 'J. B. Kamdar', role: 'Chairman', photo: '/media/committee/jb-kamdar.jpg' },
   { name: 'Dr Lenny Da Costa', role: 'Secretary', photo: '/media/committee/lenny-da-costa.jpg' },
 ]
+
+/**
+ * What you can register for, in the three components the programme runs as.
+ *
+ * Every fee is genuinely unset — the committee has not agreed them — so each
+ * row carries null and renders as "To be announced" rather than a number
+ * nobody has approved. Nothing here is invented: the categories, the dates and
+ * the seminar names are the same ones `programme` above uses.
+ */
+export const registration = [
+  {
+    id: 'institute',
+    name: 'Rotary Institute 2027',
+    axis: 'Delegate',
+    dates: '26 · 27 · 28 November 2027',
+    subject: 'Institute%20registration',
+    rows: [['Single', null], ['Couple', null]],
+  },
+  {
+    id: 'gels-gnls',
+    name: 'GELS / GNLS',
+    expands: 'Governors Elect Learning Seminars & Governors Nominee Learning Seminars',
+    axis: 'Delegate',
+    dates: '23 – 25 November 2027',
+    subject: 'GELS%20and%20GNLS%20registration',
+    rows: [['Single', null], ['Couple', null]],
+  },
+  {
+    id: 'adjunct',
+    name: 'Adjunct Seminars',
+    // This card's left column is a different axis from the other two: which
+    // seminar, not who is registering.
+    axis: 'Seminar',
+    dates: '25 November 2027',
+    subject: 'Adjunct%20Seminars%20registration',
+    rows: [
+      ['DLF Seminar', null],
+      ['COL Seminar', null],
+      ['Rotaract Seminar', null],
+    ],
+  },
+]

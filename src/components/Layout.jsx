@@ -19,10 +19,31 @@ export default function Layout({ children }) {
   const location = useLocation()
 
   // A route change starts the new page at the top rather than wherever the
-  // previous one was scrolled to.
+  // previous one was scrolled to — unless the link named a section, in which
+  // case it starts there. The three programme cards on the homepage each link
+  // to their own component on the schedule, so "Program schedule" under GELS &
+  // GNLS has to land on the GELS & GNLS days rather than at the top of a page
+  // holding all three.
+  //
+  // Deferred a frame: the new route's markup does not exist yet when this
+  // effect runs on the first pass, so the element cannot be found. The page
+  // transition wipe is still covering the screen at this point, so the jump
+  // happens behind it either way.
   useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo(0, 0)
+      return
+    }
     window.scrollTo(0, 0)
-  }, [location.pathname])
+    const id = decodeURIComponent(location.hash.slice(1))
+    let raf = requestAnimationFrame(() => {
+      raf = requestAnimationFrame(() => {
+        const target = document.getElementById(id)
+        if (target) target.scrollIntoView({ block: 'start' })
+      })
+    })
+    return () => cancelAnimationFrame(raf)
+  }, [location.pathname, location.hash])
 
   return (
     <>

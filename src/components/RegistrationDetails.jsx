@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
-import { event } from '../data/site'
+import { event, registration } from '../data/site'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -24,41 +25,6 @@ gsap.registerPlugin(ScrollTrigger)
  * earlier — adding it back only in registration would contradict the programme.
  */
 
-const CATEGORIES = [
-  {
-    id: 'institute',
-    name: 'Rotary Institute 2027',
-    dates: '26 · 27 · 28 November 2027',
-    subject: 'Institute%20registration',
-    axis: 'Delegate',
-    rows: [['Single', null], ['Couple', null]],
-  },
-  {
-    id: 'gels-gnls',
-    name: 'GELS / GNLS',
-    // Spelled out from programme[1].name in site.js — the initialism alone
-    // tells a first-time visitor nothing.
-    expands: 'Governors Elect & Governors Nominee Learning Seminars',
-    dates: '23 – 25 November 2027',
-    subject: 'GELS%20and%20GNLS%20registration',
-    axis: 'Delegate',
-    rows: [['Single', null], ['Couple', null]],
-  },
-  {
-    id: 'adjunct',
-    name: 'Adjunct Seminars',
-    dates: '25 November 2027',
-    subject: 'Adjunct%20Seminars%20registration',
-    // This card's left column is a different axis from the other two: which
-    // seminar, not who is registering.
-    axis: 'Seminar',
-    rows: [
-      ['DLF Seminar', null],
-      ['COL Seminar', null],
-      ['Rotaract Seminar', null],
-    ],
-  },
-]
 
 export default function RegistrationDetails() {
   const root = useRef(null)
@@ -172,7 +138,7 @@ export default function RegistrationDetails() {
       </div>
 
       <ul className="reg__list">
-        {CATEGORIES.map((c) => (
+        {registration.map((c) => (
           <li className="reg-card" key={c.id}>
             {/* A real element, not the ::before it used to be: it is drawn in
                 on arrival and runs the width of the card on hover, and GSAP
@@ -189,7 +155,6 @@ export default function RegistrationDetails() {
                 already is — nothing here is a new fact. */}
             <p className="reg-card__feehead" aria-hidden="true">
               <span>{c.axis}</span>
-              <span>Fee</span>
             </p>
 
             <dl className="reg-card__fees">
@@ -219,6 +184,12 @@ export default function RegistrationDetails() {
           </li>
         ))}
       </ul>
+
+      <div className="reg__foot">
+        <Link className="reg__more" to="/registration">
+          Full registration details
+        </Link>
+      </div>
     </section>
   )
 }
