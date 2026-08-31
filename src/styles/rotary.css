@@ -2283,12 +2283,13 @@ html.header-scrolled .styles_header_container__1oB4s {
    -------------------------------------------------------------------------- */
 
 @media screen and (max-width: 74.99rem) {
-  /* The guard. `clip` rather than `hidden`: hidden would make the root a
-     scroll container and break the sticky the hero and the card stack pin
-     against. */
-  html {
-    overflow-x: clip;
-  }
+  /* No overflow guard on the root. `clip` was supposed to be the safe one —
+     it does not create a scroll container the way `hidden` does — but it still
+     killed `position: sticky` on the hero: the card scrolled away with the
+     page instead of holding, which left a screen of empty cream above the
+     yellow panel and made the scrub feel broken. The two things that were
+     actually over the edge are fixed below, at source, which is what the guard
+     was covering for. */
 
   /* The mark is position: fixed at width 390 with a 17px left offset, so its
      box alone ran 17px past the edge. Its inner box carries the aspect ratio
@@ -2328,7 +2329,15 @@ html.header-scrolled .styles_header_container__1oB4s {
   .css-edj2ce {
     height: auto;
     min-height: 0;
-    padding-block: 9rem;
+    /* No padding here. This element is transparent — the yellow is on the
+       child below — so padding on it renders as a band of page cream above and
+       below the panel, which is exactly the empty space it was meant to
+       remove. The breathing room goes inside the colour instead. */
+    padding-block: 0;
+  }
+
+  .css-130dp97 {
+    padding-block: 6rem;
   }
 
   .css-edj2ce .css-dru4ek,
