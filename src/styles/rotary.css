@@ -2433,3 +2433,24 @@ html.header-scrolled .styles_header_container__1oB4s {
     padding-top: 7.5rem;
   }
 }
+
+/* --- Phone: the empty band under the venue slider -------------------------
+   `.css-1h2ozsz` is a hard 200vh below 75rem — the height the section needs on
+   desktop, where it is a sticky the yellow panel slides off. On a phone it is
+   a plain block, and once the panel shrank to its sentence the wrapper was
+   reserving 1400px for 1168px of content: 232px of empty cream sitting between
+   the slider and whatever comes next. It can be as tall as what it holds.
+
+   (The section around it was already content-sized; the height was on this
+   child, which is why setting it on the section did nothing.)
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  .css-1h2ozsz,
+  /* And the section around it, which is its own 200vh. On its own this did
+     nothing — the child still reserved the full height — which is why the
+     first attempt at this looked like a no-op. */
+  .css-wyoub9 {
+    height: auto;
+  }
+}
