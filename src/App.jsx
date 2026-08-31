@@ -6,7 +6,8 @@ import About from './pages/About'
 import Schedule from './pages/Schedule'
 import GelsGnls from './pages/GelsGnls'
 import Committee from './pages/Committee'
-import HotelVenue from './pages/HotelVenue'
+import Venue from './pages/Venue'
+import Hotels from './pages/Hotels'
 import RegistrationPage from './pages/RegistrationPage'
 import TrfEvents from './pages/TrfEvents'
 import AdjunctSeminars from './pages/AdjunctSeminars'
@@ -19,7 +20,8 @@ export default function App() {
       <Route path="/schedule" element={<Layout><Schedule /></Layout>} />
       <Route path="/gels-gnls" element={<Layout><GelsGnls /></Layout>} />
       <Route path="/committee" element={<Layout><Committee /></Layout>} />
-      <Route path="/hotel-venue" element={<Layout><HotelVenue /></Layout>} />
+      <Route path="/hotels" element={<Layout><Hotels /></Layout>} />
+      <Route path="/venue" element={<Layout><Venue /></Layout>} />
       <Route path="/registration" element={<Layout><RegistrationPage /></Layout>} />
       <Route path="/trf-events" element={<Layout><TrfEvents /></Layout>} />
       <Route path="/adjunct-seminars" element={<Layout><AdjunctSeminars /></Layout>} />

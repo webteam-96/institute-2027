@@ -417,7 +417,7 @@ export default function SiteChrome() {
                       <div className="Container_container_grid__LWYyb css-l4y3fm">
                         <div className="css-16054k2">
                           <a
-                            href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20Institute%20registration`}
+                            href="/registration#institute"
                             className="ContactMenu_contactMenuItem__fp__K css-8atqhb"
                           >
                             <div className="css-wrhlkj">
@@ -431,7 +431,7 @@ export default function SiteChrome() {
                         </div>
                         <div className="css-1rmq3ew">
                           <a
-                            href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20GELS%20and%20GNLS%20registration`}
+                            href="/registration#gels-gnls"
                             className="ContactMenu_contactMenuItem__fp__K css-8atqhb"
                           >
                             <div className="css-wrhlkj">

@@ -8,19 +8,20 @@ const FACTS = [
   ['Pre-Institute', event.preDates],
 ]
 
+/* Two spaces, not three: the residency card moved to /hotels with the rest of
+   the accommodation, so this page is only ever about the building the
+   Institute happens in. */
 const SPACES = [
   ['/media/venue-exterior.jpg', 'The convention centre facade', 'Plenary hall',
    'A tiered auditorium sized for the full Institute.'],
   ['/media/venue-dining-tables.jpg', 'Banquet tables laid for a sitting', 'Dining',
    'A dining hall that turns over the whole Institute.'],
-  ['/media/stay-exterior.jpg', 'The residency block from the approach road', 'Residency',
-   'Accommodation on the same campus.'],
 ]
 
-export default function HotelVenue() {
+export default function Venue() {
   return (
     <>
-      <PageHero title="Hotel &amp; venue" />
+      <PageHero title="Venue" />
 
       <section className="section">
         <h2>The venue</h2>

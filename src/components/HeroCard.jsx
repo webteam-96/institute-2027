@@ -226,8 +226,6 @@ export default function HeroCard() {
     return () => ctx.revert()
   }, [])
 
-  const mailto = (subject) =>
-    `mailto:${event.email}?subject=Rotary%20Institute%202027%20%E2%80%94%20${subject}`
 
   return (
     <div className="hero-card" data-no-split ref={wrapRef}>
@@ -258,12 +256,12 @@ export default function HeroCard() {
           </p>
 
           <div className="hero-card__actions">
-            <a className="hero-card__btn" href={mailto('Institute%20registration')}>
+            <a className="hero-card__btn" href="/registration#institute">
               Register for the Institute
             </a>
             <a
               className="hero-card__btn hero-card__btn--ghost"
-              href={mailto('GELS%20and%20GNLS%20registration')}
+              href="/registration#gels-gnls"
             >
               Register for GELS &amp; GNLS
             </a>

@@ -623,7 +623,7 @@ export default function HomeMarkup() {
               </h3>
             </div>
             <div className="css-m04x7s">
-              <a href="/hotel-venue" className="css-1kmvrrj">
+              <a href="/venue" className="css-1kmvrrj">
                 <div className="css-1lpdf6v">
                   <div className="css-bm8kum">
                     <div className="css-l1tuuh">

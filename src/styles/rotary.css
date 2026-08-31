@@ -2654,3 +2654,162 @@ html.header-scrolled .styles_header_container__1oB4s {
     font-size: 2.8rem;
   }
 }
+
+/* --- Hotels ---------------------------------------------------------------
+   One row per hotel: its name and address, then the two numbers a delegate
+   actually needs, then the way to book it. No rate and no room type, because
+   none has been agreed.
+   -------------------------------------------------------------------------- */
+
+.hotels__lede {
+  max-width: 56ch;
+  font-family: var(--font-abc-arizona-mix);
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.45;
+}
+
+.hotels {
+  padding: 0 var(--padding-x) 8rem;
+}
+
+.hotels__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hotel {
+  display: grid;
+  gap: 2.4rem;
+  padding: 4rem 0;
+  border-top: 1px solid rgba(11, 37, 69, 0.14);
+}
+
+.hotel:last-child {
+  border-bottom: 1px solid rgba(11, 37, 69, 0.14);
+}
+
+@media screen and (min-width: 48rem) {
+  .hotel {
+    grid-template-columns: 1.5fr 1fr auto;
+    gap: var(--gap-x);
+    align-items: start;
+  }
+}
+
+.hotel__name {
+  margin: 0 0 1rem;
+  max-width: 22ch;
+  font-family: var(--font-soehne);
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media screen and (min-width: 75rem) {
+  .hotel__name {
+    font-size: 3.2rem;
+  }
+}
+
+.hotel__address {
+  margin: 0;
+  max-width: 30ch;
+  font-family: var(--font-abc-arizona-mix);
+  font-weight: 300;
+  font-size: 1.8rem;
+  line-height: 1.35;
+  opacity: 0.75;
+}
+
+.hotel__facts > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.6rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(11, 37, 69, 0.12);
+}
+
+.hotel__facts > div:last-child {
+  border-bottom: 1px solid rgba(11, 37, 69, 0.12);
+}
+
+.hotel__facts dt {
+  flex: none;
+  font-family: var(--font-soehne);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.hotel__facts dd {
+  margin: 0;
+  text-align: right;
+  font-size: 1.6rem;
+}
+
+.hotel__link {
+  align-self: start;
+  justify-self: start;
+  display: inline-block;
+  padding: 1.4rem 2.4rem;
+  border-radius: 0.8rem;
+  background: var(--primary-yellow);
+  color: var(--primary-black);
+  font-family: var(--font-soehne);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.024rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s var(--easeOutQuart, ease),
+    translate 0.4s var(--easeOutQuart, ease),
+    scale 0.18s var(--easeOutQuart, ease);
+}
+
+.hotel__link:hover,
+.hotel__link:focus-visible {
+  background: var(--rotary-gold);
+  translate: 0 -0.2rem;
+}
+
+.hotel__link:focus-visible {
+  outline: 2px solid var(--primary-black);
+  outline-offset: 3px;
+}
+
+.hotel__link:active {
+  scale: 0.97;
+}
+
+.hotels__note {
+  max-width: 62ch;
+  margin-top: 3.2rem;
+  font-family: var(--font-soehne);
+  font-size: 1.5rem;
+  line-height: 1.55;
+  opacity: 0.8;
+}
+
+.hotels__note a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hotel__link,
+  .hotel__link:hover,
+  .hotel__link:focus-visible,
+  .hotel__link:active {
+    transition: none;
+    translate: none;
+    scale: none;
+  }
+}

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
-import { event, registration } from '../data/site'
+import { registration } from '../data/site'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -176,7 +176,7 @@ export default function RegistrationDetails() {
 
             <a
               className="reg-card__btn"
-              href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20%E2%80%94%20${c.subject}`}
+              href={`/registration#${c.id}`}
             >
               <span>Register now</span>
               <svg className="reg-card__arrow" viewBox="0 0 16 12" fill="none" aria-hidden="true">

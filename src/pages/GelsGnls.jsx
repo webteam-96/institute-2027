@@ -84,15 +84,9 @@ export default function GelsGnls() {
         <p className="gels-where__dates">{event.preDates}</p>
         <h2>GELS &amp; GNLS Registration</h2>
         <p className="gels-where__actions">
-          <a
-            className="btn"
-            href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20GELS%20and%20GNLS%20registration`}
-          >
+          <a className="btn" href="/registration#gels-gnls">
             Click here to register
           </a>
-          <Link className="gels-where__alt" to="/registration#gels-gnls">
-            Registration details
-          </Link>
         </p>
       </section>
     </>

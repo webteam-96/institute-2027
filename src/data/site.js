@@ -24,7 +24,8 @@ export const nav = [
   { label: 'TRF Events', to: '/trf-events' },
   { label: 'Adjunct Seminars', to: '/adjunct-seminars' },
   { label: 'Committee', to: '/committee' },
-  { label: 'Hotel & Venue', to: '/hotel-venue' },
+  { label: 'Hotels', to: '/hotels' },
+  { label: 'Venue', to: '/venue' },
 ]
 
 export const social = [
@@ -121,7 +122,7 @@ export const programme = [
         weekday: 'Thursday',
         slots: [
           { time: '10.00 am – 5.00 pm', name: 'District Learning Facilitators Seminar (DLF)' },
-          { time: '10.00 am – 5.00 pm', name: 'Council on Legislation (COL) briefing' },
+          { time: '10.00 am – 5.00 pm', name: 'Council on Legislation (COL)' },
           { time: '10.00 am – 5.00 pm', name: 'Rotaract Seminar' },
         ],
       },
@@ -209,3 +210,44 @@ export const trfEvents = [
     time: '10.00 am – 2.00 pm',
   },
 ]
+
+/**
+ * The three hotels, as named by the committee.
+ *
+ * Addresses and the official booking pages are from each chain's own site, not
+ * from an aggregator. Nothing is said about rates, room types or an allocation
+ * — none of that has been agreed, and a hotel page that implies a negotiated
+ * block where there is none would mislead a delegate into expecting one.
+ *
+ * The distance is honest about what it is. All three sit on the same two
+ * kilometres of the Cavelossim-Mobor strip, and the road to Canaguinim runs
+ * south through Betul, so they share one figure rather than three invented
+ * ones that differ by a few hundred metres. It is marked approximate on the
+ * page and should be confirmed before the site goes live.
+ */
+export const hotels = [
+  {
+    id: 'holiday-inn',
+    name: 'Holiday Inn Resort Goa, an IHG Hotel',
+    address: 'Mobor Beach, Cavelossim, Salcete, South Goa 403731',
+    site: 'https://www.ihg.com/holidayinnresorts/hotels/us/en/goa/goiin/hoteldetail',
+  },
+  {
+    id: 'novotel',
+    name: 'Novotel Goa Dona Sylvia Resort',
+    address: 'Cavelossim Road, Mobor, Cavelossim, South Goa 403731',
+    site: 'https://all.accor.com/hotel/A6P4/index.en.shtml',
+  },
+  {
+    id: 'radisson',
+    name: 'Radisson Blu Resort Goa Cavelossim Beach',
+    address: 'Cavelossim Beach, Salcete, South Goa 403731',
+    site: 'https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-goa-cavelossim-beach',
+  },
+]
+
+/** Shared by all three — see the note above. */
+export const hotelDistance = {
+  road: 'about 11 km by road',
+  drive: 'roughly 25 minutes',
+}

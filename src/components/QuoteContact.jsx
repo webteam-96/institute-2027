@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
-import { event } from '../data/site'
 
 /**
  * The quote / contact spotlight the capture puts between every page and the
@@ -235,12 +234,12 @@ export default function QuoteContact() {
               <Spotlight
                 title="Register for Rotary Institute 2027"
                 cta="Click here to register"
-                href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20Institute%20registration`}
+                href="/registration#institute"
               />
               <Spotlight
                 title="Register for GELS &amp; GNLS"
                 cta="Click here to register"
-                href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20GELS%20and%20GNLS%20registration`}
+                href="/registration#gels-gnls"
               />
             </div>
           </div>

@@ -75,15 +75,9 @@ export default function AdjunctSeminars() {
         <p className="gels-where__dates">{adjunct.dates}</p>
         <h2>Adjunct Seminars Registration</h2>
         <p className="gels-where__actions">
-          <a
-            className="btn"
-            href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20—%20Adjunct%20Seminars%20registration`}
-          >
+          <a className="btn" href="/registration#adjunct">
             Click here to register
           </a>
-          <Link className="gels-where__alt" to="/registration#adjunct">
-            Registration details
-          </Link>
         </p>
       </section>
     </>
