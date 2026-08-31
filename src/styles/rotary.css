@@ -2271,23 +2271,7 @@ html.header-scrolled .styles_header_container__1oB4s {
   margin-top: 0.2em;
 }
 
-/* --- The mobile menu panel ------------------------------------------------
-   The capture's wedge is a diagonal that reaches only 65% of the width at the
-   bottom on a phone, and 40% between 768 and 1199 — which is exactly where the
-   six links sit. The links themselves stayed inside it, but the panel read as
-   a torn triangle slashed across the page rather than as a menu, with the page
-   showing through above and beside the list.
 
-   Keeps the diagonal, as a slanted top edge, and covers the screen below it.
-   Desktop is untouched: its own wedge enters from the left and has the whole
-   width at the bottom already.
-   -------------------------------------------------------------------------- */
-
-@media screen and (max-width: 74.99rem) {
-  .styles_menus_inner__9X7sY.styles_on_show__wWWIr {
-    clip-path: polygon(0% 9%, 100% 0%, 100% 100%, 0% 100%);
-  }
-}
 
 /* --- Nothing may be wider than the phone ----------------------------------
    Three separate things pushed the document past the viewport, and on a real
@@ -2367,5 +2351,85 @@ html.header-scrolled .styles_header_container__1oB4s {
 
   [class*='styles_footer'] [class*='styles_bottom__'] {
     padding-top: 4rem;
+  }
+}
+
+/* --- Phone: making the programme card fit the screen ----------------------
+   The card only pins — and so only animates — when its content fits the
+   viewport, because a pinned card is position: fixed and anything below the
+   fold moves with the screen instead of scrolling into reach. At 390x700, the
+   size a handset actually gives you once the browser chrome is showing, the
+   content ran to 926px against 700. Every step below is measured off that
+   926: the padding and the two display sizes are the bulk of it, and the
+   photograph gives up the rest.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  .css-jop0w3,
+  .css-615dn9,
+  .css-umltmr,
+  .css-fnivcm {
+    padding-top: 2.4rem !important;
+    padding-bottom: 2.4rem !important;
+  }
+
+  /* The card's own name, and the 01/02/03 beside it. */
+  .css-hj2ayb {
+    font-size: 3.2rem;
+    letter-spacing: -0.1rem;
+    padding-bottom: 1.6rem;
+  }
+
+  .css-cg4oga {
+    font-size: 3.4rem;
+  }
+
+  /* The subtitle. The long ones — both seminars spelled out — take the bigger
+     cut, as they do on desktop. */
+  .css-3w1c3c {
+    font-size: 2.3rem;
+    line-height: 1.2;
+  }
+
+  .card-sub--long {
+    font-size: 1.75rem;
+    line-height: 1.16;
+  }
+
+  /* Wider than tall on a phone, where the column is narrow: the portrait crop
+     the capture uses spends 250px of a 700px screen on one photograph. */
+  .css-1crm7gs {
+    aspect-ratio: 1.5;
+  }
+
+  /* The note under the photograph. */
+  .css-1s3y6l3,
+  .css-19z4pko {
+    font-size: 1.5rem;
+    line-height: 1.35;
+  }
+
+  /* The last 14px on the two longer cards: the photograph gives it up rather
+     than the copy, because the copy is the part anyone reads. */
+  .css-1crm7gs {
+    aspect-ratio: 1.62;
+  }
+}
+
+/* --- Phone: the venue section ---------------------------------------------
+   The section is a fixed 200svh, which was right while the panel inside it was
+   a full screen tall. Now that the panel is only as tall as its sentence, the
+   section reserved 1400px for 1168px of content and left 232px of empty cream
+   under the slider. Below 75rem it is a plain block, so it can be as tall as
+   what it holds.
+
+   And the slide's own headline sat under the fixed header: the caption block
+   fills the slide and starts its first row at the very top, so the first line
+   of "ATI ONGC: one room, every zone, one programme." was sliced by the bar.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  .css-1ot8zsz {
+    padding-top: 7.5rem;
   }
 }
