@@ -145,9 +145,17 @@ export default function RegistrationDetails() {
                 cannot reach a pseudo-element. */}
             <span className="reg-card__rule" aria-hidden="true" />
 
-            <p className="reg-card__dates">{c.dates}</p>
-            <h3 className="reg-card__name">{c.name}</h3>
-            {c.expands ? <p className="reg-card__expands">{c.expands}</p> : null}
+            <div className="reg-card__stub">
+              <p className="reg-card__dates">{c.dates}</p>
+              <h3 className="reg-card__name">{c.name}</h3>
+              {c.expands ? <p className="reg-card__expands">{c.expands}</p> : null}
+            </div>
+
+            {/* The tear. A real element rather than a percentage down the
+                card, because the three heads are not the same height and a
+                percentage would put each notch at a different place on its
+                own card. Its two pseudo-elements are the punched edges. */}
+            <span className="reg-card__tear" aria-hidden="true" />
 
             {/* Outside the <dl>, not in it: a div that is neither dt nor dd is
                 invalid there, and it would shift the :nth-child wipe delays and

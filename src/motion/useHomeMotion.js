@@ -158,10 +158,18 @@ export default function useHomeMotion() {
           // panel (spec 11a). Its DOM copy is a measuring aid, split below for
           // its line strings — splitting it twice would nest the wrappers.
           !node.closest('.css-130dp97') &&
-          // Slides the stylesheet keeps hidden (the venue slider shows one at a
-          // time) must stay hidden. Revealing them stacks every caption in the
-          // same spot.
-          getComputedStyle(node).visibility !== 'hidden' &&
+          // Blocks the stylesheet keeps hidden must stay hidden — revealing
+          // them stacks text in the same spot.
+          //
+          // The venue slider's captions are the exception, and they have to be.
+          // Only one slide is visible at mount, so the other four captions were
+          // excluded here, never split, and never painted — the slider would
+          // change the picture and the words under it would simply be gone from
+          // the second slide on. Four of the five venue captions were
+          // unreadable. They are safe to include because the slider hides the
+          // whole slide, not the caption, so revealing all five stacks nothing:
+          // the four inactive ones are inside a hidden parent either way.
+          (getComputedStyle(node).visibility !== 'hidden' || !!node.closest('.css-1ot8zsz')) &&
           // The capture ships a mobile and a desktop copy of several blocks and
           // lets a media query drop one. Splitting the dropped copy would
           // animate text nobody can see — and would double the line count.

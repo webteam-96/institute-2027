@@ -2141,3 +2141,150 @@ html.header-scrolled .styles_header_container__1oB4s {
     padding-block: 0.6rem;
   }
 }
+
+/* --- Registration cards as tickets ----------------------------------------
+   A ticket is a stub and a body with a perforation between them. The notches
+   are punched with a mask rather than drawn with pseudo-elements: a circle
+   filled with the page colour and laid over the card only looks like a hole
+   while the card is opaque and the two colours match exactly, and it never
+   looks like one where it overhangs into the gutter.
+
+   A mask takes the box-shadow with it — the shadow is painted outside the
+   border box, so it is masked away with everything else — which is why the
+   lift is a filter: drop-shadow here. That follows the masked silhouette, so
+   the shadow curves into the notches instead of squaring across them. For the
+   same reason the card carries no border: a border cannot follow a mask, and
+   it would have drawn straight through both holes.
+   -------------------------------------------------------------------------- */
+
+.reg-card {
+  /* Where the perforation sits, measured from the top of the card: its own
+     padding, plus the stub's common height, plus the tear's lead. Both the
+     mask below and the dashed rule read this, so they cannot drift apart. */
+  /* Measured, not guessed: padding-top + the rule + its lead + the stub, then
+     half the gap below the stub. The gap is what the perforation needs — with
+     none, it ran straight through the column label under it. */
+  --tear-y: 17.8rem;
+  --notch: 1.2rem;
+
+  position: relative;
+  border: 0;
+  /* Opaque. The notches are cut, not painted, so nothing shows through the
+     card any more and the translucency had nothing left to do. */
+  background: #fbf9f5;
+  box-shadow: none;
+  filter: drop-shadow(0 0.6rem 1.2rem rgba(11, 37, 69, 0.10))
+          drop-shadow(0 2.4rem 4rem rgba(11, 37, 69, 0.14));
+
+  -webkit-mask:
+    radial-gradient(circle var(--notch) at left var(--tear-y), transparent 98%, #000 100%),
+    radial-gradient(circle var(--notch) at right var(--tear-y), transparent 98%, #000 100%);
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(circle var(--notch) at left var(--tear-y), transparent 98%, #000 100%),
+    radial-gradient(circle var(--notch) at right var(--tear-y), transparent 98%, #000 100%);
+  mask-composite: intersect;
+}
+
+@media screen and (min-width: 48rem) {
+  .reg-card {
+    --tear-y: 21rem;
+  }
+}
+
+/* The stub. A common height so the perforation lands at the same place on all
+   three tickets even though only the middle one carries an expanded name. */
+.reg-card__stub {
+  min-height: 10.4rem;
+  margin-bottom: 2.8rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .reg-card__stub {
+    min-height: 13.6rem;
+  }
+}
+
+/* The perforation itself: dashes from notch to notch, positioned off the same
+   variable the mask uses. */
+.reg-card__tear {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--tear-y);
+  height: 0;
+  margin: 0;
+  border-top: 1px dashed rgba(11, 37, 69, 0.22);
+}
+
+/* The hover lift moves the card; the filter shadow moves with it, so the
+   shadow no longer needs its own transition. */
+.reg-card:hover,
+.reg-card:focus-within {
+  box-shadow: none;
+  filter: drop-shadow(0 0.8rem 1.6rem rgba(11, 37, 69, 0.12))
+          drop-shadow(0 3.6rem 5.6rem rgba(11, 37, 69, 0.20));
+}
+
+/* The band across the top of the ticket. */
+.reg-card__rule {
+  height: 3px;
+}
+
+/* --- The event's name -----------------------------------------------------
+   Set in Soehne at the heaviest weight this build actually ships. Worth
+   knowing: the site loads three font files in total — Soehne at 300 and 400,
+   and ABCArizonaMix at 300 — so there is no real bold anywhere on it. A
+   declaration of 700 would be synthesised by the browser, which smears the
+   stems at this size; 500 resolves to Soehne kraftig, the heaviest true face
+   available. A genuine bold needs the weight adding to /public/fonts.
+   -------------------------------------------------------------------------- */
+
+.hero-card__title {
+  font-family: var(--font-soehne);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+/* --- Long programme-card titles -------------------------------------------
+   Spelling both seminars out in full put card 02's title on six lines against
+   card 01's two — 239px against 69px — and that 170px pushed its "Program
+   schedule" link off the bottom of any laptop-height screen. At 1440x720 the
+   link sat at y702-762 against a 720px viewport and simply could not be seen.
+
+   Text height falls with the square of the size (a smaller face fits more
+   characters per line AND sets them on shorter lines), so a step down from
+   36px to 26px roughly halves the block and brings the link back up into the
+   card without shortening a word of the name.
+   -------------------------------------------------------------------------- */
+
+@media screen and (min-width: 75rem) {
+  .card-sub--long {
+    font-size: 3.4rem;
+    line-height: 1.14;
+  }
+}
+
+/* The dates already sit on their own line; the extra lead on top of that was
+   a seventh line's worth of space on the tallest card. */
+.nowrap-dates {
+  margin-top: 0.2em;
+}
+
+/* --- The mobile menu panel ------------------------------------------------
+   The capture's wedge is a diagonal that reaches only 65% of the width at the
+   bottom on a phone, and 40% between 768 and 1199 — which is exactly where the
+   six links sit. The links themselves stayed inside it, but the panel read as
+   a torn triangle slashed across the page rather than as a menu, with the page
+   showing through above and beside the list.
+
+   Keeps the diagonal, as a slanted top edge, and covers the screen below it.
+   Desktop is untouched: its own wedge enters from the left and has the whole
+   width at the bottom already.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  .styles_menus_inner__9X7sY.styles_on_show__wWWIr {
+    clip-path: polygon(0% 9%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}

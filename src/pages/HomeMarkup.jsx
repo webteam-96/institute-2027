@@ -862,8 +862,8 @@ export default function HomeMarkup() {
             <div className="css-3yenu1">
               <div className="css-1xs4ei8">
                 <div className="css-112kalm">
-                  <h4 className="css-hj2ayb">
-                    Institute
+                  <h4 className="css-hj2ayb card-title--long">
+                    Rotary Institute 2027
                   </h4>
                   <div className="css-16wafc">
                     <div className="css-2ehw24">
@@ -1005,7 +1005,7 @@ export default function HomeMarkup() {
                         <div className="css-10a9grd">
                           <div className="css-1wxd43s">
                             <div className="">
-                              <span className="css-3w1c3c">
+                              <span className="css-3w1c3c card-sub--long">
                                 Governors Elect Learning Seminars &amp; Governors Nominee Learning Seminars<span className="nowrap-dates">23 · 24 · 25 November</span>
                               </span>
                             </div>
@@ -1134,7 +1134,7 @@ export default function HomeMarkup() {
                         <div className="css-10a9grd">
                           <div className="css-1wxd43s">
                             <div className="">
-                              <span className="css-3w1c3c">
+                              <span className="css-3w1c3c card-sub--long">
                                 DLF, COL and the Rotaract Seminar<span className="nowrap-dates">25 November</span>
                               </span>
                             </div>
