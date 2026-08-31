@@ -2288,3 +2288,84 @@ html.header-scrolled .styles_header_container__1oB4s {
     clip-path: polygon(0% 9%, 100% 0%, 100% 100%, 0% 100%);
   }
 }
+
+/* --- Nothing may be wider than the phone ----------------------------------
+   Three separate things pushed the document past the viewport, and on a real
+   handset that is not harmless: the layout viewport grows, so the fixed header
+   is laid out wider than the screen and its yellow hamburger block renders off
+   the right edge. A resized desktop browser hides this — body's overflow-x
+   propagates to the viewport there and simply refuses to pan — which is why it
+   took a photograph of an actual phone to see it.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  /* The guard. `clip` rather than `hidden`: hidden would make the root a
+     scroll container and break the sticky the hero and the card stack pin
+     against. */
+  html {
+    overflow-x: clip;
+  }
+
+  /* The mark is position: fixed at width 390 with a 17px left offset, so its
+     box alone ran 17px past the edge. Its inner box carries the aspect ratio
+     off its height, so the figure never needed a width. */
+  [class*='styles_logo'] {
+    width: -moz-max-content;
+    width: max-content;
+    max-width: calc(100% - var(--padding-x) * 2);
+  }
+
+  /* The programme-card photo zooms from 1.4 to 1 as the card arrives, and the
+     thing being scaled is the frame, not the picture inside it. On desktop the
+     card is wide enough to absorb that; on a phone the frame already reaches
+     the page padding, so every frame of the zoom hung 30px off the screen and
+     the photo looked cut. Clipping at the frame's own parent turns it back
+     into what it was meant to be — the picture moving inside a fixed window. */
+  .css-jl85b3 {
+    overflow: clip;
+    border-radius: 2rem;
+  }
+}
+
+/* --- Phone: the yellow statement panel ------------------------------------
+   A full 100svh with 281px of text centred in it left 419px of empty yellow —
+   more than half the screen carrying nothing. On desktop the height is load
+   bearing (the panel slides up off a sticky to reveal the slider behind it);
+   below 75rem the stylesheet makes it a plain block, so it can simply be as
+   tall as what it holds.
+
+   The face changes with it. This is the one sentence on the page that speaks
+   about the event rather than listing a fact, and the serif already carries
+   the venue and the card copy — it reads as a statement in it rather than as
+   another heading.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  .css-edj2ce {
+    height: auto;
+    min-height: 0;
+    padding-block: 9rem;
+  }
+
+  .css-edj2ce .css-dru4ek,
+  .css-edj2ce h2 {
+    font-family: var(--font-abc-arizona-mix);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+
+  /* --- and the footer ---------------------------------------------------
+     83px between every footer block, and a further 274px of empty navy
+     between the last Explore link and the wordmark. */
+  [class*='styles_top__'] {
+    row-gap: 4rem;
+  }
+
+  [class*='styles_top_explore__'] {
+    margin-bottom: 0;
+  }
+
+  [class*='styles_footer'] [class*='styles_bottom__'] {
+    padding-top: 4rem;
+  }
+}

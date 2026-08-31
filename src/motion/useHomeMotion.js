@@ -203,6 +203,19 @@ export default function useHomeMotion() {
           getComputedStyle(n).getPropertyValue('--is-odd').trim() !==
             getComputedStyle(n.parentElement).getPropertyValue('--is-odd').trim()
 
+        // The card's box is not the whole card: its content overflows it, and
+        // `overflow` is visible, so the box height understates what is on
+        // screen. Measure the real extent from the children.
+        const fitsOnScreen = (card) => {
+          const top = card.getBoundingClientRect().top
+          let bottom = top
+          card.querySelectorAll('*').forEach((n) => {
+            const b = n.getBoundingClientRect()
+            if (b.width > 0 && b.height > 0 && b.bottom > bottom) bottom = b.bottom
+          })
+          return bottom - top <= window.innerHeight
+        }
+
         const cards = []
         el.querySelectorAll('.js-service-image').forEach((img) => {
           let n = img
@@ -241,7 +254,18 @@ export default function useHomeMotion() {
               : window.matchMedia('(min-width:75rem)').matches
                 ? 'bottom top-=50%'
                 : 'bottom top',
-            pin: true,
+            // Pin only what fits on the screen.
+            //
+            // Pinning makes the card position: fixed, so anything of it that
+            // hangs below the viewport can never be scrolled to — it moves with
+            // the screen. On a phone the card's content runs past its own box
+            // (874px of content in a 682px card at a 700px viewport, which is
+            // what a handset gives you once the browser chrome is showing), so
+            // the "Program schedule" link sat 190px below the fold for the
+            // whole of the pin and simply could not be reached. A card that
+            // does not fit scrolls normally instead; it still shrinks and
+            // rotates, because that is driven by --progress, not by the pin.
+            pin: fitsOnScreen(card),
             pinSpacing: false,
             onUpdate: (self) => {
               // The last card never shrinks — it is the one left on screen.
