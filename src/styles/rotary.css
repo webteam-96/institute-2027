@@ -2485,3 +2485,172 @@ html.header-scrolled .styles_header_container__1oB4s {
     margin-bottom: 0;
   }
 }
+
+/* --- The programme card's own name, on one line ---------------------------
+   "Rotary Institute 2027" is three times the length of the "Institute" this
+   slot was built for, so at the capture's 16rem it wrapped. It stays on one
+   line and takes whatever size that allows: the vw term is what does the work
+   at every width, and the rem cap keeps it from outgrowing the slot on a very
+   wide screen.
+   -------------------------------------------------------------------------- */
+
+.card-title--long {
+  white-space: nowrap;
+  font-size: min(16rem, 8.2vw);
+}
+
+@media screen and (max-width: 74.99rem) {
+  .card-title--long {
+    font-size: min(3.2rem, 8.2vw);
+  }
+}
+
+/* --- TRF Events -----------------------------------------------------------
+   Two events, so a pair of dated rows rather than a table — two rows is not a
+   table. The day carries the structure because that is what a delegate scans
+   for, the same way the GELS days do.
+   -------------------------------------------------------------------------- */
+
+.trf__lede {
+  max-width: 56ch;
+  font-family: var(--font-abc-arizona-mix);
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.45;
+}
+
+.trf {
+  padding: 0 var(--padding-x) 8rem;
+}
+
+.trf__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trf-card {
+  display: grid;
+  gap: 1.6rem;
+  padding: 3.2rem 0;
+  border-top: 1px solid rgba(11, 37, 69, 0.14);
+}
+
+.trf-card:last-child {
+  border-bottom: 1px solid rgba(11, 37, 69, 0.14);
+}
+
+@media screen and (min-width: 48rem) {
+  .trf-card {
+    grid-template-columns: 16rem 1fr;
+    gap: var(--gap-x);
+    align-items: baseline;
+  }
+}
+
+.trf-card__when {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 0;
+}
+
+.trf-card__day {
+  font-family: var(--font-soehne);
+  font-weight: 500;
+  font-size: 4.8rem;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.trf-card__weekday {
+  font-family: var(--font-soehne);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.trf-card__name {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-soehne);
+  font-weight: 500;
+  font-size: 2.8rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+@media screen and (min-width: 75rem) {
+  .trf-card__name {
+    font-size: 3.6rem;
+  }
+}
+
+.trf-card__date {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-soehne);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.trf-card__time {
+  margin: 0;
+  font-family: var(--font-abc-arizona-mix);
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.35;
+}
+
+.trf__note {
+  max-width: 56ch;
+  margin-top: 3.2rem;
+  font-family: var(--font-soehne);
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.trf__note a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* --- Eight items on the bar -----------------------------------------------
+   Two more pages put "TRF Events", "Adjunct Seminars" and "Hotel & Venue" onto
+   two lines each, which reads as a cramped list rather than a bar. Each label
+   stays on its own line and the row gives back the space by tightening.
+   -------------------------------------------------------------------------- */
+
+@media screen and (min-width: 75rem) {
+  .site-nav a {
+    white-space: nowrap;
+  }
+
+  .site-nav ul {
+    gap: 2.2rem;
+  }
+
+  .site-nav {
+    padding-left: 2rem;
+  }
+}
+
+/* The adjunct columns carry a seminar rather than a day, so the name is the
+   heading and there is no date block above it. */
+.adjunct-day__name {
+  margin: 0.8rem 0 0;
+  font-family: var(--font-soehne);
+  font-weight: 500;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@media screen and (min-width: 75rem) {
+  .adjunct-day__name {
+    font-size: 2.8rem;
+  }
+}

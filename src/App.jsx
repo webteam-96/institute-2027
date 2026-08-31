@@ -8,6 +8,8 @@ import GelsGnls from './pages/GelsGnls'
 import Committee from './pages/Committee'
 import HotelVenue from './pages/HotelVenue'
 import RegistrationPage from './pages/RegistrationPage'
+import TrfEvents from './pages/TrfEvents'
+import AdjunctSeminars from './pages/AdjunctSeminars'
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
       <Route path="/committee" element={<Layout><Committee /></Layout>} />
       <Route path="/hotel-venue" element={<Layout><HotelVenue /></Layout>} />
       <Route path="/registration" element={<Layout><RegistrationPage /></Layout>} />
+      <Route path="/trf-events" element={<Layout><TrfEvents /></Layout>} />
+      <Route path="/adjunct-seminars" element={<Layout><AdjunctSeminars /></Layout>} />
       <Route path="*" element={<Layout><NotFound /></Layout>} />
     </Routes>
   )

@@ -21,6 +21,8 @@ export const nav = [
   { label: 'Institute', to: '/about' },
   { label: 'GELS/GNLS', to: '/gels-gnls' },
   { label: 'Schedule', to: '/schedule' },
+  { label: 'TRF Events', to: '/trf-events' },
+  { label: 'Adjunct Seminars', to: '/adjunct-seminars' },
   { label: 'Committee', to: '/committee' },
   { label: 'Hotel & Venue', to: '/hotel-venue' },
 ]
@@ -178,5 +180,32 @@ export const registration = [
       ['COL Seminar', null],
       ['Rotaract Seminar', null],
     ],
+  },
+]
+
+/**
+ * The Rotary Foundation events, as supplied by the committee.
+ *
+ * These sit alongside the Institute rather than inside it — they were taken
+ * out of the programme earlier and are given their own page here — so they are
+ * their own list rather than a fourth `programme` component. Only what was
+ * given: a name, a date and a time each.
+ */
+export const trfEvents = [
+  {
+    id: 'trf-dinner',
+    name: 'TRF Dinner',
+    day: '25',
+    weekday: 'Thursday',
+    date: '25 November 2027',
+    time: '7.00 pm onwards',
+  },
+  {
+    id: 'trf-seminar',
+    name: 'TRF Seminar',
+    day: '26',
+    weekday: 'Friday',
+    date: '26 November 2027',
+    time: '10.00 am – 2.00 pm',
   },
 ]

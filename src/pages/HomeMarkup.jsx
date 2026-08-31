@@ -66,10 +66,10 @@ export default function HomeMarkup() {
           </template>
           <div className="css-130dp97">
             <div className="css-dru4ek">
-              Rotary Institute 2027, hosted at ATI ONGC, Goa’s largest convention centre.
+              Rotary Institute 2027, hosted in Goa at ATI ONGC, Goa’s largest convention centre.
             </div>
             <div className="css-dwl3oz">
-              Rotary Institute 2027, hosted at ATI ONGC, Goa’s largest convention centre.
+              Rotary Institute 2027, hosted in Goa at ATI ONGC, Goa’s largest convention centre.
             </div>
           </div>
         </div>
