@@ -2093,15 +2093,10 @@ html.header-scrolled .styles_header_container__1oB4s {
   }
 }
 
-/* And the actual reason it was missing: the capture sets `display: none` on it
-   and only turns it back on from 48rem. Below that the footer simply had no
-   copyright line. */
-@media screen and (max-width: 47.99rem) {
-  .css-2h3am9 {
-    display: inline-grid;
-    margin-top: 2.4rem;
-  }
-}
+/* It was never missing. The capture hides `.css-2h3am9` below 48rem because it
+   ships a separate mobile copyright — `.styles_is_on_mobile__VDdAY`, at the
+   very bottom under the wordmark — and showing both put the line on the page
+   twice. I had measured the one element and never looked for the variant. */
 
 /* --- Phone tap targets -----------------------------------------------------
    The menu links were `display: inline`, so each anchor's hit box was the full
@@ -2461,5 +2456,32 @@ html.header-scrolled .styles_header_container__1oB4s {
      first attempt at this looked like a no-op. */
   .css-wyoub9 {
     height: auto;
+  }
+}
+
+/* --- Phone: close the footer's gaps ---------------------------------------
+   222px of empty navy between the last Explore link and the GOA 2027
+   wordmark, then more before the copyright. The bulk of it is a 12rem
+   margin above the wordmark block, which is the desktop's proportion carried
+   down to a screen a third the width.
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 74.99rem) {
+  .css-x2xxex {
+    margin-top: 4rem;
+  }
+
+  /* The trailing space inside the block above it. Its second child is the
+     bottom bar, which is empty on a phone — the copyright there is hidden
+     because the capture ships a separate mobile one under the wordmark — but
+     an empty grid item still takes the 8rem gap before it. */
+  .css-g1xylv {
+    padding-bottom: 0;
+    gap: 0;
+  }
+
+  [class*='styles_top__'] {
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }
