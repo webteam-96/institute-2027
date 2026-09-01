@@ -2056,6 +2056,12 @@ html.header-scrolled .styles_header_container__1oB4s {
 }
 
 .gels-days__more a {
+  /* Inline-block with real padding: as bare inline text this was a 211x22
+     target, which is under the 24px a finger can reliably hit and well under
+     the 44px it wants. The underline stays where it was — the padding grows
+     the box, not the type. */
+  display: inline-block;
+  padding-block: 1.2rem;
   font-family: var(--font-soehne);
   font-size: 1.4rem;
   font-weight: 500;
