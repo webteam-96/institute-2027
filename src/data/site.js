@@ -237,18 +237,21 @@ export const trfEvents = [
 export const hotels = [
   {
     id: 'holiday-inn',
+    image: '/media/stay-exterior.jpg',
     name: 'Holiday Inn Resort Goa, an IHG Hotel',
     address: 'Mobor Beach, Cavelossim, Salcete, South Goa 403731',
     site: 'https://www.ihg.com/holidayinnresorts/hotels/us/en/goa/goiin/hoteldetail',
   },
   {
     id: 'novotel',
+    image: '/media/stay-grounds.jpg',
     name: 'Novotel Goa Dona Sylvia Resort',
     address: 'Cavelossim Road, Mobor, Cavelossim, South Goa 403731',
     site: 'https://all.accor.com/hotel/A6P4/index.en.shtml',
   },
   {
     id: 'radisson',
+    image: '/media/stay-atrium.jpg',
     name: 'Radisson Blu Resort Goa Cavelossim Beach',
     address: 'Cavelossim Beach, Salcete, South Goa 403731',
     site: 'https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-goa-cavelossim-beach',

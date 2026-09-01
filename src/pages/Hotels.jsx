@@ -19,6 +19,12 @@ const mapUrl = (h) =>
  * where there is none would have a delegate arrive expecting a rate that does
  * not exist.
  *
+ * The photographs are placeholders taken from the template's own asset set,
+ * not pictures of these three hotels. They are wired through `image` in
+ * site.js so that dropping a real photograph in is a one-line change per
+ * hotel - see the note in the reply. A stock resort shot captioned with a
+ * named hotel is a claim about a real business a delegate books on.
+ *
  * The distance is one figure for all three because that is the truth of it:
  * they share two kilometres of the same beach strip, and the road to Canaguinim
  * runs south through Betul either way. Three different numbers would be three
@@ -40,6 +46,13 @@ export default function Hotels() {
         <ul className="hotels__list">
           {hotels.map((h) => (
             <li className="hotel" key={h.id} id={h.id}>
+              {/* Alt is the hotel name alone. The photograph is the subject, so
+                  describing it a second time in prose would just repeat the
+                  heading directly beneath it to a screen reader. */}
+              <figure className="hotel__photo">
+                <img src={h.image} alt={h.name} loading="lazy" decoding="async" width="960" height="720" />
+              </figure>
+
               <div className="hotel__head">
                 <h2 className="hotel__name">{h.name}</h2>
                 <p className="hotel__address">{h.address}</p>

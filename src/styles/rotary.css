@@ -192,8 +192,19 @@ img[src*="/media/logo."] {
      the f and ll of "fellowship", the 0 of "01". .05em still trims the leading
      the rule exists to trim, with ~.04em of clearance before it reaches ink. */
   clip-path: inset(.05em 0 0 0) !important;
-  padding-right: .015em;
-  margin-right: -.015em;
+  /* The horizontal pair, measured the same way. `overflow: clip` cuts at the
+     box edge, but ink does not stop there: a glyph's side bearing can sit
+     outside its advance width. Over the 85 masked lines on the homepage, 8
+     overhang the left by up to .0977em (the T of "Three days", the S of
+     "Sunday") and 39 overhang the right by up to .0769em ("...Rotary",
+     "...Interact", "...Goa"). The capture's .015em covered neither, so the
+     first and last letter of a line came out shaved. .12em / .1em clear the
+     measured worst case with room to spare, and the negative margins keep it
+     invisible to layout exactly as the vertical pair does. */
+  padding-left: .12em;
+  margin-left: -.12em;
+  padding-right: .1em;
+  margin-right: -.1em;
 }
 
 @media (min-width: 1200px) {
@@ -203,8 +214,10 @@ img[src*="/media/logo."] {
     padding-bottom: .24em;
     margin-bottom: -.24em;
     clip-path: inset(.05em 0 0 0) !important;
-    padding-right: .02em;
-    margin-right: -.02em;
+    padding-left: .12em;
+    margin-left: -.12em;
+    padding-right: .1em;
+    margin-right: -.1em;
   }
 }
 
@@ -768,7 +781,13 @@ canvas.rotary-globe {
 }
 
 .hero-card__btn {
-  display: block;
+  /* 44px floor in absolute px — the two ways into the event should not be the
+     hardest thing on the card to hit, and at 320 the rem padding gave them 33.
+     Flex-centred so the label sits on the middle of the taller box. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 1.5rem 1.6rem;
   border-radius: 999px;
   border: 1px solid transparent;
@@ -2060,8 +2079,9 @@ html.header-scrolled .styles_header_container__1oB4s {
      target, which is under the 24px a finger can reliably hit and well under
      the 44px it wants. The underline stays where it was — the padding grows
      the box, not the type. */
-  display: inline-block;
-  padding-block: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--font-soehne);
   font-size: 1.4rem;
   font-weight: 500;
@@ -2122,9 +2142,15 @@ html.header-scrolled .styles_header_container__1oB4s {
    -------------------------------------------------------------------------- */
 
 @media screen and (max-width: 74.99rem) {
+  /* Absolute px, not rem. The root font is vw-based — 8.53px at 320 against
+     10.4px at 390 — so a rem minimum shrinks exactly where a target most needs
+     the size: on the smallest phone. At 4.4rem the burger measured 61x38 and
+     every menu link 37px tall on an iPhone SE. A finger does not get smaller
+     with the screen. */
   .styles_menus__items_item__eOxOq a {
-    display: block;
-    padding-block: 0.55rem;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
   }
 
   /* The list is bottom-anchored and the last item sat 11px off the edge of the
@@ -2135,19 +2161,20 @@ html.header-scrolled .styles_header_container__1oB4s {
 
   /* The hamburger measured 74.9 x 40.6 before the header grows on scroll. */
   .styles_header_button_wrapper__wZC4v {
-    min-height: 4.4rem;
+    min-height: 44px;
   }
 
   /* The only in-page way back to the homepage on a sub-page, at 42 x 21. */
   .crumbs a {
-    display: inline-block;
-    padding-block: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
   }
 
   /* These two headings are the switch that opens the registration panels, and
      they were 34px of bare text with nothing around them to catch a thumb. */
   .styles_section_content__bHg04 .styles_label__u9J_K {
-    padding-block: 0.6rem;
+    padding-block: 8px;
   }
 }
 
@@ -2315,7 +2342,13 @@ html.header-scrolled .styles_header_container__1oB4s {
      the page padding, so every frame of the zoom hung 30px off the screen and
      the photo looked cut. Clipping at the frame's own parent turns it back
      into what it was meant to be — the picture moving inside a fixed window. */
-  .css-jl85b3 {
+  /* :has(img) because this class is not the photo frame - it is the generic
+     mobile-only block, used for the copy as well. Clipping all eleven of them
+     cut the description text against its own left edge: `overflow: clip` cuts
+     at the box, and a glyph's ink can sit outside its advance width, so the T
+     of "Three days" and the S of "Sunday" lost their left arm. Only the blocks
+     that actually hold a picture need containing. */
+  .css-jl85b3:has(img) {
     overflow: clip;
     border-radius: 2rem;
   }
@@ -2835,5 +2868,113 @@ html.header-scrolled .styles_header_container__1oB4s {
     transition: none;
     translate: none;
     scale: none;
+  }
+}
+
+/* Mobile menu: let the wedge clear the list.
+ *
+ * The panel is clipped to polygon(... 0 100%, 0 50%), so its left edge only
+ * reaches x=0 half way down. Above that it slopes up to 80% and clips whatever
+ * sits behind it. That was fine for the capture's shorter menu; at nine items
+ * the list is 433px tall on a 320x568 phone while the wedge only offers full
+ * width in its bottom 284px, so the top links lost their opening letters —
+ * "Home" vanished, "Institute" rendered as "te".
+ *
+ * Only the left vertex moves, and only below 75rem. The 768-1199 design puts
+ * its vertex at 40%, which clears the list on a portrait iPad (top 497 against
+ * a 410 vertex) but not in landscape: at 1024x768 the panel is only 768 tall,
+ * the vertex falls to 307, and the list starts near 149 - "Home", "Institute"
+ * and "GELS/GNLS" lost their opening letters. One vertex for the whole
+ * sub-1200 band holds in both orientations. Desktop (1200+) keeps its own
+ * shape, and the long right-hand diagonal is untouched at every width.
+ *
+ * Scoped to .styles_on_show__wWWIr like the rule it overrides: the closed
+ * panel has its own collapsed clip that drives the open/close sweep, and
+ * overriding that unconditionally would leave the wedge painted while the
+ * menu is shut.
+ */
+@media screen and (max-width: 74.99rem) {
+  .styles_menus_inner__9X7sY.styles_on_show__wWWIr {
+    clip-path: polygon(80% 0, 100% 0, 100% 8%, 65% 100%, 0 100%, 0 10%);
+  }
+}
+
+/* Landscape phone: let the menu scroll rather than run off the top.
+ *
+ * The root font is width-based, so turning a phone sideways makes the type
+ * bigger while the height collapses: at 844x390 the nine links come to 53px
+ * each, 477px of list in a 390px viewport, and the top four sat above y=0.
+ * No wedge geometry fixes that - nine items at the 44px tap-target minimum
+ * need 396px and the screen has 390.
+ *
+ * Bounding the top as well as the bottom gives the absolutely positioned list
+ * a height, which is what lets overflow-y work. Only under 32rem tall, so
+ * portrait phones (568+) and tablets are untouched.
+ */
+@media screen and (max-width: 74.99rem) and (max-height: 32rem) {
+  .styles_menus__items__hZxYX {
+    top: 6.5rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+/* Both overlay panels start closed in CSS, not 800ms later in JS.
+ *
+ * The register panel is hidden by a mask that only exists while JS has put
+ * ContactMenu_isMasking on it, and its hidden resting state is an inline
+ * `opacity: 0` that GSAP writes in the close tween's onComplete. On mount
+ * revealPanel runs that close tween with contactOpen already false, and the
+ * tween starts from a fully revealed --size - so for the ~0.8s before it
+ * finishes, the panel paints at opacity 1 over the whole viewport. Measured on
+ * a cold load: opacity 1 with --size 913px held for ~640ms before the inline
+ * opacity: 0 landed. That is the full-screen yellow "Institute Registration /
+ * GELS & GNLS Registration" page that shows up on some loads.
+ *
+ * The open path sets opacity: 1 explicitly (gsap.fromTo(..., {opacity: 1})),
+ * so defaulting to 0 costs the animation nothing - it only stops the panel
+ * being visible before any of that runs.
+ */
+[class*='ContactMenu_maskClip__'],
+[class*='styles_maskClip__'] {
+  opacity: 0;
+}
+
+/* --- Hotels: one photograph per hotel -------------------------------------
+   The card was head / facts / link across three columns; the photograph takes
+   a fourth, ahead of them, so the picture and the name read as one row. Below
+   48rem the grid is a single column already, so it simply stacks on top.
+
+   A fixed aspect-ratio box with object-fit: cover, because the three source
+   images are not the same shape and a row of mismatched heights reads as a
+   mistake. The tinted ground shows while a lazy image is still coming in.
+   -------------------------------------------------------------------------- */
+
+.hotel__photo {
+  margin: 0;
+  border-radius: 1.6rem;
+  overflow: clip;
+  aspect-ratio: 4 / 3;
+  background: rgba(11, 37, 69, 0.06);
+}
+
+.hotel__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 48rem) {
+  .hotel {
+    /* px, not rem. The root font is vw-based and crosses a breakpoint in this
+       range - 20.5px at 768 against 7.5px at 1440 - so one rem column width is
+       492px on a tablet and 180px on a desktop, the wrong way round on both.
+       A px clamp gives the photograph a sane share at every width. */
+    grid-template-columns: clamp(180px, 20vw, 300px) 1.5fr 1fr auto;
+  }
+
+  .hotel__photo {
+    aspect-ratio: 3 / 2;
   }
 }

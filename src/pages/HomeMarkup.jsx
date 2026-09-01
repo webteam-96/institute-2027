@@ -1244,6 +1244,135 @@ export default function HomeMarkup() {
             </div>
           </div>
         </div>
+        <div className="css-fnivcm">
+          <div className="Container_container_grid__LWYyb css-bpizdw">
+            <div className="css-3yenu1">
+              <div className="css-1xs4ei8">
+                <div className="css-112kalm">
+                  <h4 className="css-hj2ayb">
+                    TRF Events
+                  </h4>
+                  <div className="css-16wafc">
+                    <div className="css-2ehw24">
+                      <p className="css-cg4oga">
+                        04
+                      </p>
+                    </div>
+                    <div className="css-zrk7at">
+                      <div className="css-eotvpp">
+                        <div className="css-10a9grd">
+                          <div className="css-1wxd43s">
+                            <div className="">
+                              <span className="css-3w1c3c card-sub--long">
+                                TRF Dinner and TRF Seminar<span className="nowrap-dates">25 · 26 November</span>
+                              </span>
+                            </div>
+                          </div>
+                          <div className="css-jl85b3">
+                            <div className="js-service-image css-1crm7gs">
+                              <img alt="TRF Events" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/venue-dining.jpg" />
+                            </div>
+                          </div>
+                          <div className="css-ml05u1">
+                            <div className="">
+                              <p className="css-et528z">
+                                Two events for The Rotary Foundation sit alongside the Institute, on the evening before it opens and on its first morning.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="css-jl85b3">
+                    <div className="">
+                      <p className="css-1pi8gkn">
+                        Two events for The Rotary Foundation sit alongside the Institute, on the evening before it opens and on its first morning.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="css-19ltxjc">
+                  <div className="css-1s3y6l3">
+                    <a title="TRF Events - Rotary Institute 2027" href="/trf-events">
+                      <div className="css-3byrcy">
+                        <span className="fix-mask-clip-mask css-1hswejy">
+                          <span className="will-change-transform css-13o7eu2">
+                            <span className="will-change-transform css-1bx5ylf">
+                              <span className="text css-13o7eu2">
+                                <p className="css-yh3d0j">
+                                  Program schedule
+                                </p>
+                              </span>
+                              <span className="text__clone css-rdqqhl">
+                                <p className="css-yh3d0j">
+                                  Program schedule
+                                </p>
+                              </span>
+                            </span>
+                          </span>
+                        </span>
+                        <button className="Service_icon__GNT_0 css-1sjxqp0" type="button" tabIndex={-1} aria-hidden="true">
+                          <div className="css-14om1bk">
+                            <div className="main-icon css-1x3oun">
+                              <img alt="icon" loading="lazy" width="27" height="18" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="upload/icon-arrow.svg" />
+                            </div>
+                          </div>
+                          <div className="css-gyp8mm">
+                            <div className="main-icon css-1x3oun">
+                              <img alt="icon" loading="lazy" width="27" height="18" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="upload/icon-arrow.svg" />
+                            </div>
+                          </div>
+                        </button>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="css-1f44veo">
+              <div className="js-service-image css-1crm7gs">
+                <img alt="TRF Events" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/venue-dining.jpg" />
+              </div>
+            </div>
+            <div className="css-1dzinm5">
+              <div className="css-19z4pko">
+                <a title="TRF Events - Rotary Institute 2027" href="/trf-events">
+                  <div className="css-3byrcy">
+                    <span className="fix-mask-clip-mask css-1hswejy">
+                      <span className="will-change-transform css-13o7eu2">
+                        <span className="will-change-transform css-1bx5ylf">
+                          <span className="text css-13o7eu2">
+                            <p className="css-yh3d0j">
+                              Program schedule
+                            </p>
+                          </span>
+                          <span className="text__clone css-rdqqhl">
+                            <p className="css-yh3d0j">
+                              Program schedule
+                            </p>
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <button className="Service_icon__GNT_0 css-1sjxqp0" type="button" tabIndex={-1} aria-hidden="true">
+                      <div className="css-14om1bk">
+                        <div className="main-icon css-1x3oun">
+                          <img alt="icon" loading="lazy" width="27" height="18" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="upload/icon-arrow.svg" />
+                        </div>
+                      </div>
+                      <div className="css-gyp8mm">
+                        <div className="main-icon css-1x3oun">
+                          <img alt="icon" loading="lazy" width="27" height="18" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="upload/icon-arrow.svg" />
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     </>
