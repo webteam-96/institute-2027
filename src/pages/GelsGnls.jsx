@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-
 import PageHero from '../components/PageHero'
 import { event, programme } from '../data/site'
 
@@ -27,7 +25,15 @@ export default function GelsGnls() {
 
       <section className="gels-intro">
         <div className="gels-intro__lede">
-          <h2>{gels.name}</h2>
+          {/* The two seminars are one string in the data and one heading here,
+              but they are two seminars — stacked, each name reads as a whole
+              instead of wrapping mid-title. The conjunction is the split
+              point, so nothing is written here that the data does not hold. */}
+          <h2 className="gels-intro__seminars">
+            {gels.name.split(' & ').map((n) => (
+              <span key={n}>{n}</span>
+            ))}
+          </h2>
           <p>
             The three days before the Institute opens, for the district governors taking
             office and those nominated to follow them. Partners have their own track
@@ -74,10 +80,6 @@ export default function GelsGnls() {
             </li>
           ))}
         </ol>
-
-        <p className="gels-days__more">
-          <Link to="/schedule#gels-gnls">See these days in the full programme</Link>
-        </p>
       </section>
 
       <section className="gels-where">

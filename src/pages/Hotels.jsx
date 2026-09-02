@@ -1,3 +1,4 @@
+import HotelGallery from '../components/HotelGallery'
 import PageHero from '../components/PageHero'
 import { event, hotelDistance, hotels } from '../data/site'
 
@@ -19,16 +20,23 @@ const mapUrl = (h) =>
  * where there is none would have a delegate arrive expecting a rate that does
  * not exist.
  *
- * The photographs are placeholders taken from the template's own asset set,
- * not pictures of these three hotels. They are wired through `image` in
- * site.js so that dropping a real photograph in is a one-line change per
- * hotel - see the note in the reply. A stock resort shot captioned with a
- * named hotel is a claim about a real business a delegate books on.
+ * Four photographs each, from the chains' own galleries, in one order: the
+ * property, a room, a view, an amenity. How they change is HotelGallery's
+ * business, not this page's.
  *
  * The distance is one figure for all three because that is the truth of it:
  * they share two kilometres of the same beach strip, and the road to Canaguinim
  * runs south through Betul either way. Three different numbers would be three
  * inventions.
+ */
+/**
+ * One hotel's four photographs.
+ *
+ * The strip is a real overflow scroller with scroll-snap, so a touch swipe,
+ * a trackpad and shift+wheel all work without a line of JS, and the dots are
+ * the only thing scripted. The active dot is read back off scrollLeft rather
+ * than held as the source of truth, so a swipe the buttons never saw still
+ * lights the right one.
  */
 export default function Hotels() {
   return (
@@ -44,14 +52,9 @@ export default function Hotels() {
 
       <section className="hotels">
         <ul className="hotels__list">
-          {hotels.map((h) => (
+          {hotels.map((h, i) => (
             <li className="hotel" key={h.id} id={h.id}>
-              {/* Alt is the hotel name alone. The photograph is the subject, so
-                  describing it a second time in prose would just repeat the
-                  heading directly beneath it to a screen reader. */}
-              <figure className="hotel__photo">
-                <img src={h.image} alt={h.name} loading="lazy" decoding="async" width="960" height="720" />
-              </figure>
+              <HotelGallery hotel={h} order={i} />
 
               <div className="hotel__head">
                 <h2 className="hotel__name">{h.name}</h2>

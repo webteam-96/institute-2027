@@ -8,23 +8,12 @@ const FACTS = [
   ['Pre-Institute', event.preDates],
 ]
 
-/* Two spaces, not three: the residency card moved to /hotels with the rest of
-   the accommodation, so this page is only ever about the building the
-   Institute happens in. */
-const SPACES = [
-  ['/media/venue-exterior.jpg', 'The convention centre facade', 'Plenary hall',
-   'A tiered auditorium sized for the full Institute.'],
-  ['/media/venue-dining-tables.jpg', 'Banquet tables laid for a sitting', 'Dining',
-   'A dining hall that turns over the whole Institute.'],
-]
-
 export default function Venue() {
   return (
     <>
       <PageHero title="Venue" />
 
       <section className="section">
-        <h2>The venue</h2>
         <dl className="facts">
           {FACTS.map(([k, v]) => (
             <div key={k}>
@@ -36,17 +25,18 @@ export default function Venue() {
       </section>
 
       {/* The page is about a building, so the section describing it is built
-          around one. event-plenary.jpg is the Prithvi auditorium in session —
-          the "world-class auditorium" the first paragraph names — so the
-          picture carries the claim rather than illustrating it generically.
-          The copy is the client's, unchanged. */}
+          around one — and now around the building itself rather than a hall
+          inside it. The alt says what the picture is: the source changed from
+          an auditorium in session to the centre's own facade, and an alt left
+          describing the old one would be a plain untruth to anyone reading
+          with a screen reader. The copy is the client's, unchanged. */}
       <section className="venue-feature">
         <figure className="venue-feature__figure">
           <img
-            src="/media/event-plenary.jpg"
-            alt="The plenary auditorium at ATI ONGC in session"
-            width="1024"
-            height="768"
+            src="/media/programme-institute.jpg"
+            alt="The Prithvi Convention Centre at ONGC Goa"
+            width="1400"
+            height="788"
             loading="lazy"
             decoding="async"
           />
@@ -80,20 +70,6 @@ export default function Venue() {
           </p>
         </div>
       </section>
-
-      <section className="section section--tint">
-        <h2>On the grounds</h2>
-        <div className="grid grid--3">
-          {SPACES.map(([src, alt, title, copy]) => (
-            <div key={title}>
-              <img src={src} alt={alt} />
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
     </>
   )
 }

@@ -883,7 +883,7 @@ export default function HomeMarkup() {
                           </div>
                           <div className="css-jl85b3">
                             <div className="js-service-image css-1crm7gs">
-                              <img alt="Rotary Institute 2027" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/event-plenary.jpg" />
+                              <img alt="Rotary Institute 2027" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/programme-institute.jpg" />
                             </div>
                           </div>
                           <div className="css-ml05u1">
@@ -945,7 +945,7 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1f44veo">
               <div className="js-service-image css-1crm7gs">
-                <img alt="Rotary Institute 2027" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/event-plenary.jpg" />
+                <img alt="Rotary Institute 2027" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/programme-institute.jpg" />
               </div>
             </div>
             <div className="css-1dzinm5">
@@ -1012,7 +1012,7 @@ export default function HomeMarkup() {
                           </div>
                           <div className="css-jl85b3">
                             <div className="js-service-image css-1crm7gs">
-                              <img alt="Governors Elect and Governors Nominee Learning Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/event-exhibition.jpg" />
+                              <img alt="Governors Elect and Governors Nominee Learning Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/programme-gels-gnls.jpg" />
                             </div>
                           </div>
                           <div className="css-ml05u1">
@@ -1074,7 +1074,7 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1f44veo">
               <div className="js-service-image css-1crm7gs">
-                <img alt="Governors Elect and Governors Nominee Learning Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/event-exhibition.jpg" />
+                <img alt="Governors Elect and Governors Nominee Learning Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/programme-gels-gnls.jpg" />
               </div>
             </div>
             <div className="css-1dzinm5">
@@ -1141,7 +1141,7 @@ export default function HomeMarkup() {
                           </div>
                           <div className="css-jl85b3">
                             <div className="js-service-image css-1crm7gs">
-                              <img alt="Pre-Institute Adjunct Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/venue-hall.jpg" />
+                              <img alt="Pre-Institute Adjunct Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/programme-pre-institute.jpg" />
                             </div>
                           </div>
                           <div className="css-ml05u1">
@@ -1203,7 +1203,7 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1f44veo">
               <div className="js-service-image css-1crm7gs">
-                <img alt="Pre-Institute Adjunct Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/venue-hall.jpg" />
+                <img alt="Pre-Institute Adjunct Seminars" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/programme-pre-institute.jpg" />
               </div>
             </div>
             <div className="css-1dzinm5">
@@ -1270,7 +1270,7 @@ export default function HomeMarkup() {
                           </div>
                           <div className="css-jl85b3">
                             <div className="js-service-image css-1crm7gs">
-                              <img alt="TRF Events" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/venue-dining.jpg" />
+                              <img alt="TRF Events" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/programme-trf.jpg" />
                             </div>
                           </div>
                           <div className="css-ml05u1">
@@ -1294,7 +1294,7 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="TRF Events - Rotary Institute 2027" href="/trf-events">
+                    <a title="TRF Events - Rotary Institute 2027" href="/schedule#trf">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
@@ -1332,12 +1332,12 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1f44veo">
               <div className="js-service-image css-1crm7gs">
-                <img alt="TRF Events" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/venue-dining.jpg" />
+                <img alt="TRF Events" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', objectFit: 'cover', color: 'transparent', willChange: 'transform', scale: '1' }} src="/media/programme-trf.jpg" />
               </div>
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="TRF Events - Rotary Institute 2027" href="/trf-events">
+                <a title="TRF Events - Rotary Institute 2027" href="/schedule#trf">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">

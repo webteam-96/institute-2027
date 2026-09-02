@@ -192,11 +192,11 @@ export default function QuoteContact() {
                   <img
                     alt="Register for Rotary Institute 2027"
                     loading="lazy"
-                    width="1920"
-                    height="1080"
+                    width="1400"
+                    height="788"
                     decoding="async"
                     className="ImagePlaceholder_imagePlaceholder__original__CpPiD ImagePlaceholder_isLoaded__A0g_D"
-                    src="/media/venue-dusk.jpg"
+                    src="/media/programme-institute.jpg"
                   />
                 </div>
               </div>
@@ -205,11 +205,11 @@ export default function QuoteContact() {
                   <img
                     alt="Register for GELS and GNLS"
                     loading="lazy"
-                    width="1920"
-                    height="1080"
+                    width="1400"
+                    height="1050"
                     decoding="async"
                     className="ImagePlaceholder_imagePlaceholder__original__CpPiD ImagePlaceholder_isLoaded__A0g_D"
-                    src="/media/venue-entrance.jpg"
+                    src="/media/programme-gels-gnls.jpg"
                   />
                 </div>
               </div>

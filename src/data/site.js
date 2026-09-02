@@ -11,7 +11,7 @@ export const event = {
   zones: 'Zones 4, 5, 6, 7 & 8',
   dates: '26 · 27 · 28 November 2027',
   preDates: '23 – 25 November 2027',
-  venue: 'ATI ONGC — Advanced Training Institute',
+  venue: 'Prithvi Convention Centre ONGC - Goa',
   address: 'Kital, Canaguinim, Goa 403723',
   email: 'hello@rotaryinstitute2027goa.org',
 }
@@ -52,6 +52,7 @@ export const programme = [
   {
     id: 'institute',
     number: '01',
+    short: 'Rotary Institute 2027',
     name: 'Rotary Institute 2027',
     dates: '26 · 27 · 28 November 2027',
     days: [
@@ -82,6 +83,7 @@ export const programme = [
   {
     id: 'gels-gnls',
     number: '02',
+    short: 'GELS/GNLS',
     name: 'Governors Elect Learning Seminar (GELS) & Governors Nominee Learning Seminar (GNLS)',
     dates: '23 · 24 · 25 November 2027',
     days: [
@@ -114,6 +116,7 @@ export const programme = [
   {
     id: 'pre-institute',
     number: '03',
+    short: 'Pre-Institute',
     name: 'Pre-Institute (Adjunct) Seminars',
     dates: '25 November 2027',
     days: [
@@ -169,15 +172,6 @@ export const registration = [
     rows: [['Single', null], ['Couple', null]],
   },
   {
-    id: 'trf',
-    name: 'TRF Events',
-    expands: 'The Rotary Foundation Dinner and Seminar',
-    axis: 'Event',
-    dates: '25 – 26 November 2027',
-    subject: 'TRF%20Events%20registration',
-    rows: [['TRF Dinner', null], ['TRF Seminar', null]],
-  },
-  {
     id: 'adjunct',
     name: 'Adjunct Seminars',
     // This card's left column is a different axis from the other two: which
@@ -221,12 +215,44 @@ export const trfEvents = [
 ]
 
 /**
+ * What the schedule page runs through: the three programme components above,
+ * and the TRF events as a fourth.
+ *
+ * The TRF events keep their own list because /trf-events sets them as two dated
+ * cards rather than as day and slot rows. Rather than write the same two events
+ * out twice, the fourth component is folded out of that list here — change a
+ * TRF time in one place and both pages follow.
+ */
+export const scheduleComponents = [
+  ...programme,
+  {
+    id: 'trf',
+    number: '04',
+    short: 'TRF Events',
+    name: 'TRF Events',
+    dates: '25 · 26 November 2027',
+    days: trfEvents.map((e) => ({
+      day: e.day,
+      weekday: e.weekday,
+      slots: [{ time: e.time, name: e.name }],
+    })),
+  },
+]
+
+/**
  * The three hotels, as named by the committee.
  *
  * Addresses and the official booking pages are from each chain's own site, not
  * from an aggregator. Nothing is said about rates, room types or an allocation
  * — none of that has been agreed, and a hotel page that implies a negotiated
  * block where there is none would mislead a delegate into expecting one.
+ *
+ * Four photographs each, in the same order every time: the property, a room, a
+ * view, an amenity. They are the chains' own gallery images — digital.ihg.com,
+ * ahstatic.com and media.radissonhotels.net — re-encoded to one 3:2 frame so
+ * the slider does not change shape between slides. They are the hotels'
+ * copyright, used here with the organisers' say-so; each property should be
+ * asked before the site goes public.
  *
  * The distance is honest about what it is. All three sit on the same two
  * kilometres of the Cavelossim-Mobor strip, and the road to Canaguinim runs
@@ -237,21 +263,36 @@ export const trfEvents = [
 export const hotels = [
   {
     id: 'holiday-inn',
-    image: '/media/stay-exterior.jpg',
+    photos: [
+      { src: '/media/hotels/holiday-inn-main.jpg', alt: 'Holiday Inn Resort Goa seen from the air, its pool and the Arabian Sea behind' },
+      { src: '/media/hotels/holiday-inn-room.jpg', alt: 'A Premium King room at Holiday Inn Resort Goa' },
+      { src: '/media/hotels/holiday-inn-view.jpg', alt: 'Cavelossim beach in front of the resort, loungers under the palms' },
+      { src: '/media/hotels/holiday-inn-amenity.jpg', alt: 'The main pool at Holiday Inn Resort Goa' },
+    ],
     name: 'Holiday Inn Resort Goa, an IHG Hotel',
     address: 'Mobor Beach, Cavelossim, Salcete, South Goa 403731',
     site: 'https://www.ihg.com/holidayinnresorts/hotels/us/en/goa/goiin/hoteldetail',
   },
   {
     id: 'novotel',
-    image: '/media/stay-grounds.jpg',
+    photos: [
+      { src: '/media/hotels/novotel-main.jpg', alt: 'Novotel Goa Dona Sylvia Resort across its pool' },
+      { src: '/media/hotels/novotel-room.jpg', alt: 'A king room on the garden side at Novotel Goa Dona Sylvia Resort' },
+      { src: '/media/hotels/novotel-view.jpg', alt: 'Cottages and gardens in the grounds of Novotel Goa Dona Sylvia Resort' },
+      { src: '/media/hotels/novotel-amenity.jpg', alt: 'The outdoor restaurant at Novotel Goa Dona Sylvia Resort, lit at dusk' },
+    ],
     name: 'Novotel Goa Dona Sylvia Resort',
     address: 'Cavelossim Road, Mobor, Cavelossim, South Goa 403731',
     site: 'https://all.accor.com/hotel/A6P4/index.en.shtml',
   },
   {
     id: 'radisson',
-    image: '/media/stay-atrium.jpg',
+    photos: [
+      { src: '/media/hotels/radisson-main.jpg', alt: 'Radisson Blu Resort Goa Cavelossim Beach seen from the air' },
+      { src: '/media/hotels/radisson-room.jpg', alt: 'A Premium Room at Radisson Blu Resort Goa Cavelossim Beach' },
+      { src: '/media/hotels/radisson-view.jpg', alt: 'Cavelossim beach at sunset' },
+      { src: '/media/hotels/radisson-amenity.jpg', alt: 'The pool terrace at Radisson Blu Resort Goa Cavelossim Beach' },
+    ],
     name: 'Radisson Blu Resort Goa Cavelossim Beach',
     address: 'Cavelossim Beach, Salcete, South Goa 403731',
     site: 'https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-goa-cavelossim-beach',

@@ -104,7 +104,7 @@ export default function SiteFooter() {
                 </div>
                 <div className="css-ducv57">
                   <div className="Paragraph_paragraph__SId_Y css-cgpd9q">
-                    ATI ONGC — Advanced Training Institute
+                    Prithvi Convention Centre ONGC - Goa
                   </div>
                   <div className="Paragraph_paragraph__SId_Y css-cgpd9q">
                     Kital, Canaguinim, Goa 403723

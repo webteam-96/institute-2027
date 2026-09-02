@@ -1162,7 +1162,9 @@ html.header-scrolled .styles_header__vbDbd {
 
 @media screen and (min-width: 75rem) {
   .reg__list {
-    grid-template-columns: repeat(4, 1fr);
+    /* One column per card. It was four while a TRF Events card sat in the
+       list; with that gone, four left the row a quarter empty. */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1735,19 +1737,7 @@ html.header-scrolled .styles_header_container__1oB4s {
   line-height: 1.45;
 }
 
-.reg-page__note {
-  max-width: 62ch;
-  margin-top: 2.4rem;
-  font-family: var(--font-soehne);
-  font-size: 1.6rem;
-  line-height: 1.5;
-  color: var(--rotary-blue);
-}
 
-.reg-page__note a {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
 
 .reg-page__block {
   display: grid;
@@ -1945,6 +1935,26 @@ html.header-scrolled .styles_header_container__1oB4s {
   .gels-intro__lede h2 {
     font-size: 4rem;
   }
+}
+
+/* One seminar per line. The measure is the longer of the two names, so each
+   sits on a single line from the tablet breakpoint up; below that there is not
+   enough width for a 41-character line at this size, and each name wraps
+   inside its own block rather than running into its neighbour. */
+.gels-intro__lede .gels-intro__seminars {
+  max-width: 44ch;
+}
+
+.gels-intro__seminars span {
+  display: block;
+}
+
+/* A hair of air between the two, so that where each name wraps — which it does
+   on a phone, there is no width for a 41-character line at this size — the
+   second name still starts as a new thing rather than as a fourth line of the
+   first. */
+.gels-intro__seminars span + span {
+  margin-top: 0.4rem;
 }
 
 .gels-intro__lede p {
@@ -2951,11 +2961,56 @@ html.header-scrolled .styles_header_container__1oB4s {
    -------------------------------------------------------------------------- */
 
 .hotel__photo {
+  position: relative;
   margin: 0;
   border-radius: 1.6rem;
   overflow: clip;
   aspect-ratio: 4 / 3;
   background: rgba(11, 37, 69, 0.06);
+  /* The depth the bricks, rows and the spin are seen through. */
+  perspective: 1100px;
+  /* The swipe is handled in JS now, so let the browser keep vertical panning
+     for the page and stop it treating a horizontal drag as a scroll gesture. */
+  touch-action: pan-y;
+}
+
+/* The slides are a stack, not a strip. `perspective` lives here because this
+   is the element the tiles are seen through; `transform-style` deliberately
+   does NOT, since `overflow: clip` above would flatten it anyway - the layers
+   that need to keep their depth set it on themselves. */
+.hotel__stack {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hotel__stack > li {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+/* Where a transition's slices, bricks or rows live for the second they exist.
+   Hidden between transitions so it is never in the way of a pointer or a tap
+   on the dots underneath. */
+.hotel__fx {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+.hotel__tile {
+  position: absolute;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
 }
 
 .hotel__photo img {
@@ -2963,18 +3018,142 @@ html.header-scrolled .styles_header_container__1oB4s {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
+/* The scrim rides on the dot strip rather than on the figure, so it only ever
+   covers the bottom 44px: over the pool slide the cream dots vanished into the
+   water. It is behind the dots, not over them - a ::after on the figure would
+   have painted on top of both. */
+.hotel__dots {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding-bottom: 0.4rem;
+  background: linear-gradient(to top, rgba(11, 37, 69, 0.55), rgba(11, 37, 69, 0));
+  pointer-events: none;
+}
+
+.hotel__dots button {
+  pointer-events: auto;
+}
+
+/* 24px of hit area around a 7px dot: the dot wants to be small, the target
+   does not. */
+.hotel__dots button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.hotel__dots button::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(244, 240, 233, 0.6);
+  box-shadow: 0 1px 3px rgba(11, 37, 69, 0.5);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hotel__dots button.is-on::after {
+  background: var(--primary-yellow);
+  transform: scale(1.3);
+}
+
+.hotel__dots button:focus-visible {
+  outline: 2px solid var(--primary-yellow);
+  outline-offset: -2px;
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hotel__dots button::after {
+    transition: none;
+  }
+
+  /* No effects and no autoplay either - the component checks the same query
+     and swaps the layers outright. */
+  .hotel__stack > li {
+    transition: none;
+  }
+}
+
+/* px, not rem. The root font is vw-based and crosses a breakpoint in this
+   range - 20.5px at 768 against 7.5px at 1440 - so one rem column width is
+   492px on a tablet and 180px on a desktop, the wrong way round on both. A px
+   clamp gives the photograph a sane share at every width.
+
+   Two columns between 48rem and 75rem, not four. Four never fitted: at 768 the
+   facts column came out 133px against a "DISTANCE TO VENUE" label that is
+   150px of uppercase and carries `flex: none`, so the row overflowed and the
+   value was drawn underneath the Go to Map button. Measured at the old 180px
+   photo column too - it is not the slider that broke it, the row was always
+   one column too many for this width. Stacked in a single column beside the
+   photograph, the label and its value have room to sit on one line. */
 @media screen and (min-width: 48rem) {
   .hotel {
-    /* px, not rem. The root font is vw-based and crosses a breakpoint in this
-       range - 20.5px at 768 against 7.5px at 1440 - so one rem column width is
-       492px on a tablet and 180px on a desktop, the wrong way round on both.
-       A px clamp gives the photograph a sane share at every width. */
-    grid-template-columns: clamp(180px, 20vw, 300px) 1.5fr 1fr auto;
+    grid-template-columns: clamp(240px, 34vw, 400px) 1fr;
   }
 
   .hotel__photo {
     aspect-ratio: 3 / 2;
+    /* Beside all three of head, facts and link rather than only the first. */
+    grid-row: 1 / span 3;
+  }
+}
+
+@media screen and (min-width: 75rem) {
+  .hotel {
+    grid-template-columns: clamp(280px, 26vw, 420px) 1.5fr 1fr auto;
+  }
+
+  .hotel__photo {
+    grid-row: auto;
+  }
+}
+
+/* --- Spotlight scrim -------------------------------------------------------
+
+   The two photographs behind the "Institute" / "GELS & GNLS" labels sit
+   directly under them, and the capture's own dim layer cannot be used: it is
+   at z-index 6, above the yellow beam, so raising it would grey the panel and
+   its black text out too.
+
+   Against the dark venue photographs these replaced, the label that is *not*
+   being hovered measured 8.0:1. Against the new daylight ones it fell to
+   2.5:1, and to 1.4:1 over the white presentation screen — under the 3:1 that
+   text this size needs to stay readable.
+
+   The scrim rides on the image's own wrapper, which GSAP fades from 0 to 1, so
+   it is only ever on screen while a photograph is. At rest the section shows
+   its CSS background, which was always dark enough, and is left alone. Scoped
+   to 75rem because that is the only width where these images render at all —
+   below it `.css-3l1h0e` is `display: none` and the labels sit on the
+   background.
+
+   0.6, measured rather than picked: at 0.5 the rendered pixels behind the
+   "Institute" label came back rgb(111,112,115), which is 3.6:1 — over the line
+   but not by much. */
+@media screen and (min-width: 75rem) {
+  .css-3l1h0e > .css-i3uo7i {
+    position: relative;
+  }
+
+  .css-3l1h0e > .css-i3uo7i::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    pointer-events: none;
   }
 }

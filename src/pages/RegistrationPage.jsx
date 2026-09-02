@@ -9,12 +9,11 @@ import { event, registration } from '../data/site'
  * a card strip: one block per thing you can register for, its dates stated,
  * then the rates underneath it, then the way in.
  *
- * The difference is that theirs carries numbers and ours cannot — no fee has
- * been agreed. So every rate reads "To be announced" and the page says plainly
- * that it will be updated, rather than dressing an empty table as a price list.
- * The categories, the dates and the seminar names are the same ones the
- * schedule and the homepage use; `registration` in data/site.js is the single
- * source, so the two cannot drift apart.
+ * The difference is that theirs carries numbers and ours cannot: no fee has
+ * been agreed, so every rate reads "To be announced" rather than dressing an
+ * empty table as a price list. The categories, the dates and the seminar names
+ * are the same ones the schedule and the homepage use; `registration` in
+ * data/site.js is the single source, so the two cannot drift apart.
  *
  * Nothing on the reference that this event does not have is carried over: its
  * page lists a TRF Dinner, a DG Mid Year Review, a DRFC seminar and a
@@ -31,11 +30,6 @@ export default function RegistrationPage() {
           Institute itself, the Governors Elect and Governors Nominee Learning Seminars that
           run before it, and the adjunct seminars on the day between them. You may register
           for any one of them, or for more than one.
-        </p>
-        <p className="reg-page__note">
-          Rates are being finalised by the organising committee and will be published here as
-          soon as they are confirmed. To be told when they are, write to us at{' '}
-          <a href={`mailto:${event.email}`}>{event.email}</a>.
         </p>
       </section>
 
@@ -74,7 +68,7 @@ export default function RegistrationPage() {
       </section>
 
       <section className="section section--tint">
-        <h2>Where it takes place</h2>
+        <h2>Where and when</h2>
         <dl className="facts">
           <div>
             <dt>Venue</dt>
@@ -85,12 +79,12 @@ export default function RegistrationPage() {
             <dd>{event.address}</dd>
           </div>
           <div>
-            <dt>Institute</dt>
-            <dd>{event.dates}</dd>
-          </div>
-          <div>
             <dt>Pre-Institute</dt>
             <dd>{event.preDates}</dd>
+          </div>
+          <div>
+            <dt>Institute</dt>
+            <dd>{event.dates}</dd>
           </div>
         </dl>
       </section>

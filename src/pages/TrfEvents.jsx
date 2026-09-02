@@ -1,5 +1,5 @@
 import PageHero from '../components/PageHero'
-import { event, trfEvents } from '../data/site'
+import { trfEvents } from '../data/site'
 
 /**
  * The Rotary Foundation events.
@@ -41,20 +41,6 @@ export default function TrfEvents() {
             </li>
           ))}
         </ol>
-      </section>
-
-      <section className="section section--tint">
-        <h2>Where they take place</h2>
-        <dl className="facts">
-          <div>
-            <dt>Venue</dt>
-            <dd>{event.venue}</dd>
-          </div>
-          <div>
-            <dt>Address</dt>
-            <dd>{event.address}</dd>
-          </div>
-        </dl>
       </section>
     </>
   )

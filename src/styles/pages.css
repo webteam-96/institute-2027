@@ -364,35 +364,10 @@ main {
   max-width: 62ch;
 }
 
-.grid {
-  display: grid;
-  gap: 3.2rem;
-}
-
-@media (min-width: 768px) {
-  .grid--2 {
-    grid-template-columns: 1fr 1fr;
-  }
-  .grid--3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .card {
   padding: 2.8rem;
   border-radius: 1.6rem;
   background: rgba(255, 255, 255, 0.55);
-}
-
-/* The three-up photo grids ship a mix of landscape and portrait sources, and
-   with no ratio the portrait one rendered 597px against its siblings' 336 and
-   left a void of cream under the short columns. `.card` is unused, and its
-   image rule carries a radius and a margin these grids do not have, so this is
-   its own rule rather than a reuse. */
-.grid--3 img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
 }
 
 .card img {
@@ -407,69 +382,243 @@ main {
    Schedule
    -------------------------------------------------------------------------- */
 
-/* The three components the week runs in. The head borrows the numbering of the
-   homepage's programme cards so the two read as the same list. */
-.component + .component {
-  margin-top: 8rem;
-}
+/* The three components the week runs in, as a tabbed section rather than the
+   stacked list this used to be: they are alternatives a delegate picks between,
+   not a run of three things to read in order.
 
-.component__head {
+   Four tabs, so two up until 1200 and four across above it: four on a 390px
+   screen is an 83px column, which breaks "Pre-Institute" over two lines. The
+   labels are the short ones — "Pre-Institute", not "Pre-Institute (Adjunct)
+   Seminars" — and the full name is set in the panel underneath, where there is
+   room for it. */
+.sched__tabs {
   display: grid;
-  gap: 1.6rem;
-  margin-bottom: 1.2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
-  .component__head {
-    grid-template-columns: 20rem 1fr;
-    gap: 3.2rem;
-    align-items: start;
+  .sched__tabs {
+    gap: 1.6rem;
+    margin-bottom: 5.6rem;
   }
 }
 
-.component__number {
+@media (min-width: 1200px) {
+  .sched__tabs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.sched-tab {
+  position: relative;
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+  /* The rule sits on the top edge, so the padding has to clear it. */
+  padding: 1.8rem 1.2rem 2rem;
+  border: 1px solid rgba(11, 37, 69, 0.16);
+  border-radius: var(--corner);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+
+@media (min-width: 768px) {
+  .sched-tab {
+    padding: 2.4rem 2.4rem 2.6rem;
+  }
+}
+
+.sched-tab:hover {
+  border-color: rgba(11, 37, 69, 0.4);
+}
+
+.sched-tab:focus-visible {
+  outline: 2px solid var(--rotary-blue);
+  outline-offset: 3px;
+}
+
+.sched-tab.is-active {
+  background: var(--primary-yellow-light);
+  border-color: transparent;
+}
+
+/* Drawn across the top of the active tab rather than a border that jumps
+   between them. transform-origin is the left edge, so it reads as the rule
+   being pulled out under the label. */
+.sched-tab__rule {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--rotary-gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sched-tab.is-active .sched-tab__rule {
+  transform: scaleX(1);
+}
+
+.sched-tab__number {
   font-family: 'Soehne', sans-serif;
-  font-size: 5.6rem;
+  font-weight: 400;
+  font-size: 1.8rem;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
+  color: rgba(11, 37, 69, 0.4);
+  transition: color 0.35s ease;
+}
+
+@media (min-width: 768px) {
+  .sched-tab__number {
+    font-size: 2.4rem;
+  }
+}
+
+.sched-tab.is-active .sched-tab__number {
+  color: var(--rotary-gold);
+}
+
+.sched-tab__label {
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: rgba(11, 37, 69, 0.75);
+  transition: color 0.35s ease;
+}
+
+@media (min-width: 768px) {
+  .sched-tab__label {
+    font-size: 2rem;
+  }
+}
+
+.sched-tab.is-active .sched-tab__label {
+  color: var(--primary-black);
+}
+
+.sched-tab__dates {
+  display: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(11, 37, 69, 0.4);
+  transition: color 0.35s ease;
+}
+
+@media (min-width: 768px) {
+  .sched-tab__dates {
+    display: block;
+    margin-top: 0.4rem;
+  }
+}
+
+.sched-tab.is-active .sched-tab__dates {
   color: var(--rotary-blue);
 }
 
-/* Scoped past `.section p` / `.section h2` — a bare `.component__*` class is
-   (0,1,0) and loses to those (0,1,1) rules, so every margin-top authored here
-   silently computed to 0 and the rows sat flush against each other.
+/* The panel is keyed on the component in the JSX, so React replaces it on a
+   switch and this replays. It is the arrival the rest of the site uses — up
+   and in, never a slide across. */
+.sched__panel {
+  animation: sched-panel-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 
-   Scoped past `.section h2`, which caps every heading at 20ch — right for the
+.sched__panel:focus {
+  outline: none;
+}
+
+@keyframes sched-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.6rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sched__panel {
+    animation: none;
+  }
+
+  .sched-tab__rule {
+    transition: none;
+  }
+}
+
+/* The panel's own head: the component's name against its dates, on a rule.
+   Set as one row rather than a stack because the dates are the answer to the
+   question the name raises, and at 1200 and up there is a whole screen of
+   empty cream to the right of a 20-character heading.
+
+   The rule is what the day rows hang off — the first one no longer needs its
+   own top border, so the head and the timetable read as one block. */
+.sched__head {
+  margin-bottom: 0;
+  padding-bottom: 2.4rem;
+}
+
+@media (min-width: 768px) {
+  .sched__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.2rem 3.2rem;
+  }
+}
+
+/* Scoped past `.section h2`, which caps every heading at 20ch — right for the
    short ones, but it folded the full seminar name into a narrow four-line
    column with half the row empty beside it. Same face and weight as the rest
-   of the page's headings; only the measure changes. */
-.section .component__name {
+   of the page's headings; only the measure and the size change.
+
+   The size steps up only at 1200 because the root is fluid: 3.2rem is 32px at
+   768 and 24px at 1440, so without this the heading gets *smaller* as the
+   screen gets wider. */
+.section .sched__name {
   margin: 0;
   max-width: 34ch;
   font-family: 'Soehne', sans-serif;
   font-weight: 400;
   font-size: 3.2rem;
-  line-height: 1.1;
+  line-height: 1.06;
   letter-spacing: -0.03em;
 }
 
-.section .component__dates {
-  margin-top: 1.6rem;
+@media (min-width: 1200px) {
+  .section .sched__name {
+    font-size: 4.4rem;
+  }
+}
+
+.section .sched__dates {
+  margin: 1.2rem 0 0;
   font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--rotary-blue);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .section .sched__dates {
+    margin: 0;
+  }
 }
 
 
-.section .component__caveat {
-  margin-top: 4.8rem;
-  font-size: 1.4rem;
-  line-height: 1.5;
-  opacity: 0.6;
-  max-width: 62ch;
-}
 
 .day {
   padding: 3rem 0;
@@ -514,6 +663,21 @@ main {
   padding: 1.4rem 0;
 }
 
+/* Time beside the session rather than above it, once there is width for both.
+   Below 1200 the slot column is already the narrow one and a 135px gutter
+   would leave the names three words wide. */
+@media (min-width: 1200px) {
+  .slot {
+    grid-template-columns: 18rem 1fr;
+    gap: 0 3.2rem;
+    align-items: baseline;
+  }
+
+  .slot__note {
+    grid-column: 2;
+  }
+}
+
 .slot + .slot {
   border-top: 1px solid rgba(11, 37, 69, 0.1);
 }
@@ -527,9 +691,36 @@ main {
 }
 
 .slot__name {
+  max-width: 52ch;
   font-family: 'ABCArizonaMix', Georgia, serif;
   font-size: 2.4rem;
   line-height: 1.2;
+}
+
+/* The root is fluid — 1rem is 10px at 768 and 7.5px at 1440 — so every size
+   authored once gets *smaller* as the screen gets wider. At 1440 that left the
+   timetable at 21px days, 18px sessions and a 9px time, which is the one thing
+   on the page a delegate is scanning for. These three step up above 1200 to
+   put the scale back. They are used nowhere else: `.day` and `.slot` are this
+   page's own. */
+@media (min-width: 1200px) {
+  /* The date column has to grow with the date: "23 November" at 3.6rem is
+     20.6rem of ink, which broke over two lines in the 20rem column. */
+  .day {
+    grid-template-columns: 24rem 1fr;
+  }
+
+  .day__date {
+    font-size: 3.6rem;
+  }
+
+  .slot__time {
+    font-size: 1.4rem;
+  }
+
+  .slot__name {
+    font-size: 2.8rem;
+  }
 }
 
 .slot__note {
@@ -793,16 +984,17 @@ main {
   margin: 0;
 }
 
-/* Its native 4:3, so the auditorium is not cropped to a letterbox. */
+/* No ratio of its own any more: the source is 1400x900 and its width and
+   height attributes carry that, so `height: auto` lets the intrinsic ratio
+   stand and the facade is shown whole rather than cropped to a 4:3 box that
+   would cut both ends off the building.
+
+   `height: auto` is doing real work, not tidiness — without it the height
+   attribute resolves as a used value and the picture came out 565x768. */
 .venue-feature__figure img {
   display: block;
   width: 100%;
-  /* Explicit, and not merely for tidiness: the tag carries width="1024"
-     height="768" as sizing hints, and `aspect-ratio` is ignored whenever both
-     dimensions resolve — the picture came out 565x768 instead of 565x424. */
   height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
   border-radius: 1.6rem;
 }
 
