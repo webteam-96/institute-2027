@@ -133,6 +133,18 @@ img[src*="/media/logo."] {
           drop-shadow(0 0 5px rgba(255, 255, 255, 0.65));
 }
 
+/* ...but not on the hero card's own copy. That halo is for the header mark,
+   which passes over the navy footer and the film; the card is a pale gradient
+   and never needs it. On a 225x129 render of a 1244px source it was painting a
+   5px white blur through the emblem's ring text and the gear teeth, and the
+   card's 3D tilt rasterises the layer soft enough already without help.
+
+   `img.` rather than the bare class: the rule above is an attribute selector
+   and would otherwise win the tie. */
+img.hero-card__logo {
+  filter: none;
+}
+
 /* --------------------------------------------------------------------------
    Register button.
 
