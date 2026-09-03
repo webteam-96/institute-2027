@@ -10,6 +10,9 @@ import PageHero from '../components/PageHero'
  * a paragraph headed "Organising Excellence", on a site that writes programme,
  * centre and Convenor everywhere else.
  *
+ * The four headings are the client's own and stay as written. The paragraphs
+ * under them are the plain-words versions; only the padding went.
+ *
  * The layout follows the shape the copy actually has, which is not five equal
  * sections: an opening statement, three parallel facets (who runs it, who it is
  * for, what happens there — the three are within 70 characters of each other in
@@ -38,7 +41,7 @@ export default function About() {
 
       <div className="about-facets">
         <article>
-          <h2>Who runs it</h2>
+          <h2>Organising Excellence</h2>
           <p>
             The Institute is put together by its convenors and organisers, drawing on the
             experience of past Rotary officers. The team includes the speakers, panellists,
@@ -47,7 +50,7 @@ export default function About() {
         </article>
 
         <article>
-          <h2>Who it is for</h2>
+          <h2>Who Should Attend?</h2>
           <p>
             Past, present and future district governors, RI Presidents, Directors, Trustees
             and Regional Leaders, and Rotarians who want to take part in the work of
@@ -56,7 +59,7 @@ export default function About() {
         </article>
 
         <article>
-          <h2>What happens there</h2>
+          <h2>Learn, Connect, and Lead</h2>
           <p>
             Three days of discussion among people committed to Service Above Self, given to
             the sessions themselves, to the fellowship between them, and to the work of
@@ -66,7 +69,7 @@ export default function About() {
       </div>
 
       <section className="about-coda">
-        <h2>What comes next</h2>
+        <h2>Stay Tuned for Updates</h2>
         <p>
           More will be posted here as it is settled &mdash; the programme, the rates and the
           way to register. We hope to see you in Goa in November 2027.
