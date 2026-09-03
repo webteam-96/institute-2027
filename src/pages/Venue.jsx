@@ -45,28 +45,22 @@ export default function Venue() {
         <div className="venue-feature__body">
           <h2>Goa&rsquo;s largest convention centre at ATI ONGC</h2>
           <p className="venue-feature__lead">
-            A landmark addition to Goa&rsquo;s infrastructure is taking shape within
-            ONGC&rsquo;s Advanced Training Institute (ATI) campus, the state&rsquo;s largest
-            and most advanced convention centre. This iconic facility, being developed by
-            ONGC, will feature a world-class auditorium, expansive exhibition spaces, and
-            modern amenities designed to host high-level global events such as the upcoming
-            India Energy Week (IEW) 2026.
+            The Prithvi Convention Centre stands on ONGC&rsquo;s Advanced Training Institute
+            (ATI) campus in South Goa &mdash; the state&rsquo;s largest and most advanced
+            convention centre. Built by ONGC, it has a world-class auditorium, expansive
+            exhibition spaces and the facilities to host events on the scale of India
+            Energy Week.
           </p>
 
           <h3>ONGC&rsquo;s commitment to excellence</h3>
           <p>
-            The convention centre at ATI underscores ONGC&rsquo;s commitment to excellence,
-            innovation, and nation-building beyond exploration and production. It is
-            envisioned as a premier hub for international conferences, energy summits, and
-            knowledge exchange &mdash; symbolising ONGC&rsquo;s role as a forward-thinking
-            energy leader driving India&rsquo;s growth story.
+            The centre is part of ONGC&rsquo;s work beyond exploration and production, and is
+            used for international conferences, energy summits and knowledge exchange.
           </p>
           <p>
-            As India&rsquo;s largest oil and gas producer, ONGC continues to lead the
-            nation&rsquo;s energy security mission while embracing cleaner, smarter
-            technologies and future-ready talent development. Hosting IEW at ATI Goa reflects
-            ONGC&rsquo;s growing stature as a thought leader driving India&rsquo;s energy
-            transition.
+            As India&rsquo;s largest oil and gas producer, ONGC leads the country&rsquo;s
+            energy security work while taking on cleaner technologies and the training that
+            goes with them. Hosting India Energy Week at ATI Goa is part of that.
           </p>
         </div>
       </section>
