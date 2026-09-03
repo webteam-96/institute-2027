@@ -2512,12 +2512,16 @@ html.header-scrolled .styles_header_container__1oB4s {
 /* --- The venue slides: a scrim under the caption --------------------------
    The captions are white type laid straight on a photograph, and the capture
    never put anything between them. That works while the picture is dark. The
-   auditorium slide is pale, and measured on the phone the last line of "ATI
-   ONGC: one room, every zone, one programme." sat on rgb(238,237,233) - 1.17:1
-   against white, which is not low contrast, it is invisible.
+   auditorium slide is pale: "Fellowship", "Goa" and the description sat on
+   rgb(126,82,63) to rgb(145,89,69) and washed out.
 
-   Which line fails depends on the slide and on how far it has scrolled, so
-   there is no one line to fix: the veil goes behind the whole caption block,
+   (One reading during that investigation looked far worse - the heading's last
+   line measuring rgb(238,237,233), 1.17:1. That was the fixed white header
+   bar, not the photograph: the line had scrolled under it. Nothing to fix
+   there, and no scrim would have reached it.)
+
+   Which line washes out depends on the slide and on how far it has scrolled,
+   so there is no one line to fix: the veil goes behind the whole caption block,
    which is exactly the area the text occupies (the lower half of the slide on
    a desktop, the full card below 75rem). Absolutely positioned so it does not
    become a grid item and take a row of its own.
