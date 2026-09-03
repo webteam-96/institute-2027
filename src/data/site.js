@@ -116,7 +116,7 @@ export const programme = [
   {
     id: 'pre-institute',
     number: '03',
-    short: 'Pre-Institute',
+    short: 'Pre-Institute (Adjunct) Seminars',
     name: 'Pre-Institute (Adjunct) Seminars',
     dates: '25 November 2027',
     days: [

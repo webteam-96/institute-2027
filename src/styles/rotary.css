@@ -3218,3 +3218,24 @@ html.header-scrolled .styles_header_container__1oB4s {
     pointer-events: none;
   }
 }
+
+/* --- The spotlight section's resting background ---------------------------
+   The gold labels sit straight on the section's background photograph, and the
+   capture's own dim layer is at z-index 6, above the yellow beam, so it cannot
+   be used without greying the panel out too.
+
+   The sunset aerial that replaced the old dusk shot is a much lighter picture.
+   Measured on the resting state, "Institute" came out at 2.22:1 against
+   rgb(185,136,115) and "GELS & GNLS" at 3.19:1 - under the 3:1 that text this
+   size needs, where the photograph it replaced gave 7.3 to 8.0.
+
+   A layer in the same background shorthand rather than another element: it
+   lands between the photograph and everything drawn over it, which is exactly
+   where a veil belongs, and it costs no DOM. The hover photographs have their
+   own scrim already and are not touched by this.
+   -------------------------------------------------------------------------- */
+
+.styles_section__VRl4k.css-ahjpv9 {
+  background-image: linear-gradient(rgba(11, 37, 69, 0.42), rgba(11, 37, 69, 0.42)),
+    url('/media/venue-dusk.jpg');
+}

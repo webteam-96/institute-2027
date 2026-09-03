@@ -80,8 +80,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-prithvi.jpg" />
-                      <img alt="projects" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-prithvi.jpg" />
+                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-01.jpg" />
+                      <img alt="projects" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-01.jpg" />
                     </div>
                   </div>
                 </div>
@@ -188,8 +188,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-concourse.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-concourse.jpg" />
+                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-02.jpg" />
+                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-02.jpg" />
                     </div>
                   </div>
                 </div>
@@ -296,8 +296,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-hall.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-hall.jpg" />
+                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-03.jpg" />
+                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-03.jpg" />
                     </div>
                   </div>
                 </div>
@@ -404,8 +404,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-dining.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-dining.jpg" />
+                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-04.jpg" />
+                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-04.jpg" />
                     </div>
                   </div>
                 </div>
@@ -472,114 +472,6 @@ export default function HomeMarkup() {
                           <div className="js-project-description css-1as290b">
                             <span className="css-3w1c3c">
                               A dining hall that turns over the whole Institute, and evenings that need no coach transfer to reach.
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="css-jl85b3">
-                        <div className="css-wx989e">
-                          <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                            <div className="css-14om1bk">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                              </div>
-                            </div>
-                            <div className="css-gyp8mm">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                              </div>
-                            </div>
-                          </button>
-                          <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                            <div className="css-14om1bk">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                              </div>
-                            </div>
-                            <div className="css-gyp8mm">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="css-1y69zf3">
-                <div className="css-14ba2z6">
-                  <div className="css-18tlmaw">
-                    <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/stay-exterior.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/stay-exterior.jpg" />
-                    </div>
-                  </div>
-                </div>
-                <div className="css-k8vowv">
-                </div>
-                <div className="css-1ot8zsz">
-                  <div className="css-56dpd6">
-                    <div className="css-32652j">
-                      <div className="Container_container_grid__LWYyb css-l4y3fm">
-                        <div className="css-gu32ue">
-                          <div className="css-1gpgow9">
-                            <h3 className="css-zwnf0y">
-                              <span className="css-1gs4s93">
-                                The venue
-                              </span>
-                              Residency blocks: sleep where you sit.
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="Container_container_grid__LWYyb css-1j1fgla">
-                        <div className="css-b1qh9y">
-                          <div className="css-1tnhvnf">
-                            <p className="css-1csbsx5">
-                              Public Image
-                            </p>
-                          </div>
-                        </div>
-                        <div className="css-b1qh9y">
-                          <div className="css-1tnhvnf">
-                            <p className="css-1csbsx5">
-                              Goa
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="css-e2urn8">
-                    <div className="css-1w945i0">
-                      <div className="js-project-description css-1as290b">
-                        <span className="css-3w1c3c">
-                          Accommodation on the grounds, so the walk from a GELS session back to your room is a walk.
-                        </span>
-                      </div>
-                    </div>
-                    <div className="Container_container_grid__LWYyb css-i1jpw7">
-                      <div className="css-9cvvru">
-                        <div className="css-1tnhvnf">
-                          <p className="css-1csbsx5">
-                            Public Image
-                          </p>
-                        </div>
-                      </div>
-                      <div className="css-14sevk6">
-                        <div className="css-1tnhvnf">
-                          <p className="css-1csbsx5">
-                            Goa
-                          </p>
-                        </div>
-                      </div>
-                      <div className="css-4pzbv1">
-                        <div className="css-99wu2y">
-                          <div className="js-project-description css-1as290b">
-                            <span className="css-3w1c3c">
-                              Accommodation on the grounds, so the walk from a GELS session back to your room is a walk.
                             </span>
                           </div>
                         </div>

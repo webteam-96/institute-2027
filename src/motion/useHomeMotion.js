@@ -489,6 +489,11 @@ export default function useHomeMotion() {
           let lastChange = -Infinity
 
           const go = (next) => {
+            // Reverting the autoplay tween rewinds it, and rewinding fires the
+            // onRepeat below. By then the context is being torn down and its
+            // scope element is gone, so every gsap call in here warned
+            // "Invalid scope" on unmount - twice per mount under StrictMode.
+            if (cancelled) return
             const count = slides.length
             const target = ((next % count) + count) % count
             if (target === current) return
@@ -543,7 +548,7 @@ export default function useHomeMotion() {
               paused: true,
               onRepeat: () => go(current + 1),
               onUpdate: function fill() {
-                if (!railFill) return
+                if (cancelled || !railFill) return
                 gsap.set(railFill, {
                   scaleX: (current + this.progress()) / slides.length,
                   transformOrigin: 'left center',
