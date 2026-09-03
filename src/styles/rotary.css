@@ -325,15 +325,21 @@ canvas.rotary-globe {
   margin: 0;
 }
 
-/* The frame carries the corner radius the cards above use, and holds the 4:5
-   the photographs were cropped to so a portrait can never stretch. */
+/* The frame carries the corner radius the cards above use, and the ratio of
+   the photographs so nobody stretches or gets cropped out.
+
+   Landscape, not the 4:5 this held before: the supplied photographs are 764x586
+   and each shows a couple. A 4:5 frame with object-fit:cover would take a
+   0.8-wide slice out of a 1.3-wide picture and cut one of the two people off
+   every card. 4:3 is the nearest clean ratio to the source and loses about two
+   per cent off the top and bottom. */
 .committee__frame {
   position: relative;
   overflow: hidden;
   margin-bottom: 2.4rem;
   border-radius: 1.6rem;
   background: var(--primary-yellow-light, #f5ead0);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
 }
 
 .committee__frame img {
@@ -518,13 +524,21 @@ canvas.rotary-globe {
 }
 
 @media (min-width: 768px) {
+  /* Two up, not four. Four landscape frames across a 768 row is 150px each,
+     and these photographs have two people in them. */
   .committee__list {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .committee__title {
     font-size: 7.2rem;
     letter-spacing: -0.144rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .committee__list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -2493,6 +2507,49 @@ html.header-scrolled .styles_header_container__1oB4s {
   .css-1ot8zsz {
     padding-top: 7.5rem;
   }
+}
+
+/* --- The venue slides: a scrim under the caption --------------------------
+   The captions are white type laid straight on a photograph, and the capture
+   never put anything between them. That works while the picture is dark. The
+   auditorium slide is pale, and measured on the phone the last line of "ATI
+   ONGC: one room, every zone, one programme." sat on rgb(238,237,233) - 1.17:1
+   against white, which is not low contrast, it is invisible.
+
+   Which line fails depends on the slide and on how far it has scrolled, so
+   there is no one line to fix: the veil goes behind the whole caption block,
+   which is exactly the area the text occupies (the lower half of the slide on
+   a desktop, the full card below 75rem). Absolutely positioned so it does not
+   become a grid item and take a row of its own.
+
+   The shadow does the rest. A scrim heavy enough on its own to carry white
+   type over a near-white photograph would have to be about 50% black, which
+   drains every slide; at 32% plus a shadow the pictures keep their light and
+   the worst line still clears 4.5:1.
+   -------------------------------------------------------------------------- */
+
+.css-1ot8zsz {
+  position: relative;
+}
+
+.css-1ot8zsz::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 37, 69, 0.42),
+    rgba(11, 37, 69, 0.26) 45%,
+    rgba(11, 37, 69, 0.46)
+  );
+  pointer-events: none;
+}
+
+.css-1ot8zsz .css-zwnf0y,
+.css-1ot8zsz .css-1gs4s93,
+.css-1ot8zsz .css-1csbsx5,
+.css-1ot8zsz p {
+  text-shadow: 0 1px 2px rgba(11, 37, 69, 0.55), 0 0 14px rgba(11, 37, 69, 0.4);
 }
 
 /* --- Phone: the empty band under the venue slider -------------------------

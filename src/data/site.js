@@ -134,9 +134,12 @@ export const programme = [
 ]
 
 /**
- * The organising committee, as supplied. Photographs are the single portraits
- * from photos/photos, cropped to 4:5 and flattened onto the section ground
- * where the source was a cutout.
+ * The organising committee, as supplied.
+ *
+ * The photographs are the ones the committee sent: 764x586, and each shows the
+ * officer with their partner, which is how Rotary usually pictures them. The
+ * name and role name the officer; the frame is landscape so the second person
+ * is not cropped out of the picture.
  */
 export const committee = [
   { name: 'Gurjeet S. Sekhon', role: 'Convenor', photo: '/media/committee/gurjeet-sekhon.jpg' },
