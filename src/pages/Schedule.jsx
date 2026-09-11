@@ -55,10 +55,10 @@ export default function Schedule() {
 
   return (
     <>
-      <PageHero title="Program schedule" />
+      <PageHero title="Programme schedule" />
 
       <section className="section sched">
-        <p className="section__label">Program</p>
+        <p className="section__label">Programme</p>
 
         <div className="sched__tabs" role="tablist" aria-label="Programme">
           {scheduleComponents.map((c, i) => {

@@ -28,7 +28,8 @@ export default function RegistrationPage() {
         <p className="reg-page__lede">
           Registration for Rotary Institute 2027 covers three separate programmes: the
           Institute itself, the Governors Elect and Governors Nominee Learning Seminars that
-          run before it, and the adjunct seminars on the day between them. You may register
+          run before it, and the adjunct seminars on the closing day of those seminars, the day
+          before the Institute opens. You may register
           for any one of them, or for more than one.
         </p>
       </section>

@@ -47,7 +47,7 @@ export default function HomeMarkup() {
             </div>
             <HeroCard />
             <div className="styles_content_image__bvRpE css-1t74537">
-              <img alt="home-hero-text" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', color: 'transparent' }} src="upload/home-hero-text.svg" />
+              <img alt="" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', color: 'transparent' }} src="upload/home-hero-text.svg" />
             </div>
           </div>
         </div>
@@ -80,8 +80,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-01.jpg" />
-                      <img alt="projects" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-01.jpg" />
+                      <img alt="" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-01.jpg" />
+                      <img alt="The Prithvi Convention Centre at ONGC Goa" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-01.jpg" />
                     </div>
                   </div>
                 </div>
@@ -188,8 +188,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-02.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-02.jpg" />
+                      <img alt="" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-02.jpg" />
+                      <img alt="The plenary hall set for the Institute" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-02.jpg" />
                     </div>
                   </div>
                 </div>
@@ -296,8 +296,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-03.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-03.jpg" />
+                      <img alt="" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-03.jpg" />
+                      <img alt="A plenary session in the main auditorium" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-03.jpg" />
                     </div>
                   </div>
                 </div>
@@ -404,8 +404,8 @@ export default function HomeMarkup() {
                 <div className="css-14ba2z6">
                   <div className="css-18tlmaw">
                     <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="projects" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-04.jpg" />
-                      <img alt="projects" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-04.jpg" />
+                      <img alt="" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-04.jpg" />
+                      <img alt="The Rotary Foundation dinner" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-04.jpg" />
                     </div>
                   </div>
                 </div>
@@ -799,19 +799,19 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="Program schedule - Rotary Institute 2027" href="/schedule#institute">
+                    <a title="Programme schedule - Rotary Institute 2027" href="/schedule#institute">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
                             <span className="will-change-transform css-1bx5ylf">
                               <span className="text css-13o7eu2">
                                 <p className="css-yh3d0j">
-                                  Program schedule
+                                  Programme schedule
                                 </p>
                               </span>
                               <span className="text__clone css-rdqqhl">
                                 <p className="css-yh3d0j">
-                                  Program schedule
+                                  Programme schedule
                                 </p>
                               </span>
                             </span>
@@ -842,19 +842,19 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="Program schedule - Rotary Institute 2027" href="/schedule#institute">
+                <a title="Programme schedule - Rotary Institute 2027" href="/schedule#institute">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">
                         <span className="will-change-transform css-1bx5ylf">
                           <span className="text css-13o7eu2">
                             <p className="css-yh3d0j">
-                              Program schedule
+                              Programme schedule
                             </p>
                           </span>
                           <span className="text__clone css-rdqqhl">
                             <p className="css-yh3d0j">
-                              Program schedule
+                              Programme schedule
                             </p>
                           </span>
                         </span>
@@ -928,19 +928,19 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="Program schedule - GELS and GNLS" href="/schedule#gels-gnls">
+                    <a title="Programme schedule - GELS and GNLS" href="/schedule#gels-gnls">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
                             <span className="will-change-transform css-1bx5ylf">
                               <span className="text css-13o7eu2">
                                 <p className="css-yh3d0j">
-                                  Program schedule
+                                  Programme schedule
                                 </p>
                               </span>
                               <span className="text__clone css-rdqqhl">
                                 <p className="css-yh3d0j">
-                                  Program schedule
+                                  Programme schedule
                                 </p>
                               </span>
                             </span>
@@ -971,19 +971,19 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="Program schedule - GELS and GNLS" href="/schedule#gels-gnls">
+                <a title="Programme schedule - GELS and GNLS" href="/schedule#gels-gnls">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">
                         <span className="will-change-transform css-1bx5ylf">
                           <span className="text css-13o7eu2">
                             <p className="css-yh3d0j">
-                              Program schedule
+                              Programme schedule
                             </p>
                           </span>
                           <span className="text__clone css-rdqqhl">
                             <p className="css-yh3d0j">
-                              Program schedule
+                              Programme schedule
                             </p>
                           </span>
                         </span>
@@ -1057,19 +1057,19 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="Program schedule - Pre-Institute Seminars" href="/schedule#pre-institute">
+                    <a title="Programme schedule - Pre-Institute Seminars" href="/schedule#pre-institute">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
                             <span className="will-change-transform css-1bx5ylf">
                               <span className="text css-13o7eu2">
                                 <p className="css-yh3d0j">
-                                  Program schedule
+                                  Programme schedule
                                 </p>
                               </span>
                               <span className="text__clone css-rdqqhl">
                                 <p className="css-yh3d0j">
-                                  Program schedule
+                                  Programme schedule
                                 </p>
                               </span>
                             </span>
@@ -1100,19 +1100,19 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="Program schedule - Pre-Institute Seminars" href="/schedule#pre-institute">
+                <a title="Programme schedule - Pre-Institute Seminars" href="/schedule#pre-institute">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">
                         <span className="will-change-transform css-1bx5ylf">
                           <span className="text css-13o7eu2">
                             <p className="css-yh3d0j">
-                              Program schedule
+                              Programme schedule
                             </p>
                           </span>
                           <span className="text__clone css-rdqqhl">
                             <p className="css-yh3d0j">
-                              Program schedule
+                              Programme schedule
                             </p>
                           </span>
                         </span>
@@ -1186,19 +1186,19 @@ export default function HomeMarkup() {
                 </div>
                 <div className="css-19ltxjc">
                   <div className="css-1s3y6l3">
-                    <a title="TRF Events - Rotary Institute 2027" href="/schedule#trf">
+                    <a title="Programme schedule - TRF Events" href="/schedule#trf">
                       <div className="css-3byrcy">
                         <span className="fix-mask-clip-mask css-1hswejy">
                           <span className="will-change-transform css-13o7eu2">
                             <span className="will-change-transform css-1bx5ylf">
                               <span className="text css-13o7eu2">
                                 <p className="css-yh3d0j">
-                                  Program schedule
+                                  Programme schedule
                                 </p>
                               </span>
                               <span className="text__clone css-rdqqhl">
                                 <p className="css-yh3d0j">
-                                  Program schedule
+                                  Programme schedule
                                 </p>
                               </span>
                             </span>
@@ -1229,19 +1229,19 @@ export default function HomeMarkup() {
             </div>
             <div className="css-1dzinm5">
               <div className="css-19z4pko">
-                <a title="TRF Events - Rotary Institute 2027" href="/schedule#trf">
+                <a title="Programme schedule - TRF Events" href="/schedule#trf">
                   <div className="css-3byrcy">
                     <span className="fix-mask-clip-mask css-1hswejy">
                       <span className="will-change-transform css-13o7eu2">
                         <span className="will-change-transform css-1bx5ylf">
                           <span className="text css-13o7eu2">
                             <p className="css-yh3d0j">
-                              Program schedule
+                              Programme schedule
                             </p>
                           </span>
                           <span className="text__clone css-rdqqhl">
                             <p className="css-yh3d0j">
-                              Program schedule
+                              Programme schedule
                             </p>
                           </span>
                         </span>

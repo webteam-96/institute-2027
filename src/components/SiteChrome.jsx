@@ -31,7 +31,7 @@ function Roll({ children }) {
       <span className="will-change-transform css-13o7eu2">
         <span className="will-change-transform css-1bx5ylf">
           <span className="text css-13o7eu2">{children}</span>
-          <span className="text__clone css-rdqqhl">{children}</span>
+          <span className="text__clone css-rdqqhl" aria-hidden="true">{children}</span>
         </span>
       </span>
     </span>

@@ -19,7 +19,7 @@ export const event = {
 export const nav = [
   { label: 'Home', to: '/' },
   { label: 'Institute', to: '/about' },
-  { label: 'GELS/GNLS', to: '/gels-gnls' },
+  { label: 'GELS & GNLS', to: '/gels-gnls' },
   { label: 'TRF Events', to: '/trf-events' },
   { label: 'Adjunct Seminars', to: '/adjunct-seminars' },
   { label: 'Schedule', to: '/schedule' },
@@ -83,7 +83,7 @@ export const programme = [
   {
     id: 'gels-gnls',
     number: '02',
-    short: 'GELS/GNLS',
+    short: 'GELS & GNLS',
     name: 'Governors Elect Learning Seminar (GELS) & Governors Nominee Learning Seminar (GNLS)',
     dates: '23 · 24 · 25 November 2027',
     days: [
@@ -167,7 +167,7 @@ export const registration = [
   },
   {
     id: 'gels-gnls',
-    name: 'GELS / GNLS',
+    name: 'GELS & GNLS',
     expands: 'Governors Elect Learning Seminars & Governors Nominee Learning Seminars',
     axis: 'Delegate',
     dates: '23 – 25 November 2027',

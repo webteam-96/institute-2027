@@ -28,8 +28,8 @@ export default function AdjunctSeminars() {
         <div className="gels-intro__lede">
           <h2>{adjunct.name}</h2>
           <p>
-            Three seminars on the Thursday, between the close of the governors&rsquo; learning
-            seminars and the opening of the Institute. They run in parallel, so a delegate
+            Three seminars on the Thursday, the last day of the governors&rsquo; learning seminars
+            and the day before the Institute opens. They run in parallel, so a delegate
             attends one of them.
           </p>
         </div>

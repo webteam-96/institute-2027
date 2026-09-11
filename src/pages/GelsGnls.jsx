@@ -21,7 +21,7 @@ export default function GelsGnls() {
 
   return (
     <>
-      <PageHero title="GELS/GNLS" />
+      <PageHero title="GELS &amp; GNLS" />
 
       <section className="gels-intro">
         <div className="gels-intro__lede">

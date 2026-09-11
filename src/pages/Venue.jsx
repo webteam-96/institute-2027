@@ -4,8 +4,8 @@ import { event } from '../data/site'
 const FACTS = [
   ['Venue', event.venue],
   ['Address', event.address],
-  ['Dates', event.dates],
   ['Pre-Institute', event.preDates],
+  ['Institute', event.dates],
 ]
 
 export default function Venue() {
@@ -56,11 +56,6 @@ export default function Venue() {
           <p>
             The centre is part of ONGC&rsquo;s work beyond exploration and production, and is
             used for international conferences, energy summits and knowledge exchange.
-          </p>
-          <p>
-            As India&rsquo;s largest oil and gas producer, ONGC leads the country&rsquo;s
-            energy security work while taking on cleaner technologies and the training that
-            goes with them. Hosting India Energy Week at ATI Goa is part of that.
           </p>
         </div>
       </section>
