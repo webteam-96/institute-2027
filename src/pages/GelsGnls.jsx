@@ -34,11 +34,6 @@ export default function GelsGnls() {
               <span key={n}>{n}</span>
             ))}
           </h2>
-          <p>
-            The three days before the Institute opens, for the district governors taking
-            office and those nominated to follow them. Partners have their own track
-            alongside the main sessions.
-          </p>
         </div>
 
         <dl className="gels-intro__facts">

@@ -1,6 +1,6 @@
 import HotelGallery from '../components/HotelGallery'
 import PageHero from '../components/PageHero'
-import { event, hotelDistance, hotels } from '../data/site'
+import { hotelDistance, hotels } from '../data/site'
 
 /**
  * A Google Maps search rather than a pinned coordinate. The name and address
@@ -43,13 +43,6 @@ export default function Hotels() {
     <>
       <PageHero title="Hotels" />
 
-      <section className="section">
-        <p className="hotels__lede">
-          Three hotels on the Cavelossim and Mobor beach strip in South Goa, each a short
-          drive down the coast road from {event.venue}.
-        </p>
-      </section>
-
       <section className="hotels">
         <ul className="hotels__list">
           {hotels.map((h, i) => (
@@ -83,10 +76,6 @@ export default function Hotels() {
             </li>
           ))}
         </ul>
-
-        <p className="hotels__note">
-          Distances are approximate and measured by road to {event.venue}, Kital, Canaguinim.
-        </p>
       </section>
     </>
   )

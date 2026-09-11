@@ -31,8 +31,8 @@ export default function About() {
       <section className="about-lead">
         <p>
           Rotary Institute 2027 brings together past, present and incoming district and
-          senior leaders, alongside Rotarians from across the zones, to share ideas and
-          experience of Rotary International and The Rotary Foundation. It is held in{' '}
+          senior leaders, alongside Rotarians from across the zones, to share their ideas
+          and experience of Rotary International and The Rotary Foundation. It is held in{' '}
           <b className="about-fact">Goa</b> from{' '}
           <b className="about-fact">26 to 28 November 2027</b>, for{' '}
           <b className="about-fact">Zones 4, 5, 6, 7 &amp; 8</b>.
@@ -43,8 +43,8 @@ export default function About() {
         <article>
           <h2>Organising Excellence</h2>
           <p>
-            The Institute is put together by its convenors and organisers, drawing on the
-            experience of past Rotary officers. The team includes the speakers, panellists,
+            The Institute is run by its convenors and organisers, drawing on the experience of
+            past Rotary officers. The team includes the speakers, panellists,
             discussion leaders and committee members who lead the sessions.
           </p>
         </article>
@@ -53,17 +53,16 @@ export default function About() {
           <h2>Who Should Attend?</h2>
           <p>
             Past, present and future district governors, RI Presidents, Directors, Trustees
-            and Regional Leaders, and Rotarians who want to take part in the work of
-            Rotary&rsquo;s mission.
+            and Regional Leaders, and any Rotarian who wants to be part of Rotary&rsquo;s work.
           </p>
         </article>
 
         <article>
           <h2>Learn, Connect, and Lead</h2>
           <p>
-            Three days of discussion among people committed to Service Above Self, given to
-            the sessions themselves, to the fellowship between them, and to the work of
-            Rotary International and The Rotary Foundation.
+            Three days among people committed to Service Above Self: the sessions, the
+            fellowship between them, and the work of Rotary International and The Rotary
+            Foundation.
           </p>
         </article>
       </div>
@@ -71,8 +70,8 @@ export default function About() {
       <section className="about-coda">
         <h2>Stay Tuned for Updates</h2>
         <p>
-          More will be posted here as it is settled &mdash; the programme, the rates and the
-          way to register. We hope to see you in Goa in November 2027.
+          More will be posted here as it is confirmed &mdash; the programme, the rates and
+          how to register. We hope to see you in Goa in November 2027.
         </p>
       </section>
     </>

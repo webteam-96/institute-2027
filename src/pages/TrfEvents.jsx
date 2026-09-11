@@ -18,13 +18,6 @@ export default function TrfEvents() {
     <>
       <PageHero title="TRF Events" />
 
-      <section className="section">
-        <p className="trf__lede">
-          Two events for The Rotary Foundation sit alongside the Institute, on the evening
-          before it opens and on its first morning.
-        </p>
-      </section>
-
       <section className="trf">
         <ol className="trf__list">
           {trfEvents.map((e) => (

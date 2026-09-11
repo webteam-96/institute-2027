@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 
 import PageHero from '../components/PageHero'
 import { event, programme } from '../data/site'
@@ -27,11 +26,6 @@ export default function AdjunctSeminars() {
       <section className="gels-intro">
         <div className="gels-intro__lede">
           <h2>{adjunct.name}</h2>
-          <p>
-            Three seminars on the Thursday, the last day of the governors&rsquo; learning seminars
-            and the day before the Institute opens. They run in parallel, so a delegate
-            attends one of them.
-          </p>
         </div>
 
         <dl className="gels-intro__facts">
@@ -65,10 +59,6 @@ export default function AdjunctSeminars() {
             </li>
           ))}
         </ol>
-
-        <p className="gels-days__more">
-          <Link to="/schedule#pre-institute">See this day in the full programme</Link>
-        </p>
       </section>
 
       <section className="gels-where">

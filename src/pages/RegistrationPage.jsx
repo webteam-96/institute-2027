@@ -24,16 +24,6 @@ export default function RegistrationPage() {
     <>
       <PageHero title="Registration Details" />
 
-      <section className="section">
-        <p className="reg-page__lede">
-          Registration for Rotary Institute 2027 covers three separate programmes: the
-          Institute itself, the Governors Elect and Governors Nominee Learning Seminars that
-          run before it, and the adjunct seminars on the closing day of those seminars, the day
-          before the Institute opens. You may register
-          for any one of them, or for more than one.
-        </p>
-      </section>
-
       <section className="reg-page">
         {registration.map((c) => (
           <article className="reg-page__block" key={c.id} id={c.id}>
@@ -57,12 +47,7 @@ export default function RegistrationPage() {
                 ))}
               </dl>
 
-              <a
-                className="btn reg-page__btn"
-                href={`mailto:${event.email}?subject=Rotary%20Institute%202027%20%E2%80%94%20${c.subject}`}
-              >
-                Register for {c.name}
-              </a>
+              <span className="btn reg-page__btn">Register for {c.name}</span>
             </div>
           </article>
         ))}

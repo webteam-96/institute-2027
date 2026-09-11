@@ -11,6 +11,7 @@
  * the old lockup back. */
 
 import HeroCard from '../components/HeroCard'
+import { event } from '../data/site'
 
 export default function HomeMarkup() {
   return (
@@ -66,10 +67,10 @@ export default function HomeMarkup() {
           </template>
           <div className="css-130dp97">
             <div className="css-dru4ek">
-              Rotary Institute 2027, hosted in Goa at ATI ONGC, Goa’s largest convention centre.
+              Rotary Institute 2027, hosted at ATI ONGC, Goa’s largest convention centre.
             </div>
             <div className="css-dwl3oz">
-              Rotary Institute 2027, hosted in Goa at ATI ONGC, Goa’s largest convention centre.
+              Rotary Institute 2027, hosted at ATI ONGC, Goa’s largest convention centre.
             </div>
           </div>
         </div>
@@ -94,414 +95,9 @@ export default function HomeMarkup() {
                         <div className="css-gu32ue">
                           <div className="css-1gpgow9">
                             <h3 className="css-zwnf0y">
-                              <span className="css-1gs4s93">
-                                The venue
-                              </span>
-                              ATI ONGC: one room, every zone, one programme.
+                              {event.venue}
                             </h3>
                           </div>
-                        </div>
-                      </div>
-                      <div className="Container_container_grid__LWYyb css-1j1fgla">
-                        <div className="css-b1qh9y">
-                          <div className="css-1tnhvnf">
-                            <p className="css-1csbsx5">
-                              Fellowship
-                            </p>
-                          </div>
-                        </div>
-                        <div className="css-b1qh9y">
-                          <div className="css-1tnhvnf">
-                            <p className="css-1csbsx5">
-                              Goa
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="css-e2urn8">
-                    <div className="css-1w945i0">
-                      <div className="js-project-description css-1as290b">
-                        <span className="css-3w1c3c">
-                          A tiered auditorium sized for the full Institute, with staging and screens already in place.
-                        </span>
-                      </div>
-                    </div>
-                    <div className="Container_container_grid__LWYyb css-i1jpw7">
-                      <div className="css-9cvvru">
-                        <div className="css-1tnhvnf">
-                          <p className="css-1csbsx5">
-                            Fellowship
-                          </p>
-                        </div>
-                      </div>
-                      <div className="css-14sevk6">
-                        <div className="css-1tnhvnf">
-                          <p className="css-1csbsx5">
-                            Goa
-                          </p>
-                        </div>
-                      </div>
-                      <div className="css-4pzbv1">
-                        <div className="css-99wu2y">
-                          <div className="js-project-description css-1as290b">
-                            <span className="css-3w1c3c">
-                              A tiered auditorium sized for the full Institute, with staging and screens already in place.
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="css-jl85b3">
-                        <div className="css-wx989e">
-                          <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                            <div className="css-14om1bk">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                              </div>
-                            </div>
-                            <div className="css-gyp8mm">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                              </div>
-                            </div>
-                          </button>
-                          <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                            <div className="css-14om1bk">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                              </div>
-                            </div>
-                            <div className="css-gyp8mm">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="css-1y69zf3">
-                <div className="css-14ba2z6">
-                  <div className="css-18tlmaw">
-                    <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-02.jpg" />
-                      <img alt="The plenary hall set for the Institute" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-02.jpg" />
-                    </div>
-                  </div>
-                </div>
-                <div className="css-k8vowv">
-                </div>
-                <div className="css-1ot8zsz">
-                  <div className="css-56dpd6">
-                    <div className="css-32652j">
-                      <div className="Container_container_grid__LWYyb css-l4y3fm">
-                        <div className="css-gu32ue">
-                          <div className="css-1gpgow9">
-                            <h3 className="css-zwnf0y">
-                              <span className="css-1gs4s93">
-                                The venue
-                              </span>
-                              The concourse: the House of Friendship, under one roof.
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="Container_container_grid__LWYyb css-1j1fgla">
-                        <div className="css-b1qh9y">
-                          <div className="css-1tnhvnf">
-                            <p className="css-1csbsx5">
-                              Fellowship
-                            </p>
-                          </div>
-                        </div>
-                        <div className="css-b1qh9y">
-                          <div className="css-1tnhvnf">
-                            <p className="css-1csbsx5">
-                              Goa
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="css-e2urn8">
-                    <div className="css-1w945i0">
-                      <div className="js-project-description css-1as290b">
-                        <span className="css-3w1c3c">
-                          An exhibition floor between the halls, wide enough for the stalls and for the conversations they start.
-                        </span>
-                      </div>
-                    </div>
-                    <div className="Container_container_grid__LWYyb css-i1jpw7">
-                      <div className="css-9cvvru">
-                        <div className="css-1tnhvnf">
-                          <p className="css-1csbsx5">
-                            Fellowship
-                          </p>
-                        </div>
-                      </div>
-                      <div className="css-14sevk6">
-                        <div className="css-1tnhvnf">
-                          <p className="css-1csbsx5">
-                            Goa
-                          </p>
-                        </div>
-                      </div>
-                      <div className="css-4pzbv1">
-                        <div className="css-99wu2y">
-                          <div className="js-project-description css-1as290b">
-                            <span className="css-3w1c3c">
-                              An exhibition floor between the halls, wide enough for the stalls and for the conversations they start.
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="css-jl85b3">
-                        <div className="css-wx989e">
-                          <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                            <div className="css-14om1bk">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                              </div>
-                            </div>
-                            <div className="css-gyp8mm">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                              </div>
-                            </div>
-                          </button>
-                          <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                            <div className="css-14om1bk">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                              </div>
-                            </div>
-                            <div className="css-gyp8mm">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="css-1y69zf3">
-                <div className="css-14ba2z6">
-                  <div className="css-18tlmaw">
-                    <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-03.jpg" />
-                      <img alt="A plenary session in the main auditorium" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-03.jpg" />
-                    </div>
-                  </div>
-                </div>
-                <div className="css-k8vowv">
-                </div>
-                <div className="css-1ot8zsz">
-                  <div className="css-56dpd6">
-                    <div className="css-32652j">
-                      <div className="Container_container_grid__LWYyb css-l4y3fm">
-                        <div className="css-gu32ue">
-                          <div className="css-1gpgow9">
-                            <h3 className="css-zwnf0y">
-                              <span className="css-1gs4s93">
-                                The venue
-                              </span>
-                              Breakout halls for GELS, GNLS and Public Image.
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="Container_container_grid__LWYyb css-1j1fgla">
-                        <div className="css-b1qh9y">
-                          <div className="css-1tnhvnf">
-                            <p className="css-1csbsx5">
-                              Institute
-                            </p>
-                          </div>
-                        </div>
-                        <div className="css-b1qh9y">
-                          <div className="css-1tnhvnf">
-                            <p className="css-1csbsx5">
-                              Goa
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="css-e2urn8">
-                    <div className="css-1w945i0">
-                      <div className="js-project-description css-1as290b">
-                        <span className="css-3w1c3c">
-                          Rooms that seat a zone at a time, every one of them within a corridor of the main auditorium.
-                        </span>
-                      </div>
-                    </div>
-                    <div className="Container_container_grid__LWYyb css-i1jpw7">
-                      <div className="css-9cvvru">
-                        <div className="css-1tnhvnf">
-                          <p className="css-1csbsx5">
-                            Institute
-                          </p>
-                        </div>
-                      </div>
-                      <div className="css-14sevk6">
-                        <div className="css-1tnhvnf">
-                          <p className="css-1csbsx5">
-                            Goa
-                          </p>
-                        </div>
-                      </div>
-                      <div className="css-4pzbv1">
-                        <div className="css-99wu2y">
-                          <div className="js-project-description css-1as290b">
-                            <span className="css-3w1c3c">
-                              Rooms that seat a zone at a time, every one of them within a corridor of the main auditorium.
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="css-jl85b3">
-                        <div className="css-wx989e">
-                          <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                            <div className="css-14om1bk">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                              </div>
-                            </div>
-                            <div className="css-gyp8mm">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                              </div>
-                            </div>
-                          </button>
-                          <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                            <div className="css-14om1bk">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                              </div>
-                            </div>
-                            <div className="css-gyp8mm">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="css-1y69zf3">
-                <div className="css-14ba2z6">
-                  <div className="css-18tlmaw">
-                    <div className="image-placeholder ImagePlaceholder_imagePlaceholder__UW5XD css-pf0bo6">
-                      <img alt="" loading="eager" width="32" height="32" decoding="async" data-nimg="1" className="" style={{ color: 'transparent' }} src="/media/venue-slide-04.jpg" />
-                      <img alt="The Rotary Foundation dinner" loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1" className="ImagePlaceholder_imagePlaceholder__original__CpPiD" style={{ color: 'transparent' }} sizes="100vw" src="/media/venue-slide-04.jpg" />
-                    </div>
-                  </div>
-                </div>
-                <div className="css-k8vowv">
-                </div>
-                <div className="css-1ot8zsz">
-                  <div className="css-56dpd6">
-                    <div className="css-32652j">
-                      <div className="Container_container_grid__LWYyb css-l4y3fm">
-                        <div className="css-gu32ue">
-                          <div className="css-1gpgow9">
-                            <h3 className="css-zwnf0y">
-                              <span className="css-1gs4s93">
-                                The venue
-                              </span>
-                              Dining and fellowship, on the same campus.
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="Container_container_grid__LWYyb css-1j1fgla">
-                        <div className="css-b1qh9y">
-                          <div className="css-1tnhvnf">
-                            <p className="css-1csbsx5">
-                              Training
-                            </p>
-                          </div>
-                        </div>
-                        <div className="css-b1qh9y">
-                          <div className="css-1tnhvnf">
-                            <p className="css-1csbsx5">
-                              Goa
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="css-e2urn8">
-                    <div className="css-1w945i0">
-                      <div className="js-project-description css-1as290b">
-                        <span className="css-3w1c3c">
-                          A dining hall that turns over the whole Institute, and evenings that need no coach transfer to reach.
-                        </span>
-                      </div>
-                    </div>
-                    <div className="Container_container_grid__LWYyb css-i1jpw7">
-                      <div className="css-9cvvru">
-                        <div className="css-1tnhvnf">
-                          <p className="css-1csbsx5">
-                            Training
-                          </p>
-                        </div>
-                      </div>
-                      <div className="css-14sevk6">
-                        <div className="css-1tnhvnf">
-                          <p className="css-1csbsx5">
-                            Goa
-                          </p>
-                        </div>
-                      </div>
-                      <div className="css-4pzbv1">
-                        <div className="css-99wu2y">
-                          <div className="js-project-description css-1as290b">
-                            <span className="css-3w1c3c">
-                              A dining hall that turns over the whole Institute, and evenings that need no coach transfer to reach.
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="css-jl85b3">
-                        <div className="css-wx989e">
-                          <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                            <div className="css-14om1bk">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                              </div>
-                            </div>
-                            <div className="css-gyp8mm">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                              </div>
-                            </div>
-                          </button>
-                          <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                            <div className="css-14om1bk">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                              </div>
-                            </div>
-                            <div className="css-gyp8mm">
-                              <div className="main-icon css-1x3oun">
-                                <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                              </div>
-                            </div>
-                          </button>
                         </div>
                       </div>
                     </div>
@@ -535,38 +131,6 @@ export default function HomeMarkup() {
                   </div>
                 </div>
               </a>
-            </div>
-            <div className="css-lgaqy6">
-              <div className="css-wx989e">
-                <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                  <div className="css-14om1bk">
-                    <div className="main-icon css-1x3oun">
-                      <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                    </div>
-                  </div>
-                  <div className="css-gyp8mm">
-                    <div className="main-icon css-1x3oun">
-                      <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-left.svg" />
-                    </div>
-                  </div>
-                </button>
-                <button className="ProjectSliderActions_icon__5M3_9 css-1sdzwje">
-                  <div className="css-14om1bk">
-                    <div className="main-icon css-1x3oun">
-                      <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                    </div>
-                  </div>
-                  <div className="css-gyp8mm">
-                    <div className="main-icon css-1x3oun">
-                      <img alt="icon" loading="lazy" width="14" height="14" decoding="async" data-nimg="1" style={{ color: 'transparent' }} src="icons/ic_arrow-right.svg" />
-                    </div>
-                  </div>
-                </button>
-              </div>
-            </div>
-            <div className="css-16jj2xp">
-              <div className="css-1apokmj">
-              </div>
             </div>
           </div>
         </div>
@@ -1039,7 +603,7 @@ export default function HomeMarkup() {
                           <div className="css-ml05u1">
                             <div className="">
                               <p className="css-et528z">
-                                The adjunct seminars run through the Thursday — District Learning Facilitators, Council on Legislation and Rotaract — running alongside the closing day of GELS and GNLS, the day before the Institute opens.
+                                The adjunct seminars — District Learning Facilitators, Council on Legislation and Rotaract — run through the Thursday, alongside the closing day of GELS and GNLS, the day before the Institute opens.
                               </p>
                             </div>
                           </div>
@@ -1050,7 +614,7 @@ export default function HomeMarkup() {
                   <div className="css-jl85b3">
                     <div className="">
                       <p className="css-1pi8gkn">
-                        The adjunct seminars run through the Thursday — District Learning Facilitators, Council on Legislation and Rotaract — running alongside the closing day of GELS and GNLS, the day before the Institute opens.
+                        The adjunct seminars — District Learning Facilitators, Council on Legislation and Rotaract — run through the Thursday, alongside the closing day of GELS and GNLS, the day before the Institute opens.
                       </p>
                     </div>
                   </div>

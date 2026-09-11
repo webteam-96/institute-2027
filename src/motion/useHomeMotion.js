@@ -313,6 +313,8 @@ export default function useHomeMotion() {
       const knockoutSrc = panel && panel.querySelector('.css-dru4ek')
       const sliderContent = panelSection && panelSection.querySelector('.styles_content__T0TRn')
       const sliderRail = panelSection && panelSection.querySelector('.css-16jj2xp')
+      const slidesWrap = panelSection && panelSection.querySelector('.css-v905pd')
+      const slides = slidesWrap ? toArray(slidesWrap.children) : []
       const wide = () => window.matchMedia('(min-width:75rem)').matches
 
       // The slide's own copy does not reveal on scroll like the rest of the
@@ -424,7 +426,9 @@ export default function useHomeMotion() {
             // once at 0.5 and never fires again, so the call could never see
             // progress 1 and the yellow Next/Previous disc was unreachable.
             // Latched so a scroll does not dispatch an event every frame.
-            const wantCursor = self.progress >= 1 ? 'slide-control' : 'default'
+            // Not raised at all over a single slide: there is nothing to step to.
+            const wantCursor =
+              slides.length > 1 && self.progress >= 1 ? 'slide-control' : 'default'
             if (wantCursor !== cursorMode) {
               cursorMode = wantCursor
               raiseCursor(wantCursor)
@@ -456,11 +460,10 @@ export default function useHomeMotion() {
         })
 
         // --- the slider itself (spec 11c, 11d) ------------------------------
-        // Five slides stacked in one cell, one visible at a time. A change is a
+        // Slides stacked in one cell, one visible at a time — the venue has one
+        // slide now, so this block is skipped. A change is a
         // clip-path wipe across eight points on the incoming slide, and the one
         // being left behind is not hidden until that wipe has covered it.
-        const slidesWrap = panelSection.querySelector('.css-v905pd')
-        const slides = slidesWrap ? toArray(slidesWrap.children) : []
         const railFill = sliderRail && sliderRail.firstElementChild
 
         if (slides.length > 1) {

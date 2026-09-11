@@ -1088,6 +1088,13 @@ main {
   padding: 3.2rem var(--page-x) 1.6rem;
 }
 
+/* The adjunct page's grid is one row of three names, and the link under it
+   that used to hold the yellow band off is gone: the section closes with the
+   same air it opens with. */
+.gels-days:has(.adjunct-day) {
+  padding-bottom: 3.2rem;
+}
+
 .gels-days h2,
 .gels-where h2 {
   margin: 0 0 2.4rem;
