@@ -12,6 +12,9 @@ export const event = {
   dates: '26 · 27 · 28 November 2027',
   preDates: '23 – 25 November 2027',
   venue: 'Prithvi Convention Centre ONGC - Goa',
+  // The governors' seminars are held in the campus's management development
+  // facility rather than the convention hall (see /venue).
+  gelsVenue: 'Aakash – Management Development Facility (MDF), ONGC - Goa',
   address: 'Kital, Canaguinim, Goa 403723',
   email: 'hello@rotaryinstitute2027goa.org',
 }

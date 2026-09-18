@@ -811,6 +811,109 @@ main {
 }
 
 /* --------------------------------------------------------------------------
+   Committees — one grid of people per committee on /committee
+   -------------------------------------------------------------------------- */
+
+.crew {
+  padding: 0 var(--page-x) 5rem;
+}
+
+.crew:first-of-type {
+  padding-top: 4rem;
+}
+
+.crew__title {
+  margin: 0 0 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(11, 37, 69, 0.14);
+  font-family: 'Soehne', sans-serif;
+  font-weight: 500;
+  font-size: 2.6rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 1200px) {
+  .crew__title {
+    font-size: 3.2rem;
+  }
+}
+
+.crew__note {
+  margin: -1.2rem 0 2rem;
+  font-size: 1.6rem;
+  opacity: 0.72;
+}
+
+.crew__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.2rem 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .crew__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem 2.4rem;
+  }
+}
+
+/* Five to a row on a desktop, as asked; a committee of two or three keeps
+   its people at the same size as everyone else's, left-aligned. */
+@media (min-width: 1200px) {
+  .crew__grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.person {
+  margin: 0;
+}
+
+.person__frame {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  /* The img carries width/height attributes; with both definite the
+     aspect-ratio is ignored, so the height has to be handed back. */
+  height: auto;
+  aspect-ratio: 10 / 11;
+  margin: 0 0 1.2rem;
+  border-radius: 1.2rem;
+  object-fit: cover;
+  background: rgba(11, 37, 69, 0.08);
+}
+
+.person__frame--empty {
+  font-family: 'Soehne', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 500;
+  color: rgba(11, 37, 69, 0.45);
+}
+
+.person__role {
+  margin: 0 0 0.4rem;
+  font-family: 'Soehne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.person__name {
+  margin: 0;
+  font-family: 'Soehne', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------------------------------
    Call to action + footer
    -------------------------------------------------------------------------- */
 
@@ -1075,6 +1178,118 @@ main {
 .venue-feature__body p {
   margin-bottom: 0;
   max-width: 62ch;
+}
+
+/* --------------------------------------------------------------------------
+   Venue — the halls (Vayu, Aakash)
+
+   One row per hall, photograph beside the text, in the same 5:7 split and
+   measure as the feature above so the page reads as one piece.
+   -------------------------------------------------------------------------- */
+
+.halls {
+  padding: 0 var(--page-x) 7.2rem;
+}
+
+.halls__title {
+  margin: 0 0 3.2rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(11, 37, 69, 0.2);
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+.halls__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4.8rem;
+}
+
+.hall {
+  display: grid;
+  gap: 2.4rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .hall {
+    grid-template-columns: 5fr 7fr;
+    gap: 4.8rem;
+  }
+}
+
+.hall__figure {
+  margin: 0;
+}
+
+.hall__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1.6rem;
+}
+
+.hall__kicker {
+  margin: 0 0 0.8rem;
+  font-family: 'Soehne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rotary-blue);
+}
+
+.hall__name {
+  margin: 0 0 1.6rem;
+  max-width: 24ch;
+  font-family: 'Soehne', sans-serif;
+  font-weight: 400;
+  font-size: 2.6rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* The one line a delegate is looking for, set apart from the description. */
+.hall__note {
+  display: inline-block;
+  margin: 0 0 1.6rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: var(--primary-yellow-light);
+  font-family: 'Soehne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.hall__text {
+  margin: 0 0 1.6rem;
+  max-width: 62ch;
+  font-size: 1.7rem;
+  line-height: 1.5;
+}
+
+.hall__facts {
+  margin: 0;
+  padding: 0 0 0 1.8rem;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Two columns only once a line has room to sit on one row. */
+@media (min-width: 600px) {
+  .hall__facts {
+    columns: 2;
+    column-gap: 2.4rem;
+  }
+}
+
+.hall__facts li {
+  break-inside: avoid;
 }
 
 /* --------------------------------------------------------------------------

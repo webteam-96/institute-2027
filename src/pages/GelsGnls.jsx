@@ -43,7 +43,7 @@ export default function GelsGnls() {
           </div>
           <div>
             <dt>Venue</dt>
-            <dd>{event.venue}</dd>
+            <dd>{event.gelsVenue}</dd>
           </div>
           <div>
             <dt>Address</dt>

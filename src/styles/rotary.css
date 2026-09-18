@@ -290,14 +290,6 @@ canvas.rotary-globe {
   color: var(--primary-black);
 }
 
-/* On its own page the strip does not need the homepage's full-bleed band: the
-   breadcrumb and title already sit above it, so it loses the top padding and
-   the ground it was painting over the section below. */
-.committee--page {
-  padding-top: 4rem;
-  background: none;
-}
-
 .committee__head {
   margin-bottom: 6.4rem;
   padding-inline: var(--padding-x);
