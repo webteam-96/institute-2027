@@ -190,7 +190,7 @@ LOCAL.update({
 RIZ = 'https://rizones45678.org/API'
 LOCAL.update({k: (RIZ + v, b) for k, (v, b) in {
     'Amandeep Sekhon': ('/Documents/directory/Amandeep10072024075415AM.png', None),
-    'Jayant G. Kulkarni': ('/Documents/directory/image_(8)23052025121048PM.png', None),
+    # Jayant G. Kulkarni: the directory copy (171x158) was too blurred to use; awaiting a photograph
     'Rajarama B. Bhat': ('/Documents/directory/508112019060017PM.bmp', None),
     'Ghanshayam Kansal': ('/Documents/directory/Ghanshyam-Kansal208052026063309PM.jpg', None),
     'Lalit Khanna': ('/Documents/directory/ddd04112024125250PM.PNG', None),

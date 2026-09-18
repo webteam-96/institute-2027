@@ -79,7 +79,6 @@ export const committeePhotos = {
   "J B Kamdar": "/media/committee/people/j-b-kamdar.jpg",
   "J. Karthik": "/media/committee/people/j-karthik.jpg",
   "Jawahar Vadlamani": "/media/committee/people/jawahar-vadlamani.jpg",
-  "Jayant G. Kulkarni": "/media/committee/people/jayant-g-kulkarni.jpg",
   "Jeetendra Aneja": "/media/committee/people/jeetendra-aneja.jpg",
   "Jerome Rajendram": "/media/committee/people/jerome-rajendram.jpg",
   "Jhulan Basu": "/media/committee/people/jhulan-basu.jpg",
