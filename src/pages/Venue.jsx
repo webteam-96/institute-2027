@@ -3,23 +3,23 @@ import { event } from '../data/site'
 
 const HALLS = [
   {
+    id: 'vayu',
     kicker: 'Exhibition hall',
-    name: 'Vayu – Exhibition Hall',
+    name: 'Vayu \u2013 Exhibition Hall',
     photo: '/media/venue-vayu.jpg',
     alt: 'The Vayu exhibition hall, with its orange patterned facade',
     text:
       'A 7,200 sq m air-conditioned, column-free exhibition floor whose flexible layout adapts to booth grids, brand environments, large installations and industry showcases.',
-    facts: ['Approx. 7,200 sq m exhibition floor', 'Column-free, pillarless layout', 'Air-conditioned', 'Flexible, modular configurations', 'Integrated utilities and services'],
   },
   {
+    id: 'aakash',
     kicker: 'Management development facility',
-    name: 'Aakash – Management Development Facility (MDF)',
+    name: 'Aakash \u2013 Management Development Facility (MDF)',
     photo: '/media/venue-aakash.jpg',
     alt: 'The Aakash management development facility, with its white angled columns and red roof',
-    note: 'The venue for GELS and GNLS.',
+    tag: 'Venue for GELS & GNLS',
     text:
       'Formal learning environments and collaborative discussion spaces in one facility, suited to programmes that need a main session, smaller working groups, leadership engagement and dining to run in parallel.',
-    facts: ['Approx. 8,353 sq m built-up area', '150-seat auditorium', '8 classrooms', '8 syndicate rooms', 'Conference and meeting rooms', 'Breakout spaces', 'VIP and executive lounge', 'Executive dining'],
   },
 ]
 
@@ -84,26 +84,24 @@ export default function Venue() {
 
       {/* The two other halls the Institute uses, as the centre itself
           describes them (ubcc.in, the venue's own site): the photographs and
-          the figures are theirs. Aakash carries the note that matters to a
-          delegate — it is where GELS and GNLS are held. */}
+          the words are theirs. Each hall is a card: the photograph on one
+          side, shown whole, its description on the other. The cards alternate
+          sides so the two read as two buildings rather than two rows of a
+          table. Aakash carries the tag that matters most: it is where GELS
+          and GNLS are held. */}
       <section className="halls">
         <h2 className="halls__title">The halls</h2>
         <ul className="halls__list">
           {HALLS.map((h) => (
-            <li className="hall" key={h.name}>
+            <li className="hall" key={h.id} id={h.id}>
               <figure className="hall__figure">
                 <img src={h.photo} alt={h.alt} width="880" height="495" loading="lazy" decoding="async" />
+                {h.tag ? <figcaption className="hall__tag">{h.tag}</figcaption> : null}
               </figure>
               <div className="hall__body">
                 <p className="hall__kicker">{h.kicker}</p>
                 <h3 className="hall__name">{h.name}</h3>
-                {h.note ? <p className="hall__note">{h.note}</p> : null}
                 <p className="hall__text">{h.text}</p>
-                <ul className="hall__facts">
-                  {h.facts.map((f) => (
-                    <li key={f}>{f}</li>
-                  ))}
-                </ul>
               </div>
             </li>
           ))}

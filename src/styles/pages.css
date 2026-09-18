@@ -1183,8 +1183,10 @@ main {
 /* --------------------------------------------------------------------------
    Venue — the halls (Vayu, Aakash)
 
-   One row per hall, photograph beside the text, in the same 5:7 split and
-   measure as the feature above so the page reads as one piece.
+   Two white cards on the cream page, each a building: the photograph on one
+   side at its own proportions, never stretched or cropped, its description
+   on the other. The cards alternate sides. The gold tag on the Aakash
+   photograph is the one line a GELS or GNLS delegate is looking for.
    -------------------------------------------------------------------------- */
 
 .halls {
@@ -1207,35 +1209,77 @@ main {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 4.8rem;
+  gap: 3.2rem;
 }
 
 .hall {
   display: grid;
-  gap: 2.4rem;
-  align-items: start;
+  overflow: clip;
+  border-radius: 2rem;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(11, 37, 69, 0.08);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
+  /* Side by side only on a desktop: any narrower and the photograph column
+     crops the building to a sliver, so below this it sits on top, whole. */
   .hall {
     grid-template-columns: 5fr 7fr;
-    gap: 4.8rem;
+    align-items: center;
+  }
+
+  /* The second building faces the other way: photograph on the right, in
+     the same 5-of-12 width. */
+  .hall:nth-child(even) {
+    grid-template-columns: 7fr 5fr;
+  }
+
+  .hall:nth-child(even) .hall__figure {
+    order: 2;
   }
 }
 
 .hall__figure {
+  position: relative;
   margin: 0;
 }
 
+/* The photograph at its own proportions: `height: auto` hands the ratio
+   back to the width/height attributes, so it is neither stretched to the
+   text's height nor cropped to fit it. */
 .hall__figure img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 1.6rem;
+}
+
+.hall__tag {
+  position: absolute;
+  left: 1.6rem;
+  bottom: 1.6rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  background: var(--rotary-gold);
+  color: var(--primary-black);
+  font-family: 'Soehne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 10px rgba(11, 37, 69, 0.25);
+}
+
+.hall__body {
+  padding: 2.8rem 2.4rem 3.2rem;
+}
+
+@media (min-width: 1200px) {
+  .hall__body {
+    padding: 3.2rem 4.8rem;
+  }
 }
 
 .hall__kicker {
-  margin: 0 0 0.8rem;
+  margin: 0 0 1rem;
   font-family: 'Soehne', sans-serif;
   font-size: 1.2rem;
   font-weight: 500;
@@ -1246,50 +1290,34 @@ main {
 
 .hall__name {
   margin: 0 0 1.6rem;
-  max-width: 24ch;
+  max-width: 22ch;
   font-family: 'Soehne', sans-serif;
   font-weight: 400;
-  font-size: 2.6rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: 2.8rem;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
 }
 
-/* The one line a delegate is looking for, set apart from the description. */
-.hall__note {
-  display: inline-block;
-  margin: 0 0 1.6rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 999px;
-  background: var(--primary-yellow-light);
-  font-family: 'Soehne', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 500;
-}
-
-.hall__text {
-  margin: 0 0 1.6rem;
-  max-width: 62ch;
-  font-size: 1.7rem;
-  line-height: 1.5;
-}
-
-.hall__facts {
-  margin: 0;
-  padding: 0 0 0 1.8rem;
-  font-size: 1.5rem;
-  line-height: 1.6;
-}
-
-/* Two columns only once a line has room to sit on one row. */
-@media (min-width: 600px) {
-  .hall__facts {
-    columns: 2;
-    column-gap: 2.4rem;
+@media (min-width: 1200px) {
+  .hall__name {
+    font-size: 3.4rem;
   }
 }
 
-.hall__facts li {
-  break-inside: avoid;
+/* The description in the serif the schedule uses. */
+.hall__text {
+  margin: 0;
+  max-width: 58ch;
+  font-family: 'ABCArizonaMix', Georgia, serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 1200px) {
+  .hall__text {
+    font-size: 2rem;
+  }
 }
 
 /* --------------------------------------------------------------------------
