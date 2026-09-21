@@ -84,10 +84,9 @@ export default function Venue() {
 
       {/* The two other halls the Institute uses, as the centre itself
           describes them (ubcc.in, the venue's own site): the photographs and
-          the words are theirs. Each hall is a card: the photograph on one
-          side, shown whole, its description on the other. The cards alternate
-          sides so the two read as two buildings rather than two rows of a
-          table. Aakash carries the tag that matters most: it is where GELS
+          the words are theirs. The two sit side by side, each the way the
+          homepage shows a programme: photograph on top, name and description
+          under it. Aakash carries the tag that matters most: it is where GELS
           and GNLS are held. */}
       <section className="halls">
         <h2 className="halls__title">The halls</h2>

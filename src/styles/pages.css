@@ -1183,10 +1183,10 @@ main {
 /* --------------------------------------------------------------------------
    Venue — the halls (Vayu, Aakash)
 
-   Two white cards on the cream page, each a building: the photograph on one
-   side at its own proportions, never stretched or cropped, its description
-   on the other. The cards alternate sides. The gold tag on the Aakash
-   photograph is the one line a GELS or GNLS delegate is looking for.
+   The two halls side by side, each the way the homepage shows a programme:
+   the photograph on top at its own proportions, the name and description
+   under it, no box around either. The gold tag on the Aakash photograph is
+   the one line a GELS or GNLS delegate is looking for.
    -------------------------------------------------------------------------- */
 
 .halls {
@@ -1209,48 +1209,32 @@ main {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 3.2rem;
+  gap: 4rem;
+}
+
+@media (min-width: 900px) {
+  .halls__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 4.8rem;
+  }
 }
 
 .hall {
-  display: grid;
-  overflow: clip;
-  border-radius: 2rem;
-  background: #fff;
-  box-shadow: 0 1px 0 rgba(11, 37, 69, 0.08);
-}
-
-@media (min-width: 1200px) {
-  /* Side by side only on a desktop: any narrower and the photograph column
-     crops the building to a sliver, so below this it sits on top, whole. */
-  .hall {
-    grid-template-columns: 5fr 7fr;
-    align-items: center;
-  }
-
-  /* The second building faces the other way: photograph on the right, in
-     the same 5-of-12 width. */
-  .hall:nth-child(even) {
-    grid-template-columns: 7fr 5fr;
-  }
-
-  .hall:nth-child(even) .hall__figure {
-    order: 2;
-  }
+  margin: 0;
 }
 
 .hall__figure {
   position: relative;
-  margin: 0;
+  margin: 0 0 2rem;
 }
 
 /* The photograph at its own proportions: `height: auto` hands the ratio
-   back to the width/height attributes, so it is neither stretched to the
-   text's height nor cropped to fit it. */
+   back to the width/height attributes, so it is never stretched or cropped. */
 .hall__figure img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 1.6rem;
 }
 
 .hall__tag {
@@ -1268,18 +1252,8 @@ main {
   box-shadow: 0 2px 10px rgba(11, 37, 69, 0.25);
 }
 
-.hall__body {
-  padding: 2.8rem 2.4rem 3.2rem;
-}
-
-@media (min-width: 1200px) {
-  .hall__body {
-    padding: 3.2rem 4.8rem;
-  }
-}
-
 .hall__kicker {
-  margin: 0 0 1rem;
+  margin: 0 0 0.8rem;
   font-family: 'Soehne', sans-serif;
   font-size: 1.2rem;
   font-weight: 500;
@@ -1289,22 +1263,20 @@ main {
 }
 
 .hall__name {
-  margin: 0 0 1.6rem;
-  max-width: 22ch;
+  margin: 0 0 1.2rem;
   font-family: 'Soehne', sans-serif;
   font-weight: 400;
-  font-size: 2.8rem;
-  line-height: 1.08;
+  font-size: 2.6rem;
+  line-height: 1.1;
   letter-spacing: -0.025em;
 }
 
 @media (min-width: 1200px) {
   .hall__name {
-    font-size: 3.4rem;
+    font-size: 3rem;
   }
 }
 
-/* The description in the serif the schedule uses. */
 .hall__text {
   margin: 0;
   max-width: 58ch;
@@ -1312,12 +1284,6 @@ main {
   font-weight: 300;
   font-size: 1.8rem;
   line-height: 1.5;
-}
-
-@media (min-width: 1200px) {
-  .hall__text {
-    font-size: 2rem;
-  }
 }
 
 /* --------------------------------------------------------------------------
