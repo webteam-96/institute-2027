@@ -246,7 +246,7 @@ export const scheduleComponents = [
 ]
 
 /**
- * The three hotels, as named by the committee.
+ * The hotels, as named by the committee.
  *
  * Addresses and the official booking pages are from each chain's own site, not
  * from an aggregator. Nothing is said about rates, room types or an allocation
@@ -303,9 +303,21 @@ export const hotels = [
     address: 'Cavelossim Beach, Salcete, South Goa 403731',
     site: 'https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-goa-cavelossim-beach',
   },
+  {
+    // On the venue campus, so it carries its own distance and pin instead of
+    // the shared beach-strip figure below.
+    id: 'ati-virat',
+    photos: [
+      { src: '/media/hotels/ati-virat-main.jpg', alt: 'A room at ATI ONGC - Virat' },
+    ],
+    name: 'ATI ONGC - Virat',
+    address: 'IPSEM-ONGC Training Institute, Canaguinim, Kital, Goa 403703',
+    distance: '0 km',
+    map: 'https://maps.app.goo.gl/q3oYdSYuhghbV1rr9',
+  },
 ]
 
-/** Shared by all three — see the note above. */
+/** Shared by the three beach hotels — see the note above. */
 export const hotelDistance = {
   road: 'about 11 km by road',
   drive: 'roughly 25 minutes',

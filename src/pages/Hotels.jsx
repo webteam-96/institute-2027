@@ -9,12 +9,13 @@ import { hotelDistance, hotels } from '../data/site'
  * beach.
  */
 const mapUrl = (h) =>
+  h.map ||
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${h.name}, ${h.address}`)}`
 
 /**
  * Where to stay.
  *
- * Three hotels, each with its address, its distance from the venue and a map
+ * The hotels, each with its address, its distance from the venue and a map
  * link. Deliberately not stated: rates, room types, or an Institute
  * allocation — none of that has been agreed, and implying a negotiated block
  * where there is none would have a delegate arrive expecting a rate that does
@@ -51,18 +52,20 @@ export default function Hotels() {
 
               <div className="hotel__head">
                 <h2 className="hotel__name">{h.name}</h2>
-                <p className="hotel__address">{h.address}</p>
+                {h.address && <p className="hotel__address">{h.address}</p>}
               </div>
 
               <dl className="hotel__facts">
                 <div>
                   <dt>Distance to venue</dt>
-                  <dd>{hotelDistance.road}</dd>
+                  <dd>{h.distance || hotelDistance.road}</dd>
                 </div>
-                <div>
-                  <dt>Driving time</dt>
-                  <dd>{hotelDistance.drive}</dd>
-                </div>
+                {!h.distance && (
+                  <div>
+                    <dt>Driving time</dt>
+                    <dd>{hotelDistance.drive}</dd>
+                  </div>
+                )}
               </dl>
 
               <a

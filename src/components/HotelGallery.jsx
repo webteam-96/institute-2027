@@ -239,6 +239,7 @@ function Frame({ photos, stackRef, fxRef, start, eager }) {
 
 /** The dots, shared by the thumbnail and the lightbox. */
 function Dots({ photos, at, onPick, label, className }) {
+  if (photos.length < 2) return null
   return (
     <div className={className} role="tablist" aria-label={label}>
       {photos.map((p, n) => (
@@ -352,11 +353,11 @@ function Lightbox({ hotel, start, onClose }) {
         </figure>
 
         <div className="lightbox__bar">
-          <button type="button" className="lightbox__step" aria-label="Previous photograph" onClick={() => go(-1)}>
+          {hotel.photos.length > 1 && <button type="button" className="lightbox__step" aria-label="Previous photograph" onClick={() => go(-1)}>
             <svg viewBox="0 0 16 12" aria-hidden="true" focusable="false">
               <path d="M15 6H2M6.5 1.5 2 6l4.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </svg>
-          </button>
+          </button>}
           <Dots
             photos={hotel.photos}
             at={at}
@@ -364,11 +365,11 @@ function Lightbox({ hotel, start, onClose }) {
             label={`${hotel.name} photographs`}
             className="lightbox__dots"
           />
-          <button type="button" className="lightbox__step" aria-label="Next photograph" onClick={() => go(1)}>
+          {hotel.photos.length > 1 && <button type="button" className="lightbox__step" aria-label="Next photograph" onClick={() => go(1)}>
             <svg viewBox="0 0 16 12" aria-hidden="true" focusable="false">
               <path d="M1 6h13M9.5 1.5 14 6l-4.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </svg>
-          </button>
+          </button>}
         </div>
       </div>
     </div>,

@@ -26,6 +26,7 @@ export const committeePhotos = {
   "Asha Venugopal": "/media/committee/people/asha-venugopal.jpg",
   "Ashes Ganguly": "/media/committee/people/ashes-ganguly.jpg",
   "Ashish Ajmera": "/media/committee/people/ashish-ajmera.jpg",
+  "Ashok Agarwal": "/media/committee/people/ashok-agarwal.jpg",
   "Ashok Bihari Mahapatra": "/media/committee/people/ashok-bihari-mahapatra.jpg",
   "Ashok Kantoor": "/media/committee/people/ashok-kantoor.jpg",
   "Ashok Naik": "/media/committee/people/ashok-naik.jpg",

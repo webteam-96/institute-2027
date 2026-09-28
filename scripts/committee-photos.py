@@ -207,6 +207,7 @@ LOCAL.update({
     'Jayant G. Kulkarni': (DL + 'ChatGPT Image Sep 21, 2026, 07_07_02 PM.png', (100, 0, 1154, 1160)),
     # a thin dark frame of its own (4 px); the box trims it
     'Rajit Menon': (DL + 'ChatGPT Image Sep 21, 2026, 07_08_45 PM.png', (8, 8, 1126, 1379)),
+    'Ashok Agarwal': (DL + 'WhatsApp Image 2026-09-25 at 10.37.29 (1).jpeg', None),
     'Ashok Naik': (DL + 'ChatGPT Image Sep 21, 2026, 06_15_25 PM.png', None),
     # a couple photograph; Udaykumar Bhaskara is the one on the left
     'Udaykumar K Bhaskara': (DL + 'Mr.-Udaykumar-K.-Bhaskara.jpg', (79, 30, 269, 239)),
