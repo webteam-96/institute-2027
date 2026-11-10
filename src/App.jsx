@@ -11,6 +11,9 @@ import Hotels from './pages/Hotels'
 import RegistrationPage from './pages/RegistrationPage'
 import TrfEvents from './pages/TrfEvents'
 import AdjunctSeminars from './pages/AdjunctSeminars'
+import RegisterPage from './pages/RegisterPage'
+import AdminPage from './pages/AdminPage'
+import InvitePage from './pages/InvitePage'
 
 export default function App() {
   return (
@@ -25,6 +28,9 @@ export default function App() {
       <Route path="/registration" element={<Layout><RegistrationPage /></Layout>} />
       <Route path="/trf-events" element={<Layout><TrfEvents /></Layout>} />
       <Route path="/adjunct-seminars" element={<Layout><AdjunctSeminars /></Layout>} />
+      <Route path="/register/:token" element={<Layout><RegisterPage /></Layout>} />
+      <Route path="/admin" element={<Layout><AdminPage /></Layout>} />
+      <Route path="/invite" element={<Layout><InvitePage /></Layout>} />
       <Route path="*" element={<Layout><NotFound /></Layout>} />
     </Routes>
   )

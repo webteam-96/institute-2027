@@ -1,0 +1,89 @@
+/* The registration admin (pages/AdminPage.jsx), from the HTML admin's styles. Scoped under .rf like register.css,
+   which it builds on. */
+.rf .panel {background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: clamp(18px, 2.6vw, 28px); display: grid; gap: 16px; min-width: 0;}
+.rf .panel h2 {margin: 0; font-size: 20px; font-weight: 500;}
+.rf .chip-s {display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; border-radius: 999px; padding: 3px 10px; white-space: nowrap;}
+.rf .chip-s::before {content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor;}
+.rf .s-reg {background: #e5f4ec; color: var(--ok);}
+.rf .s-open {background: #fff4d6; color: #8a5a00;}
+.rf .s-not {background: #eef1f5; color: var(--ink-2);}
+.rf .tiles {display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 12px;}
+.rf .tile {background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; display: grid; gap: 4px;}
+.rf .tile small {font-size: 12px; color: var(--ink-2);}
+.rf .tile b {font-size: 34px; font-weight: 500; line-height: 1; font-variant-numeric: tabular-nums;}
+.rf .tile span {font-size: 12px; color: var(--ink-2);}
+.rf .tile.reg b {color: var(--ok);}
+.rf .tile.open b {color: #8a5a00;}
+.rf .off-find {display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: end;}
+@media (max-width: 560px) {
+.rf .off-find {grid-template-columns: minmax(0, 1fr);}
+}
+.rf .off-pick {display: flex; gap: 14px; align-items: center; background: var(--cream); border-radius: 14px; padding: 12px 14px;}
+.rf .off-pick img, .rf .off-pick i {width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; background: var(--sky); display: grid; place-items: center; font-style: normal; font-weight: 500;}
+.rf .off-pick b {display: block; font-weight: 500;}
+.rf .off-pick small {color: var(--ink-2); font-size: 13px;}
+.rf .how {margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 14px; color: var(--ink-2);}
+.rf .tools {display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between;}
+.rf .filters {display: flex; gap: 6px; flex-wrap: wrap;}
+.rf .filters button {font: inherit; font-size: 13px; font-weight: 500; border: 1px solid var(--line); background: var(--paper); color: var(--ink-2); border-radius: 999px; padding: 7px 14px; cursor: pointer;}
+.rf .filters button[aria-pressed="true"] {background: var(--navy); color: var(--paper); border-color: var(--navy);}
+.rf .search {display: flex; gap: 8px; flex-wrap: wrap;}
+.rf .search .input, .rf .search .select {width: auto; min-width: 0; padding: 9px 12px; font-size: 14px;}
+.rf .list {overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--paper);}
+.rf .list table {width: 100%; border-collapse: collapse; min-width: 760px; font-size: 14px;}
+.rf .list th {text-align: left; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; padding: 12px 12px; border-bottom: 1px solid var(--line); background: var(--cream);}
+.rf .list td {padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: middle;}
+.rf .list tr:last-child td {border-bottom: 0;}
+.rf td b {font-weight: 500; display: block;}
+.rf td small {color: var(--ink-2); font-size: 12px;}
+.rf td .acts {display: flex; gap: 6px; flex-wrap: wrap;}
+.rf td .acts button, .rf td .acts a {font: inherit; font-size: 12px; font-weight: 500; border: 1px solid var(--line); background: #fff; color: var(--navy); border-radius: 8px; padding: 5px 10px; cursor: pointer; text-decoration: none;}
+.rf td .acts button:hover, .rf td .acts a:hover {background: var(--cream);}
+.rf .empty {padding: 24px; text-align: center; color: var(--ink-2);}
+@media (max-width: 700px) {
+.rf .list {overflow: visible;}
+.rf .list table, .rf .list tbody, .rf .list tr, .rf .list td {display: block;}
+.rf .list table {min-width: 0;}
+.rf .list thead {display: none;}
+.rf .list tr {display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; padding: 14px; border-bottom: 1px solid var(--line);}
+.rf .list tr:last-child {border-bottom: 0;}
+.rf .list td {padding: 0; border: 0; font-size: 13px;}
+.rf .list td:first-child, .rf .list td:nth-child(4), .rf .list td:last-child {grid-column: 1 / -1;}
+.rf .list td[data-l]::before {content: attr(data-l); color: var(--ink-2);}
+}
+.rf .views {display: inline-flex; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 4px; gap: 4px; justify-self: start;}
+.rf .views button {font: inherit; font-size: 14px; font-weight: 500; border: 0; background: none; color: var(--ink-2); border-radius: 999px; padding: 8px 18px; cursor: pointer;}
+.rf .views button[aria-selected="true"] {background: var(--navy); color: var(--paper);}
+.rf .rtabs {display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px;}
+.rf .rtabs::-webkit-scrollbar {display: none;}
+.rf .rtabs button {flex: none; font: inherit; font-size: 13px; font-weight: 500; border: 1px solid var(--line); background: var(--paper); color: var(--ink-2); border-radius: 10px; padding: 9px 14px; cursor: pointer;}
+.rf .rtabs button[aria-selected="true"] {background: var(--sun); color: var(--navy); border-color: var(--gold);}
+.rf .rhead {display: flex; gap: 12px; flex-wrap: wrap; align-items: end; justify-content: space-between;}
+.rf .rhead h2 {margin: 0; font-size: 22px; font-weight: 500;}
+.rf .rhead p {margin: 4px 0 0; font-size: 14px; color: var(--ink-2);}
+.rf .rhead div:last-child {display: flex; gap: 8px; flex-wrap: wrap;}
+.rf .rhead .btn {padding: 9px 16px; font-size: 14px;}
+.rf .rt {display: grid; gap: 8px; min-width: 0;}
+.rf .rt h3 {margin: 0; font-size: 15px; font-weight: 500; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap;}
+.rf .rt h3 small {font-weight: 300; color: var(--ink-2); font-size: 13px;}
+.rf .rt .scroll {overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--paper);}
+.rf .rt table {width: 100%; border-collapse: collapse; font-size: 13px;}
+.rf .rt th {text-align: left; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; padding: 10px 12px; background: var(--cream); border-bottom: 1px solid var(--line); white-space: nowrap;}
+.rf .rt td {padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap;}
+.rf .rt td.wrap {white-space: normal; min-width: 180px;}
+.rf .rt td.n, .rf .rt th.n {text-align: right; font-variant-numeric: tabular-nums;}
+.rf .rt tbody tr:last-child td {border-bottom: 0;}
+.rf .rt tfoot td {background: var(--cream); font-weight: 500; border-top: 1px solid var(--line); border-bottom: 0;}
+.rf .rt td.zero {color: #b8ae9c;}
+.rf .rt td.heat {background: #eef5fd; font-weight: 500;}
+.rf .rt .muted {color: var(--ink-2);}
+.rf .rnote {margin: 0; font-size: 12px; color: var(--ink-2);}
+@media print {
+  body:has(.rf) #root > :not(main), .rf .views, .rf .rtabs, .rf .rhead .btn, .rf .rnote, .rf .intro p, .rf .signout { display: none !important; }
+  .rf { padding-top: 0; background: #fff; }
+  .rf .rt .scroll { overflow: visible; border: 0; }
+  .rf .rt td, .rf .rt th { white-space: normal; }
+}
+.rf .how { list-style: decimal; }
+.rf .list .select.cat { padding: 6px 8px; font-size: 13px; width: auto; max-width: 160px; }
+.rf .rhead .select.rcat { width: auto; padding: 9px 12px; font-size: 14px; }

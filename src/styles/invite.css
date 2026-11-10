@@ -1,0 +1,37 @@
+/* The invite preview (pages/InvitePage.jsx), from the HTML invite's styles. Scoped under .rf like register.css, which it builds on. */
+.rf .pick {display: flex; gap: 12px; align-items: end; flex-wrap: wrap;}
+.rf .pick .field {flex: 0 1 340px;}
+.rf .two {display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: start;}
+@media (min-width: 960px) {
+.rf .two {grid-template-columns: 400px minmax(0, 1fr);}
+}
+.rf .cap {font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; margin: 0 0 8px;}
+.rf .wa {background: #efe7dc; border-radius: 22px; overflow: hidden; border: 1px solid var(--line);}
+.rf .wa__head {background: #0b2545; color: #fff; display: flex; gap: 10px; align-items: center; padding: 12px 14px;}
+.rf .wa__head i {width: 36px; height: 36px; border-radius: 50%; background: #fff url('/media/logo.png') center/88% no-repeat; flex: none;}
+.rf .wa__head b {font-size: 15px; font-weight: 500; display: block;}
+.rf .wa__head small {font-size: 12px; color: var(--sky-2);}
+.rf .wa__body {padding: 16px 12px 20px; background-image: radial-gradient(rgba(11, 37, 69, .06) 1px, transparent 1px); background-size: 18px 18px;}
+.rf .bubble {background: #fff; border-radius: 10px; border-top-left-radius: 2px; max-width: 330px; overflow: hidden; box-shadow: 0 1px 1px rgba(0,0,0,.08);}
+.rf .bubble img {width: 100%; aspect-ratio: 16 / 8; object-fit: cover;}
+.rf .bubble .tx {padding: 10px 12px 6px; font-size: 14.5px; line-height: 1.45; display: grid; gap: 8px;}
+.rf .bubble .tx p {margin: 0;}
+.rf .bubble .t {font-size: 11px; color: #7b8a9c; text-align: right; padding: 0 10px 6px;}
+.rf .bubble a.cta {display: flex; justify-content: center; gap: 8px; border-top: 1px solid #eef0f2; padding: 11px; color: #1f8f5f; font-weight: 500; text-decoration: none; font-size: 15px;}
+.rf .bubble a.cta:hover {background: #f4fbf6;}
+.rf .mail {background: #fff; border-radius: 18px; border: 1px solid var(--line); overflow: hidden;}
+.rf .mail__meta {padding: 14px 18px; border-bottom: 1px solid #eef0f2; font-size: 13px; color: var(--ink-2); display: grid; gap: 2px;}
+.rf .mail__meta b {color: var(--navy); font-weight: 500;}
+.rf .mail__meta .subj {font-size: 17px; color: var(--navy); font-weight: 500; margin-top: 4px;}
+.rf .mail__body {padding: clamp(18px, 3vw, 32px); display: grid; gap: 14px; max-width: 620px;}
+.rf .mail__body img.logo {height: 56px; width: auto;}
+.rf .mail__body h3 {margin: 0; font-family: var(--serif); font-weight: 300; font-size: 30px; line-height: 1.05; letter-spacing: -.02em;}
+.rf .mail__body p {margin: 0; color: #334;}
+.rf .mail__body .card {border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: grid; gap: 4px; font-size: 14px; background: var(--cream);}
+.rf .mail__body .card span {color: var(--ink-2);}
+.rf .mail__body .btn {justify-self: start;}
+.rf .mail__body small {color: var(--ink-2); font-size: 12px;}
+.rf .mail__body code {font-family: var(--mono); font-size: 13px; color: var(--azure); overflow-wrap: anywhere;}
+/* The website has its own .cta button; keep WhatsApp's plain link look here. */
+.rf .bubble a.cta { background: none; border-radius: 0; text-transform: none; letter-spacing: normal; }
+.rf .bubble a.cta:hover { background: #f4fbf6; }
