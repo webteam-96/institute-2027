@@ -1,5 +1,5 @@
 import PageHero from '../components/PageHero'
-import { event, programme } from '../data/site'
+import { event, programme, registration } from '../data/site'
 
 /**
  * The two governors' learning seminars.
@@ -15,6 +15,7 @@ import { event, programme } from '../data/site'
  * new words are the labels on the structure.
  */
 const gels = programme.find((c) => c.id === 'gels-gnls')
+const fees = registration.find((c) => c.id === 'gels-gnls').rows
 
 export default function GelsGnls() {
   if (!gels) return null
@@ -49,6 +50,12 @@ export default function GelsGnls() {
             <dt>Address</dt>
             <dd>{event.address}</dd>
           </div>
+          {fees.map(([who, fee]) => (
+            <div key={who}>
+              <dt>{who} cost</dt>
+              <dd>{fee}</dd>
+            </div>
+          ))}
         </dl>
       </section>
 

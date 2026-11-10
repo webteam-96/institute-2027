@@ -9,9 +9,7 @@ import { event, registration } from '../data/site'
  * a card strip: one block per thing you can register for, its dates stated,
  * then the rates underneath it, then the way in.
  *
- * The difference is that theirs carries numbers and ours cannot: no fee has
- * been agreed, so every rate reads "To be announced" rather than dressing an
- * empty table as a price list. The categories, the dates and the seminar names
+ * The rates are the committee's; a row with no fee reads "To be announced". The categories, the dates and the seminar names
  * are the same ones the schedule and the homepage use; `registration` in
  * data/site.js is the single source, so the two cannot drift apart.
  *
@@ -37,7 +35,7 @@ export default function RegistrationPage() {
               <dl className="reg-page__rates">
                 <div className="reg-page__ratehead">
                   <dt>{c.axis}</dt>
-                  <dd>Rate</dd>
+                  <dd>Cost</dd>
                 </div>
                 {c.rows.map(([who, fee]) => (
                   <div key={who}>

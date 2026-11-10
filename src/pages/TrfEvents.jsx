@@ -4,8 +4,8 @@ import { trfEvents } from '../data/site'
 /**
  * The Rotary Foundation events.
  *
- * Two of them, and only what the committee gave: a name, a date and a time
- * each. No fee, no venue beyond the Institute's own, no description of what
+ * Two of them, and only what the committee gave: a name, a date, a time and
+ * the fees each. No venue beyond the Institute's own, no description of what
  * happens at either — none of that has been supplied, and a page that invents
  * it reads as filled in rather than finished.
  *
@@ -31,6 +31,14 @@ export default function TrfEvents() {
                 <p className="trf-card__date">{e.date}</p>
                 <p className="trf-card__time">{e.time}</p>
               </div>
+              <dl className="trf-card__fees">
+                  {e.fees.map(([who, fee]) => (
+                    <div key={who}>
+                      <dt>{who}</dt>
+                      <dd>{fee}</dd>
+                    </div>
+                  ))}
+              </dl>
             </li>
           ))}
         </ol>

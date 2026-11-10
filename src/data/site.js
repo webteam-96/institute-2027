@@ -154,10 +154,9 @@ export const committee = [
 /**
  * What you can register for, in the three components the programme runs as.
  *
- * Every fee is genuinely unset — the committee has not agreed them — so each
- * row carries null and renders as "To be announced" rather than a number
- * nobody has approved. Nothing here is invented: the categories, the dates and
- * the seminar names are the same ones `programme` above uses.
+ * The fees are the committee's, exclusive of GST. A row left null renders as
+ * "To be announced". The categories, the dates and the seminar names are the
+ * same ones `programme` above uses.
  */
 export const registration = [
   {
@@ -166,29 +165,27 @@ export const registration = [
     axis: 'Delegate',
     dates: '26 · 27 · 28 November 2027',
     subject: 'Institute%20registration',
-    rows: [['Single', null], ['Couple', null]],
+    rows: [['Single', '₹20,500 + 18% GST'], ['Couple', '₹33,500 + 18% GST']],
   },
   {
     id: 'gels-gnls',
     name: 'GELS & GNLS',
     expands: 'Governors Elect Learning Seminars & Governors Nominee Learning Seminars',
-    axis: 'Delegate',
+    axis: 'Seminar',
     dates: '23 – 25 November 2027',
     subject: 'GELS%20and%20GNLS%20registration',
-    rows: [['Single', null], ['Couple', null]],
+    rows: [['GELS', '₹94,000 + 18% GST'], ['GNLS', '₹94,000 + 18% GST']],
   },
   {
     id: 'adjunct',
     name: 'Adjunct Seminars',
-    // This card's left column is a different axis from the other two: which
-    // seminar, not who is registering.
     axis: 'Seminar',
     dates: '25 November 2027',
     subject: 'Adjunct%20Seminars%20registration',
     rows: [
-      ['DLF Seminar', null],
-      ['COL Seminar', null],
-      ['Rotaract Seminar', null],
+      ['DLF Seminar', '₹5,250 + 18% GST'],
+      ['COL Seminar', '₹5,250 + 18% GST'],
+      ['Rotaract Seminar', '₹2,500 + 18% GST'],
     ],
   },
 ]
@@ -209,6 +206,7 @@ export const trfEvents = [
     weekday: 'Thursday',
     date: '25 November 2027',
     time: '7.00 pm onwards',
+    fees: [['Delegate', '₹5,500 + 18% GST'], ['Spouse', '₹4,250 + 18% GST']],
   },
   {
     id: 'trf-seminar',
@@ -217,6 +215,7 @@ export const trfEvents = [
     weekday: 'Friday',
     date: '26 November 2027',
     time: '10.00 am – 2.00 pm',
+    fees: [['Delegate', '₹4,250 + 18% GST'], ['Spouse', '₹3,500 + 18% GST']],
   },
 ]
 
@@ -249,9 +248,8 @@ export const scheduleComponents = [
  * The hotels, as named by the committee.
  *
  * Addresses and the official booking pages are from each chain's own site, not
- * from an aggregator. Nothing is said about rates, room types or an allocation
- * — none of that has been agreed, and a hotel page that implies a negotiated
- * block where there is none would mislead a delegate into expecting one.
+ * from an aggregator. `for` and the rates are the committee's; the rates are
+ * exclusive of GST, which the page adds.
  *
  * Four photographs each, in the same order every time: the property, a room, a
  * view, an amenity. They are the chains' own gallery images — digital.ihg.com,
@@ -260,7 +258,7 @@ export const scheduleComponents = [
  * copyright, used here with the organisers' say-so; each property should be
  * asked before the site goes public.
  *
- * The distance is honest about what it is. All three sit on the same two
+ * The distance is honest about what it is. Both beach hotels sit on the same two
  * kilometres of the Cavelossim-Mobor strip, and the road to Canaguinim runs
  * south through Betul, so they share one figure rather than three invented
  * ones that differ by a few hundred metres. It is marked approximate on the
@@ -278,18 +276,8 @@ export const hotels = [
     name: 'Holiday Inn Resort Goa, an IHG Hotel',
     address: 'Mobor Beach, Cavelossim, Salcete, South Goa 403731',
     site: 'https://www.ihg.com/holidayinnresorts/hotels/us/en/goa/goiin/hoteldetail',
-  },
-  {
-    id: 'novotel',
-    photos: [
-      { src: '/media/hotels/novotel-main.jpg', alt: 'Novotel Goa Dona Sylvia Resort across its pool' },
-      { src: '/media/hotels/novotel-room.jpg', alt: 'A king room on the garden side at Novotel Goa Dona Sylvia Resort' },
-      { src: '/media/hotels/novotel-view.jpg', alt: 'Cottages and gardens in the grounds of Novotel Goa Dona Sylvia Resort' },
-      { src: '/media/hotels/novotel-amenity.jpg', alt: 'The outdoor restaurant at Novotel Goa Dona Sylvia Resort, lit at dusk' },
-    ],
-    name: 'Novotel Goa Dona Sylvia Resort',
-    address: 'Cavelossim Road, Mobor, Cavelossim, South Goa 403731',
-    site: 'https://all.accor.com/hotel/A6P4/index.en.shtml',
+    for: 'Only for DGs, PDGs & others',
+    rates: [['Normal', '₹19,000'], ['Twin sharing', '₹11,000']],
   },
   {
     id: 'radisson',
@@ -302,6 +290,8 @@ export const hotels = [
     name: 'Radisson Blu Resort Goa Cavelossim Beach',
     address: 'Cavelossim Beach, Salcete, South Goa 403731',
     site: 'https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-goa-cavelossim-beach',
+    for: 'Only for DGNs',
+    rates: [['Cost', '₹19,000']],
   },
   {
     // On the venue campus, so it carries its own distance and pin instead of
@@ -314,10 +304,12 @@ export const hotels = [
     address: 'IPSEM-ONGC Training Institute, Canaguinim, Kital, Goa 403703',
     distance: '0 km',
     map: 'https://maps.app.goo.gl/q3oYdSYuhghbV1rr9',
+    for: 'Only for DGEs',
+    rates: [['Cost', '₹15,000']],
   },
 ]
 
-/** Shared by the three beach hotels — see the note above. */
+/** Shared by the beach hotels — see the note above. */
 export const hotelDistance = {
   road: 'about 11 km by road',
   drive: 'roughly 25 minutes',

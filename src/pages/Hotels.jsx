@@ -16,16 +16,13 @@ const mapUrl = (h) =>
  * Where to stay.
  *
  * The hotels, each with its address, its distance from the venue and a map
- * link. Deliberately not stated: rates, room types, or an Institute
- * allocation — none of that has been agreed, and implying a negotiated block
- * where there is none would have a delegate arrive expecting a rate that does
- * not exist.
+ * link, and the rate the committee gave for it.
  *
  * Four photographs each, from the chains' own galleries, in one order: the
  * property, a room, a view, an amenity. How they change is HotelGallery's
  * business, not this page's.
  *
- * The distance is one figure for all three because that is the truth of it:
+ * The distance is one figure for both beach hotels because that is the truth of it:
  * they share two kilometres of the same beach strip, and the road to Canaguinim
  * runs south through Betul either way. Three different numbers would be three
  * inventions.
@@ -53,6 +50,22 @@ export default function Hotels() {
               <div className="hotel__head">
                 <h2 className="hotel__name">{h.name}</h2>
                 {h.address && <p className="hotel__address">{h.address}</p>}
+                {h.rates && (
+                  <div className="hotel__offer">
+                    {h.for && <p className="hotel__for">{h.for}</p>}
+                    <dl className="hotel__price">
+                      {h.rates.map(([k, v]) => (
+                        <div key={k}>
+                          <dt>{k}</dt>
+                          <dd>
+                            <span className="hotel__cur">₹</span>{v.replace('₹', '')}
+                            <small>+ 18% GST</small>
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                )}
               </div>
 
               <dl className="hotel__facts">

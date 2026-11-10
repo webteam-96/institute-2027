@@ -1,6 +1,6 @@
 
 import PageHero from '../components/PageHero'
-import { event, programme } from '../data/site'
+import { event, programme, registration } from '../data/site'
 
 /**
  * The adjunct seminars, on the day between the governors' seminars and the
@@ -13,6 +13,8 @@ import { event, programme } from '../data/site'
  * rather than as a sequence.
  */
 const adjunct = programme.find((c) => c.id === 'pre-institute')
+// Same three seminars in the same order as the registration card's rows.
+const fees = registration.find((c) => c.id === 'adjunct').rows
 
 export default function AdjunctSeminars() {
   if (!adjunct) return null
@@ -52,10 +54,11 @@ export default function AdjunctSeminars() {
               three times says nothing the facts panel above has not already
               said. The time stays, because it is the one thing that would
               differ if the committee ever moved one. */}
-          {day.slots.map((s) => (
+          {day.slots.map((s, i) => (
             <li className="gels-day adjunct-day" key={s.name}>
               {s.time ? <p className="gels-day__time">{s.time}</p> : null}
               <p className="adjunct-day__name">{s.name}</p>
+              {fees[i]?.[1] && <p className="adjunct-day__fee"><span>Cost</span>{fees[i][1]}</p>}
             </li>
           ))}
         </ol>
