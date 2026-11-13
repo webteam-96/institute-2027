@@ -16,7 +16,7 @@ export const event = {
   // facility rather than the convention hall (see /venue).
   gelsVenue: 'Aakash – Management Development Facility (MDF), ONGC - Goa',
   address: 'Kital, Canaguinim, Goa 403723',
-  email: 'hello@rotaryinstitute2027goa.org',
+  email: 'support@rotaryinstitute2027.com',
 }
 
 export const nav = [
@@ -29,6 +29,7 @@ export const nav = [
   { label: 'Committee', to: '/committee' },
   { label: 'Hotels', to: '/hotels' },
   { label: 'Venue', to: '/venue' },
+  { label: 'Registration Details', to: '/registration' },
 ]
 
 export const social = [
@@ -248,8 +249,8 @@ export const scheduleComponents = [
  * The hotels, as named by the committee.
  *
  * Addresses and the official booking pages are from each chain's own site, not
- * from an aggregator. `for` and the rates are the committee's; the rates are
- * exclusive of GST, which the page adds.
+ * from an aggregator. The rates are the committee's, exclusive of GST, which
+ * the page adds.
  *
  * Four photographs each, in the same order every time: the property, a room, a
  * view, an amenity. They are the chains' own gallery images — digital.ihg.com,
@@ -276,7 +277,6 @@ export const hotels = [
     name: 'Holiday Inn Resort Goa, an IHG Hotel',
     address: 'Mobor Beach, Cavelossim, Salcete, South Goa 403731',
     site: 'https://www.ihg.com/holidayinnresorts/hotels/us/en/goa/goiin/hoteldetail',
-    for: 'Only for DGs, PDGs & others',
     rates: [['Normal', '₹19,000'], ['Twin sharing', '₹11,000']],
   },
   {
@@ -290,7 +290,6 @@ export const hotels = [
     name: 'Radisson Blu Resort Goa Cavelossim Beach',
     address: 'Cavelossim Beach, Salcete, South Goa 403731',
     site: 'https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-goa-cavelossim-beach',
-    for: 'Only for DGNs',
     rates: [['Cost', '₹19,000']],
   },
   {
@@ -304,8 +303,7 @@ export const hotels = [
     address: 'IPSEM-ONGC Training Institute, Canaguinim, Kital, Goa 403703',
     distance: '0 km',
     map: 'https://maps.app.goo.gl/q3oYdSYuhghbV1rr9',
-    for: 'Only for DGEs',
-    rates: [['Cost', '₹15,000']],
+    rates: [['Cost', '₹19,000']],
   },
 ]
 

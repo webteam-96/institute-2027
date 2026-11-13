@@ -42,7 +42,7 @@ export default function RegisterPage() {
         {load.state === 'loading' && <p className="lede">Opening your registration…</p>}
         {load.state === 'bad' && (
           <div className="bad-link"><span className="eyebrow">Link not recognised</span><h1 className="h1">We couldn't open your registration</h1>
-            <p className="lede">The link may have been cut short when it was copied. Please open it again from your WhatsApp or email, or write to registration@rotaryinstitute2027goa.org and we'll send you a fresh one.</p></div>
+            <p className="lede">The link may have been cut short when it was copied. Please open it again from your WhatsApp or email, or write to <a href="mailto:support@rotaryinstitute2027.com">support@rotaryinstitute2027.com</a> and we'll send you a fresh one.</p></div>
         )}
         {load.state === 'error' && (
           <div className="bad-link"><span className="eyebrow">Couldn't load</span><h1 className="h1">We couldn't reach the registration desk</h1>
@@ -375,7 +375,7 @@ function Ticket({ m, r, again, payment, peek }) {
       </div></div>
       <article className="ticket">
         <div className="main">
-          <div className="top"><img src="/media/logo.png" alt="" width="1744" height="712" /><span>Delegate ticket</span></div>
+          <div className="top"><img src="/media/logo.png" alt="" width="1203" height="684" /><span>Delegate ticket</span></div>
           <h2>{m.name}</h2>
           <div className="kv">
             <div><small>Registration</small><span>{s.type}{c ? ' · with ' + s.spouse.name : ''}</span></div>

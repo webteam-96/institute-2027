@@ -14,6 +14,7 @@ import AdjunctSeminars from './pages/AdjunctSeminars'
 import RegisterPage from './pages/RegisterPage'
 import AdminPage from './pages/AdminPage'
 import InvitePage from './pages/InvitePage'
+import PolicyPage from './pages/PolicyPage'
 
 export default function App() {
   return (
@@ -31,6 +32,9 @@ export default function App() {
       <Route path="/register/:token" element={<Layout><RegisterPage /></Layout>} />
       <Route path="/admin" element={<Layout><AdminPage /></Layout>} />
       <Route path="/invite" element={<Layout><InvitePage /></Layout>} />
+      {['terms-of-service', 'privacy-policy', 'cancellation-policy'].map((slug) => (
+        <Route key={slug} path={`/${slug}`} element={<Layout><PolicyPage slug={slug} /></Layout>} />
+      ))}
       <Route path="*" element={<Layout><NotFound /></Layout>} />
     </Routes>
   )

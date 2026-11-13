@@ -52,7 +52,6 @@ export default function Hotels() {
                 {h.address && <p className="hotel__address">{h.address}</p>}
                 {h.rates && (
                   <div className="hotel__offer">
-                    {h.for && <p className="hotel__for">{h.for}</p>}
                     <dl className="hotel__price">
                       {h.rates.map(([k, v]) => (
                         <div key={k}>

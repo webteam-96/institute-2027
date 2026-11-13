@@ -241,8 +241,8 @@ export default function HeroCard() {
             className="hero-card__logo"
             src="/media/logo.png"
             alt="Rotary Institute 2027 — Goa. Celebrate Leadership &amp; Service"
-            width="1744"
-            height="712"
+            width="1203"
+            height="684"
             decoding="async"
           />
 

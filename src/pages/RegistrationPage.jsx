@@ -1,5 +1,18 @@
 import PageHero from '../components/PageHero'
-import { event, registration } from '../data/site'
+import { event, registration, trfEvents } from '../data/site'
+
+// The TRF events' charges, as one more block after the three registrations.
+// Kept off `registration` itself, which also drives the homepage's three cards.
+const blocks = [
+  ...registration,
+  {
+    id: 'trf-events',
+    name: 'TRF Events',
+    axis: 'Event',
+    dates: '25 · 26 November 2027',
+    rows: trfEvents.flatMap((e) => e.fees.map(([who, fee]) => [who === 'Spouse' ? `Spouse – ${e.name}` : e.name, fee])),
+  },
+]
 
 /**
  * Registration Details, as its own page.
@@ -23,7 +36,7 @@ export default function RegistrationPage() {
       <PageHero title="Registration Details" />
 
       <section className="reg-page">
-        {registration.map((c) => (
+        {blocks.map((c) => (
           <article className="reg-page__block" key={c.id} id={c.id}>
             <div className="reg-page__head">
               <p className="reg-page__dates">{c.dates}</p>

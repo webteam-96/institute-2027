@@ -52,9 +52,9 @@ export default function InvitePage() {
 
               <div><p className="cap">By email</p>
                 <div className="mail">
-                  <div className="mail__meta"><span>From <b>Rotary Institute 2027</b> &lt;registration@rotaryinstitute2027goa.org&gt;</span><span>To <b>{m.email || 'no email in the committee sheet'}</b></span><span className="subj">Your personal registration link · Rotary Institute 2027, Goa</span></div>
+                  <div className="mail__meta"><span>From <b>Rotary Institute 2027</b> &lt;support@rotaryinstitute2027.com&gt;</span><span>To <b>{m.email || 'no email in the committee sheet'}</b></span><span className="subj">Your personal registration link · Rotary Institute 2027, Goa</span></div>
                   <div className="mail__body">
-                    <img className="logo" src="/media/logo.png" alt="Rotary Institute 2027 Goa" width="1744" height="712" />
+                    <img className="logo" src="/media/logo.png" alt="Rotary Institute 2027 Goa" width="1203" height="684" />
                     <h3>Dear {m.name},</h3>
                     <p>Registration is open for Rotary Institute 2027 at Prithvi Convention Centre ONGC - Goa, 26 – 28 November 2027. We've already filled in what we know about you:</p>
                     <div className="card"><b>{m.name}</b>{m.roles.map((r) => <span key={r}>{r}</span>)}{m.district && <span>District {m.district}</span>}{(m.mobile || m.email) && <span>{[m.mobile, m.email].filter(Boolean).join(' · ')}</span>}</div>
