@@ -418,6 +418,7 @@ export default function SiteChrome() {
                         <div className="css-16054k2">
                           <a
                             href="/registration#institute"
+                            onClick={() => setContactOpen(false)}
                             className="ContactMenu_contactMenuItem__fp__K css-8atqhb"
                           >
                             <div className="css-wrhlkj">
@@ -432,6 +433,7 @@ export default function SiteChrome() {
                         <div className="css-1rmq3ew">
                           <a
                             href="/registration#gels-gnls"
+                            onClick={() => setContactOpen(false)}
                             className="ContactMenu_contactMenuItem__fp__K css-8atqhb"
                           >
                             <div className="css-wrhlkj">

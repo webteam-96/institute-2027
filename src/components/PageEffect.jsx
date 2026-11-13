@@ -117,8 +117,15 @@ export default function PageEffect() {
       // browser followed the plain <a> the footer and the homepage cards use —
       // no Router handler bails on those — and reloaded the whole document to
       // arrive back where it started.
-      if (href === location.pathname) {
+      // Same page with a #section: just scroll there. The wipe would close over
+      // the page and never open again — "arrive" only runs on a path change.
+      const [path, hash] = href.split('#')
+      if (path === location.pathname) {
         e.preventDefault()
+        if (hash) {
+          navigate(href)
+          document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
+        }
         return
       }
       e.preventDefault()
